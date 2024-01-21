@@ -748,7 +748,11 @@ def build_sdist(sdist_directory, config_settings: T.Dict[str, str]):
                     Path(builddir) / 'meson-dist' / mesondistfilename)
             else:
                 mesondistarch = zipfile.ZipFile(Path(builddir) / 'meson-dist' / mesondistfilename)
-            mesondistarch.extractall(installdir)
+            for entry in mesondistarch:
+                #GOOD: Check that entry is safe
+                if os.path.isabs(entry.name) or ".." in entry.name:
+                    raise ValueError("Illegal tar archive entry")
+                tar.extract(entry, installdir)
 
             pkg_info = config.get_metadata()
             distfilename = '%s.tar.gz' % tf_dir
