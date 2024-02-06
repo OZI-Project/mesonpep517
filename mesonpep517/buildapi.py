@@ -9,7 +9,6 @@ import zipfile
 import os
 import json
 import subprocess
-import tomli
 import abc
 import re
 import shlex
@@ -17,6 +16,11 @@ import typing as T
 
 from gzip import GzipFile
 from pathlib import Path
+
+if sys.version_info >= (3, 11):
+    import tomllib as toml
+elif sys.version_info < (3, 11):
+    import tomli as toml
 
 from packaging.specifiers import SpecifierSet
 from packaging.version import Version
