@@ -255,7 +255,7 @@ class Config:
     @staticmethod
     def __get_config():
         with open('pyproject.toml') as f:
-            config = tomli.load(f)
+            config = toml.load(f)
             try:
                 config['tool']['mesonpep517']['metadata']
                 try:
