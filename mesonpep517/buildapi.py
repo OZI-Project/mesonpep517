@@ -9,7 +9,7 @@ import zipfile
 import os
 import json
 import subprocess
-import toml
+import tomli
 import abc
 import re
 import shlex
@@ -251,7 +251,7 @@ class Config:
     @staticmethod
     def __get_config():
         with open('pyproject.toml') as f:
-            config = toml.load(f)
+            config = tomli.load(f)
             try:
                 config['tool']['mesonpep517']['metadata']
                 try:
