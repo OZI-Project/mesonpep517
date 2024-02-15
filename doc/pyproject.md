@@ -21,66 +21,19 @@ defined by PEP 517. For any project using mesonpep517, it will look like this:
 
 This section is called `[tool.mesonpep517.metadata]` in the file.
 
-### `name`
+### `pkg-info-file` (Optional)
 
-The name of the project, as a string.
-The name specified in `project()` in the `meson.build` file will be used in case this is not specified.
-.See: https://www.python.org/dev/peps/pep-0621/#name
+Pass a PKG-INFO file direcly usable.
 
-### `authors`
+> ! NOTE: All other keys will be ignored if you pass an already prepared `PKG-INFO`
+> file
 
-An array of tables with 2 keys: name and email.
-See: https://www.python.org/dev/peps/pep-0621/#authors-maintainers
 
-### `maintainers`
-
-An array of tables with 2 keys: name and email.
-See: https://www.python.org/dev/peps/pep-0621/#authors-maintainers
-
-### `description`
-
-A one sentence summary about the package
-See: https://www.python.org/dev/peps/pep-0621/#description
-
-### `readme`
-
-The full description of the project (i.e. the README).
-See: https://www.python.org/dev/peps/pep-0621/#readme
-
-### `dependencies`
-
-A list of other packages from PyPI that this package needs. Each package may
-be followed by a version specifier like ``(>=4.1)`` or ``>=4.1``, and/or an
-[environment marker](https://www.python.org/dev/peps/pep-0345/#environment-markers)
-after a semicolon. For example:
-
-``` toml
-      dependencies = [
-          "requests >=2.6",
-          "configparser; python_version == '2.7'",
-      ]
-```
-
-### `optional-dependencies`
-
-A list of other optional packages from PyPI that this package may use.
-See: https://www.python.org/dev/peps/pep-0621/#dependencies-optional-dependencies
-
-### `urls`
-
-A table of URLs where the key is the URL label and the value is the URL itself.
-See: https://www.python.org/dev/peps/pep-0621/#urls
-
-### `dynamic`
-
-An array of strings, Specifies which fields listed by this PEP were intentionally unspecified so another tool can/will provide such metadata dynamically.
-See: https://www.python.org/dev/peps/pep-0621/#dynamic
-
-### `author` (Deprecated, use `project.authors` instead)
+### `author`
 
 Your name
 
-### `author-email` (Deprecated, use `project.authors` instead)
+### `author-email`
 
 Your email address
 
@@ -88,116 +41,26 @@ e.g. for mesonpep517 itself:
 
 ``` toml
 [tool.mesonpep517.metadata]
-author="Thibault Saunier"
-author-email="tsaunier@gnome.org"
+Author="Thibault Saunier"
+Author-email="tsaunier@gnome.org"
 ```
 
-### `classifiers`
+### `summary`
 
-A list of [classifiers](https://pypi.python.org/pypi?%3Aaction=list_classifiers).
+A one sentence summary about the package
 
-### `description-file` (Deprecated, use `project.readme` instead)
-
-A path (relative to the .toml file) to a file containing a longer description
-of your package to show on PyPI. This should be written in reStructuredText
-  Markdown or plain text, and the filename should have the appropriate extension
-  (`.rst`, `.md` or `.txt`).
-
-### `home-page` (Deprecated, use `project.urls.homepage` instead)
-
-A string containing the URL for the package's home page.
-
-Example:
-
-`http://www.example.com/~cschultz/bvote/`
-
-### `license` (Deprecated, use `project.license` instead)
-
-Text indicating the license covering the distribution. This text can be either a valid license expression as defined in [pep639](https://www.python.org/dev/peps/pep-0639/#id88) or any free text.
-
-### `maintainer` (Deprecated, use `project.maintainers` instead)
-
-Name of current maintainer of the project (if different from author)
-
-### `maintainer-email` (Deprecated, use `project.maintainers` instead)
-
-Maintainer email address
-
-Example:
-
-``` toml
-[tool.mesonpep517.metadata]
-maintainer="Robin Goode"
-maintainer-email="rgoode@example.org"
-```
-
-### `meson-options`
-
-A list of default meson options to set, can be overridden and expended through the use of
-[`config_settings`](https://www.python.org/dev/peps/pep-0517/#build-backend-interface).
-
-`mesonpep517` supports the following `config_settings`:
-
-- `--setup-args`: arguments that get passed along to the `meson setup` command at the end
-
-```sh
-python3 -m build . --config-setting=--setup-args="-Doption=value -Dother-option=value"
-
-# translates to
-meson setup ... -Doption=value -Dother-option=value
-```
-
-- `--dist-args`: arguments that get passed along to the `meson dist` command at the end
-
-```sh
-python3 -m build . --config-setting=--dist-args="--formats gztar --no-tests"
-# translates to
-meson dist ... --formats gztar --no-tests
-```
-
-- `--install-args`: arguments that get passed along to the `meson install` command at the end
-
-```sh
-python3 -m build . --config-setting=--install-args="--no-rebuild"
-# translates to
-meson install ... --no-rebuild
-```
-
-### `meson-python-option-name`
+### `meson-python-option-name` (Optional)
 
 The name of the meson options that is used in the meson build definition
 to set the python installation when using
 [`python.find_installation()`](http://mesonbuild.com/Python-module.html#find_installation).
 
-### `module` (Deprecated, use `project.maintainers` instead)
+### `meson-options` (Optional)
 
-The name of the module, will use the meson project name if not specified
+A list of default meson options to set, can be overriden and expended through the `MESON_ARGS`
+environement variable at build time.
 
-### `pkg-info-file`
-
-Pass a PKG-INFO file directly usable.
-
-> ! NOTE: All other keys will be ignored if you pass an already prepared `PKG-INFO`
-> file
-
-
-### `platforms`
-
-Supported Python platforms, can be 'any', py3, etc...
-
-### `project-urls`
-
-A list of `Type, url` as described in the
-[pep345](https://www.python.org/dev/peps/pep-0345/#project-url-multiple-use).
-For example:
-
-``` toml
-project-urls = [
-    "Source, https://gitlab.com/thiblahute/mesonpep517",
-]
-```
-
-### `requires` (Deprecated, use `project.dependencies` instead)
+### `requires` (Optional)
 
 A list of other packages from PyPI that this package needs. Each package may
 be followed by a version specifier like ``(>=4.1)`` or ``>=4.1``, and/or an
@@ -211,17 +74,56 @@ after a semicolon. For example:
       ]
 ```
 
-### `requires-python`
+### `description-file` (Optional)
+
+A path (relative to the .toml file) to a file containing a longer description
+of your package to show on PyPI. This should be written in reStructuredText
+  Markdown or plain text, and the filename should have the appropriate extension
+  (`.rst`, `.md` or `.txt`).
+
+### `description` (Optional)
+
+The description of the project as a string if you do not want to specify 'description-file'
+
+### `classifiers` (Optional)
+
+A list of [classifiers](https://pypi.python.org/pypi?%3Aaction=list_classifiers).
+
+### `requires-python` (Optional)
 
 A version specifier for the versions of Python this requires, e.g. ``~=3.3`` or
 ``>=3.3,<4`` which are equivalents.
 
-### `summary` (Deprecated, use `project.description` instead)
+### `project-urls` (Optional)
 
-A one sentence summary about the package
+A list of `Type, url` as described in the
+[pep345](https://www.python.org/dev/peps/pep-0345/#project-url-multiple-use).
+For example:
+
+``` toml
+project-urls = [
+    "Source, https://gitlab.com/thiblahute/mesonpep517",
+]
+```
+
+### `home-page` (Optional)
+
+A string containing the URL for the package's home page.
+
+Example:
+
+`http://www.example.com/~cschultz/bvote/`
+
+### `platforms` (Optional)
+
+Supported python platforms, can be 'any', py3, etc...
+
+### `module` (Optional)
+
+The name of the module, will use the meson project name if not specified
 
 
-## Entry points section (Optional)
+## Entry points section (Optionnal)
 
 You can declare [entry points](http://entrypoints.readthedocs.io/en/latest/)
 in the `[tools.mesonpep517.entry-points]` section. It is a list of
