@@ -8,16 +8,21 @@ import tarfile
 import os
 import json
 import subprocess
-import toml
 
 from gzip import GzipFile
 from pathlib import Path
 from wheel.wheelfile import WheelFile
 
+if sys.version_info >= (3, 11):
+    import tomllib as toml
+elif sys.version_info < (3, 11):
+    import tomli as toml
+
 from .pep425tags import get_abbr_impl, get_abi_tag, get_impl_ver, get_platform_tag
 from .schema import VALID_OPTIONS
 
 log = logging.getLogger(__name__)
+
 
 
 def meson(*args, config_settings=None, builddir=''):
