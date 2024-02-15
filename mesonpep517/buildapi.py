@@ -123,8 +123,8 @@ class Config:
 
     @staticmethod
     def __get_config():
-        with open('pyproject.toml') as f:
-            config = toml.loads(f)
+        with open('pyproject.toml', 'rb') as f:
+            config = toml.load(f)
             try:
                 metadata = config['tool']['mesonpep517']['metadata']
             except KeyError:
