@@ -397,7 +397,7 @@ def build_sdist(sdist_directory, config_settings=None):
                 #GOOD: Check that entry is safe
                 if os.path.isabs(entry.name) or ".." in entry.name:
                     raise ValueError("Illegal tar archive entry")
-                tar.extract(entry, installdir)
+                mesondisttar.extract(entry, installdir)
             pkg_info = config.get_metadata()
             distfilename = '%s.tar.gz' % tf_dir
             target = distdir / distfilename
