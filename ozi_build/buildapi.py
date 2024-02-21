@@ -74,8 +74,8 @@ readme_ext_to_content_type = {
 class Config:
     def __init__(self, builddir=None):
         config = self.__get_config()
-        self.__metadata = config['tool']['mesonpep517']['metadata']
-        self.__entry_points = config['tool']['mesonpep517'].get('entry-points', [])
+        self.__metadata = config['tool']['ozi-build']['metadata']
+        self.__entry_points = config['tool']['ozi-build'].get('entry-points', [])
         self.installed = []
         self.options = []
         self.builddir = None
@@ -88,13 +88,13 @@ class Config:
         options['module'] = {}
         for field, value in self.__metadata.items():
             if field not in options:
-                raise RuntimeError("%s is not a valid option in the `[tool.mesonpep517.metadata]` section, "
+                raise RuntimeError("%s is not a valid option in the `[tool.ozi-build.metadata]` section, "
                     "got value: %s" % (field, value))
             del options[field]
 
         for field, desc in options.items():
             if desc.get('required'):
-                raise RuntimeError("%s is mandatory in the `[tool.mesonpep517.metadata] section but was not found" % field)
+                raise RuntimeError("%s is mandatory in the `[tool.ozi-build.metadata] section but was not found" % field)
 
     def __introspect(self, introspect_type):
         with open(os.path.join(self.__builddir, 'meson-info', 'intro-' + introspect_type + '.json')) as f:
@@ -126,9 +126,9 @@ class Config:
         with open('pyproject.toml', 'rb') as f:
             config = toml.load(f)
             try:
-                metadata = config['tool']['mesonpep517']['metadata']
+                metadata = config['tool']['ozi-build']['metadata']
             except KeyError:
-                raise RuntimeError("`[tool.mesonpep517.metadata]` section is mandatory "
+                raise RuntimeError("`[tool.ozi-build.metadata]` section is mandatory "
                     "for the meson backend")
 
             return config
@@ -228,7 +228,7 @@ get_requires_for_build_sdist = get_requires_for_build_wheel
 
 wheel_file_template = """\
 Wheel-Version: 1.0
-Generator: mesonpep517
+Generator: ozi-build
 Root-Is-Purelib: {}
 """
 
@@ -295,7 +295,7 @@ def prepare_metadata_for_build_wheel(metadata_directory,
 
 
 GET_CHECK = """
-from mesonpep517 import pep425tags
+from ozi_build import pep425tags
 print("{0}{1}-{2}".format(pep425tags.get_abbr_impl(),
                           pep425tags.get_impl_ver(),
                           pep425tags.get_abi_tag())

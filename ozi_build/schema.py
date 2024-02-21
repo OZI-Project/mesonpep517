@@ -6,10 +6,10 @@ VALID_OPTIONS = {
     "author-email": {
         "description": """Your email address
 
-e.g. for mesonpep517 itself:
+e.g. for ozi-build itself:
 
 ``` toml
-[tool.mesonpep517.metadata]
+[tool.ozi-build.metadata]
 author="Thibault Saunier"
 author-email="tsaunier@gnome.org"
 ```"""
@@ -52,7 +52,7 @@ Example:
 Example:
 
 ``` toml
-[tool.mesonpep517.metadata]
+[tool.ozi-build.metadata]
 maintainer="Robin Goode"
 maintainer-email="rgoode@example.org"
 ```"""
@@ -92,7 +92,7 @@ For example:
 
 ``` toml
 project-urls = [
-    "Source, https://gitlab.com/thiblahute/mesonpep517",
+    "Source, https://gitlab.com/OZI-Project/OZI.build",
 ]
 ```"""
     },

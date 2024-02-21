@@ -1,15 +1,15 @@
 [build-system]
 requires = ["wheel>0.33", "meson", "toml", "setuptools"]
 backend-path = "."
-build-backend = "mesonpep517.buildapi"
+build-backend = "ozi_build.buildapi"
 
-[tool.mesonpep517.metadata]
+[tool.ozi-build.metadata]
 author="Thibault Saunier"
 author-email="tsaunier@gnome.org"
 maintainer="Eden Rose Duff MSc"
 maintainer_email="help@oziproject.dev"
 summary="Create pep517 compliant packages from the meson build system, OZI-maintained fork."
-home-page="https://github.com/OZI-Project/mesonpep517"
+home-page="https://github.com/OZI-Project/OZI.build"
 requires-python="py3"
 description-file="README.rst"
 platforms="any"
@@ -21,6 +21,6 @@ classifiers = [
 ]
 requires = ["wheel>0.33", "meson", "toml", "setuptools"]
 project-urls= [
-    "Source, https://github.com/OZI-Project/mesonpep517",
+    "Source, https://github.com/OZI-Project/OZI.build",
     "Documentation, https://thiblahute.gitlab.io/mesonpep517/",
 ]

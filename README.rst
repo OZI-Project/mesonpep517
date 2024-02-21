@@ -1,6 +1,8 @@
-===========
-mesonpep517
-===========
+=========
+OZI.build
+=========
+
+This is the OZI fork of the mesonpep517 0.2 tag.
 
 This is a simple module that implements pep517 for the meson build system.
 
