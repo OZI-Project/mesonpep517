@@ -228,7 +228,7 @@ get_requires_for_build_sdist = get_requires_for_build_wheel
 
 wheel_file_template = """\
 Wheel-Version: 1.0
-Generator: ozi-build
+Generator: ozi_build
 Root-Is-Purelib: {}
 """
 
