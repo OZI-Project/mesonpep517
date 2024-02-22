@@ -1,5 +1,9 @@
+sources = ['__init__.py', 'buildapi.py', 'pep425tags.py', 'schema.py']
 python.install_sources(
-    '__init__.py', 'buildapi.py', 'pep425tags.py', 'schema.py',
+    sources,
     pure : true,
     subdir : 'ozi_build'
 )
+foreach source: sources
+    fs.copyfile(source)
+endforeach
