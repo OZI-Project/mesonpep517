@@ -1,14 +1,14 @@
 [build-system]
 requires = [
     "wheel>0.33",
+    "mesonpep517==0.2",
     "meson[ninja]>1.1.0",
     'tomli>=2.0.0;python_version<"3.11"',
     "setuptools>=64",
 ]
-backend-path = "."
-build-backend = "ozi_build.buildapi"
+build-backend = "mesonpep517.buildapi"
 
-[tool.ozi-build.metadata]
+[tool.mesonpep517.metadata]
 author="Thibault Saunier"
 author-email="tsaunier@gnome.org"
 maintainer="Eden Rose Duff MSc"
@@ -24,7 +24,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-requires = ["wheel>0.33", "meson[ninja]>1.1.0", 'tomli>=2.0.0;python_version<"3.11"', "setuptools"]
+requires = ["wheel>0.33", "mesonpep517==0.2", "meson[ninja]>1.1.0", 'tomli>=2.0.0;python_version<"3.11"', "setuptools"]
 project-urls= [
     "Source, https://github.com/OZI-Project/OZI.build",
     "Documentation, https://thiblahute.gitlab.io/mesonpep517/",
