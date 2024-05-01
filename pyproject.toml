@@ -8,7 +8,6 @@ requires = [
 ]
 build-backend = "mesonpep517.buildapi"
 
-
 [tool.mesonpep517.metadata]
 author="Thibault Saunier"
 author-email="tsaunier@gnome.org"
