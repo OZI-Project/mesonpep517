@@ -4,6 +4,7 @@ import contextlib
 import json
 import logging
 import os
+import shutil
 import subprocess
 import sys
 import sysconfig
@@ -276,6 +277,9 @@ def check_is_pure(installed):
         if "site-packages" in installpath:
             if installpath.split('.')[-1] == suffix:
                 return False
+        elif "dist-packages" in installpath:
+            if installpath.split('.')[-1] == suffix:
+                return False
 
     return True
 
@@ -347,24 +351,27 @@ class WheelBuilder:
 
         is_pure = check_is_pure(config.installed)
         platform_tag = config.get('platforms', 'any' if is_pure else get_platform_tag())
-
+        option_build = config.get('meson-python-option-name')
+        python = 'python3'
+        if not option_build:
+            log.warning(
+                "meson-python-option-name not specified in the "
+                + "[tool.ozi-build.metadata] section, assuming `python3`"
+            )
+        else:
+            for opt in config.options:
+                if opt['name'] == 'python_version':
+                    python = opt['value']
+                    break
         if not is_pure:
-            python = 'python3'
-            option_build = config.get('meson-python-option-name')
-            if not option_build:
-                python = 'python3'
-                log.warning(
-                    "meson-python-option-name not specified in the "
-                    + "[tool.ozi-build.metadata] section, assuming `python3`"
-                )
-            else:
-                for opt in config.options:
-                    if opt['name'] == 'python_version':
-                        python = opt['value']
-                        break
             abi = get_abi(python)
         else:
-            abi = '{}-none'.format(config.get('requires-python', f'py3{sys.version_info[1]}'))
+            abi = '{}-none'.format(
+                config.get(
+                    'requires-python',
+                    get_abi(python)
+                )
+            )
 
         target_fp = wheel_directory / '{}-{}-{}-{}.whl'.format(
             config['module'],
@@ -379,6 +386,7 @@ class WheelBuilder:
                 str(wheel_directory / metadata_dir / f),
                 arcname=str(Path(metadata_dir) / f),
             )
+        shutil.rmtree(Path(wheel_directory) / metadata_dir)
 
         # Make sure everything is built
         meson('install', '-C', self.builddir.name)
