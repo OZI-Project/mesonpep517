@@ -446,7 +446,7 @@ def build_sdist(sdist_directory, config_settings=None):
             )
 
             config = Config(builddir)
-            meson('dist', '-C', builddir)
+            meson('dist', '--no-tests', '-C', builddir)
 
             tf_dir = '{}-{}'.format(config['module'], config['version'])
             mesondistfilename = '%s.tar.xz' % tf_dir
