@@ -6,6 +6,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from mesonpep517 import schema
 
+
 def generate_doc():
     fields_desc = ""
     for option, desc in schema.VALID_OPTIONS.items():
