@@ -364,7 +364,7 @@ class WheelBuilder:
                         break
             abi = get_abi(python)
         else:
-            abi = '{}-none'.format(config.get('requires-python', 'py3'))
+            abi = '{}-none'.format(config.get('requires-python', f'py3{sys.version_info[1]}'))
 
         target_fp = wheel_directory / '{}-{}-{}-{}.whl'.format(
             config['module'],
