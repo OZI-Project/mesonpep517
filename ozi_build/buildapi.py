@@ -20,9 +20,7 @@ elif sys.version_info < (3, 11):
 
 from .pep425tags import get_abbr_impl, get_abi_tag, get_impl_ver, get_platform_tag
 from .schema import VALID_OPTIONS
-
 log = logging.getLogger(__name__)
-
 
 
 def meson(*args, config_settings=None, builddir=''):
@@ -364,6 +362,11 @@ class WheelBuilder:
         for _, installpath in config.installed.items():
             if "site-packages" in installpath:
                 while os.path.basename(installpath) != 'site-packages':
+                    installpath = os.path.dirname(installpath)
+                self.wheel_zip.write_files(installpath)
+                break
+            elif "dist-packages" in installpath:
+                while os.path.basename(installpath) != 'dist-packages':
                     installpath = os.path.dirname(installpath)
                 self.wheel_zip.write_files(installpath)
                 break
