@@ -29,7 +29,3 @@ project-urls= [
     "Source, https://github.com/OZI-Project/OZI.build",
     "Documentation, https://thiblahute.gitlab.io/mesonpep517/",
 ]
-
-[tool.setuptools.packages.find]
-where = ["ozi_build"]
-namespaces = false
