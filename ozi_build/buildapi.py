@@ -274,10 +274,7 @@ def check_is_pure(installed):
     suffix = split.pop(-1)
 
     for installpath in installed.values():
-        if "site-packages" in installpath:
-            if installpath.split('.')[-1] == suffix:
-                return False
-        elif "dist-packages" in installpath:
+        if "site-packages" in installpath or "dist-packages" in installpath:
             if installpath.split('.')[-1] == suffix:
                 return False
 
