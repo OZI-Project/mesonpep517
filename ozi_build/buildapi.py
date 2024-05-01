@@ -39,12 +39,14 @@ def meson(*args, config_settings=None, builddir=''):
             stdout = e.stdout.decode()
         if e.stderr:
             stderr = e.stderr.decode()
-        print("Could not run meson: %s\n%s" % (stdout, stderr), file=sys.stderr)
+        print(
+            "Could not run meson: %s\n%s" % (stdout, stderr), file=sys.stderr
+        )
         try:
             fulllog = os.path.join(builddir, 'meson-logs', 'meson-log.txt')
             with open(fulllog) as f:
                 print("Full log: %s" % f.read())
-        except:
+        except IOError:
             print("Could not open %s" % fulllog)
             pass
         raise e
@@ -79,7 +81,9 @@ class Config:
     def __init__(self, builddir=None):
         config = self.__get_config()
         self.__metadata = config['tool']['ozi-build']['metadata']
-        self.__entry_points = config['tool']['ozi-build'].get('entry-points', [])
+        self.__entry_points = config['tool']['ozi-build'].get(
+            'entry-points', []
+        )
         self.installed = []
         self.options = []
         self.builddir = None
@@ -108,7 +112,9 @@ class Config:
     def __introspect(self, introspect_type):
         with open(
             os.path.join(
-                self.__builddir, 'meson-info', 'intro-' + introspect_type + '.json'
+                self.__builddir,
+                'meson-info',
+                'intro-' + introspect_type + '.json',
             )
         ) as f:
             return json.load(f)
@@ -162,9 +168,9 @@ class Config:
             with open(self['pkg-info-file'], 'r') as f:
                 orig_lines = f.readlines()
                 for line in orig_lines:
-                    if line.startswith('Metadata-Version:') or line.startswith(
-                        'Version:'
-                    ):
+                    if line.startswith(
+                        'Metadata-Version:'
+                    ) or line.startswith('Version:'):
                         continue
                     res += line
 
@@ -208,7 +214,9 @@ class Config:
             description = self['description']
 
         if description:
-            res += 'Description-Content-Type: {}\n'.format(description_content_type)
+            res += 'Description-Content-Type: {}\n'.format(
+                description_content_type
+            )
             res += 'Description:\n\n' + description
 
         return res
@@ -261,14 +269,21 @@ def _write_wheel_file(f, supports_py2, is_pure):
     else:
         f.write(
             "Tag: {0}{1}-{2}-{3}\n".format(
-                get_abbr_impl(), get_impl_ver(), get_abi_tag(), get_platform_tag()
+                get_abbr_impl(),
+                get_impl_ver(),
+                get_abi_tag(),
+                get_platform_tag(),
             )
         )
 
 
 def check_is_pure(installed):
     variables = sysconfig.get_config_vars()
-    suffix = variables.get('EXT_SUFFIX') or variables.get('SO') or variables.get('.so')
+    suffix = (
+        variables.get('EXT_SUFFIX')
+        or variables.get('SO')
+        or variables.get('.so')
+    )
     # msys2's python3 has "-cpython-36m.dll", we have to be clever
     split = suffix.rsplit('.', 1)
     suffix = split.pop(-1)
@@ -323,7 +338,9 @@ print("{0}{1}-{2}".format(pep425tags.get_abbr_impl(),
 
 def get_abi(python):
     return (
-        subprocess.check_output([python, '-c', GET_CHECK]).decode('utf-8').strip('\n')
+        subprocess.check_output([python, '-c', GET_CHECK])
+        .decode('utf-8')
+        .strip('\n')
     )
 
 
@@ -336,9 +353,11 @@ class WheelBuilder:
     def build(self, wheel_directory, config_settings, metadata_dir):
         config = Config()
 
-        args = [self.builddir.name, '--prefix', self.installdir.name] + config.get(
-            'meson-options', []
-        )
+        args = [
+            self.builddir.name,
+            '--prefix',
+            self.installdir.name,
+        ] + config.get('meson-options', [])
         meson_configure(*args, config_settings=config_settings)
         config.set_builddir(self.builddir.name)
 
@@ -347,7 +366,9 @@ class WheelBuilder:
         )
 
         is_pure = check_is_pure(config.installed)
-        platform_tag = config.get('platforms', 'any' if is_pure else get_platform_tag())
+        platform_tag = config.get(
+            'platforms', 'any' if is_pure else get_platform_tag()
+        )
         option_build = config.get('meson-python-option-name')
         python = 'python3'
         if not option_build:
@@ -363,7 +384,9 @@ class WheelBuilder:
         if not is_pure:
             abi = get_abi(python)
         else:
-            abi = '{}-none'.format(config.get('requires-python', get_abi(python)))
+            abi = '{}-none'.format(
+                config.get('requires-python', get_abi(python))
+            )
 
         target_fp = wheel_directory / '{}-{}-{}-{}.whl'.format(
             config['module'],
@@ -400,7 +423,9 @@ class WheelBuilder:
                 break
 
 
-def build_wheel(wheel_directory, config_settings=None, metadata_directory=None):
+def build_wheel(
+    wheel_directory, config_settings=None, metadata_directory=None
+):
     """Builds a wheel, places it in wheel_directory"""
     return WheelBuilder().build(
         Path(wheel_directory), config_settings, metadata_directory
@@ -441,7 +466,10 @@ def build_sdist(sdist_directory, config_settings=None):
             with GzipFile(str(target), mode='wb', mtime=mtime) as gz:
                 with cd(installdir):
                     with tarfile.TarFile(
-                        str(target), mode='w', fileobj=gz, format=tarfile.PAX_FORMAT
+                        str(target),
+                        mode='w',
+                        fileobj=gz,
+                        format=tarfile.PAX_FORMAT,
                     ) as tf:
                         tf.add(tf_dir, recursive=True)
                         pkginfo_path = Path(installdir) / tf_dir / 'PKG-INFO'
