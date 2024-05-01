@@ -378,7 +378,7 @@ class WheelBuilder:
             )
         else:
             for opt in config.options:
-                if opt['name'] == 'python_version':
+                if opt['name'] == option_build:
                     python = opt['value']
                     break
         if not is_pure:

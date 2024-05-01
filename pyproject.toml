@@ -9,7 +9,7 @@ backend-path = [".", "ozi_build"]
 build-backend = "ozi_build.buildapi"
 
 [tool.ozi-build.metadata]
-meson-python-option-name=true
+meson-python-option-name="python_version"
 author="Thibault Saunier"
 author-email="tsaunier@gnome.org"
 maintainer="Eden Rose Duff MSc"
