@@ -458,7 +458,8 @@ def build_sdist(sdist_directory, config_settings=None):
                 if os.path.isabs(entry.name) or ".." in entry.name:
                     raise ValueError("Illegal tar archive entry")
                 mesondisttar.extract(entry, installdir)
-            pkg_info = config.get_metadata()
+            # OZI uses setuptools_scm to create PKG-INFO
+            # pkg_info = config.get_metadata()
             distfilename = '%s.tar.gz' % tf_dir
             target = distdir / distfilename
             source_date_epoch = os.environ.get('SOURCE_DATE_EPOCH', '')
@@ -472,9 +473,9 @@ def build_sdist(sdist_directory, config_settings=None):
                         format=tarfile.PAX_FORMAT,
                     ) as tf:
                         tf.add(tf_dir, recursive=True)
-                        pkginfo_path = Path(installdir) / tf_dir / 'PKG-INFO'
-                        with open(pkginfo_path, mode='w') as fpkginfo:
-                            fpkginfo.write(pkg_info)
-                            fpkginfo.flush()
-                            tf.add(Path(tf_dir) / 'PKG-INFO')
+                        # pkginfo_path = Path(installdir) / tf_dir / 'PKG-INFO'
+                        # with open(pkginfo_path, mode='w') as fpkginfo:
+                        #     fpkginfo.write(pkg_info)
+                        #     fpkginfo.flush()
+                        #     tf.add(Path(tf_dir) / 'PKG-INFO')
     return target.name
