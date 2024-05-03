@@ -165,7 +165,14 @@ class Config:
 
         if 'pkg-info-file' in self:
             res = '\n'.join(PKG_INFO.split('\n')[:3]).format(**meta) + '\n'
-            with open(self['pkg-info-file'] if Path(self['pkg-info-file']).exists() else Path(self.builddir / 'PKG-INFO'), 'r') as f:
+            with open(
+                (
+                    self['pkg-info-file']
+                    if Path(self['pkg-info-file']).exists()
+                    else Path(self.builddir) / 'PKG-INFO'
+                ),
+                'r',
+            ) as f:
                 orig_lines = f.readlines()
                 for line in orig_lines:
                     if line.startswith(
