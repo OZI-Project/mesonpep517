@@ -391,9 +391,7 @@ class WheelBuilder:
         if not is_pure:
             abi = get_abi(python)
         else:
-            abi = '{}-none'.format(
-                config.get('requires-python', get_abi(python))
-            )
+            abi = config.get('requires-python', get_abi(python))
 
         target_fp = wheel_directory / '{}-{}-{}-{}.whl'.format(
             config['module'],
