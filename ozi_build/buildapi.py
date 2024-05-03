@@ -166,6 +166,7 @@ class Config:
             builddir = tempfile.TemporaryDirectory().name
             meson_configure(builddir)
             self.set_builddir(builddir)
+            meson('install', '-C', builddir)
         else:
             builddir = self.builddir
 
