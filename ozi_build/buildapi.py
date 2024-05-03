@@ -164,22 +164,15 @@ class Config:
         }
 
         if 'pkg-info-file' in self:
-            if not self.builddir:
+            if not Path(self['pkg-info-file']).exists():
                 builddir = tempfile.TemporaryDirectory().name
                 meson_configure(builddir)
-                self.set_builddir(builddir)
                 meson('compile', '-C', builddir)
+                pkg_info_file = Path(builddir) / 'PKG-INFO'
             else:
-                builddir = self.builddir
+                pkg_info_file = self['pkg-info-file']
             res = '\n'.join(PKG_INFO.split('\n')[:3]).format(**meta) + '\n'
-            with open(
-                (
-                    self['pkg-info-file']
-                    if Path(self['pkg-info-file']).exists()
-                    else Path(builddir) / 'PKG-INFO'
-                ),
-                'r',
-            ) as f:
+            with open(pkg_info_file, 'r') as f:
                 orig_lines = f.readlines()
                 for line in orig_lines:
                     if line.startswith(
