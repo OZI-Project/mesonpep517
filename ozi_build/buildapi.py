@@ -166,14 +166,16 @@ class Config:
             builddir = tempfile.TemporaryDirectory().name
             meson_configure(builddir)
             self.set_builddir(builddir)
-            
+        else:
+            builddir = self.builddir
+
         if 'pkg-info-file' in self:
             res = '\n'.join(PKG_INFO.split('\n')[:3]).format(**meta) + '\n'
             with open(
                 (
                     self['pkg-info-file']
                     if Path(self['pkg-info-file']).exists()
-                    else Path(self.builddir) / 'PKG-INFO'
+                    else Path(builddir) / 'PKG-INFO'
                 ),
                 'r',
             ) as f:
