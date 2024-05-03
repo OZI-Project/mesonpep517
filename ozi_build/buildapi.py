@@ -162,7 +162,11 @@ class Config:
             'name': self['module'],
             'version': self['version'],
         }
-
+        if not self.builddir:
+            builddir = tempfile.TemporaryDirectory().name
+            meson_configure(builddir)
+            self.set_builddir(builddir)
+            
         if 'pkg-info-file' in self:
             res = '\n'.join(PKG_INFO.split('\n')[:3]).format(**meta) + '\n'
             with open(
