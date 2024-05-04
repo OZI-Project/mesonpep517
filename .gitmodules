@@ -1,0 +1,3 @@
+[submodule "ozi_build/vendor/pyc_wheel"]
+	path = ozi_build/vendor/pyc_wheel
+	url = https://github.com/OZI-Project/pyc_wheel

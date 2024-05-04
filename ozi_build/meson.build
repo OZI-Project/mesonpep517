@@ -7,3 +7,4 @@ foreach source: sources
         subdir : 'ozi_build'
     )
 endforeach
+subdir('vendor' / 'pyc_wheel' / 'src')
