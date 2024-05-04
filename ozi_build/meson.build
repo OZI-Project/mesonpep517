@@ -1,4 +1,4 @@
-sources = ['__init__.py', 'buildapi.py', 'pep425tags.py', 'schema.py']
+sources = ['__init__.py', 'buildapi.py', 'pep425tags.py', 'schema.py', 'pyc_wheel/src/pyc_wheel/__about__.py', 'pyc_wheel/src/pyc_wheel/__main__.py', 'pyc_wheel/src/pyc_wheel/_pyc_wheel.py']
 foreach source: sources
     fs.copyfile(source)
     python.install_sources(
@@ -7,4 +7,3 @@ foreach source: sources
         subdir : 'ozi_build'
     )
 endforeach
-subdir('vendor')
