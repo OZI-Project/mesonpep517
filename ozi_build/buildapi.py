@@ -25,6 +25,7 @@ from .pep425tags import get_abi_tag
 from .pep425tags import get_impl_ver
 from .pep425tags import get_platform_tag
 from .schema import VALID_OPTIONS
+from .vendor.pyc_wheel._pyc_wheel import convert_wheel
 
 log = logging.getLogger(__name__)
 
@@ -412,6 +413,8 @@ class WheelBuilder:
         meson('install', '-C', self.builddir.name)
         self.pack_files(config)
         self.wheel_zip.close()
+        if not config.get('requires-python'):
+            convert_wheel(target_fp)
         return str(target_fp)
 
     def pack_files(self, config):
