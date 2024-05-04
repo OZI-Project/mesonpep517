@@ -25,7 +25,7 @@ from .pep425tags import get_abi_tag
 from .pep425tags import get_impl_ver
 from .pep425tags import get_platform_tag
 from .schema import VALID_OPTIONS
-from .vendor._pyc_wheel import convert_wheel
+from ._pyc_wheel import convert_wheel
 
 log = logging.getLogger(__name__)
 
