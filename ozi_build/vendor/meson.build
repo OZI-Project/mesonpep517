@@ -4,6 +4,6 @@ foreach source: sources
     python.install_sources(
         source,
         pure : true,
-        subdir : 'ozi_build' / 'vendor' / 'pyc_wheel'
+        subdir : 'ozi_build' / 'vendor'
     )
 endforeach
