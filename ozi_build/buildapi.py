@@ -20,12 +20,12 @@ if sys.version_info >= (3, 11):
 elif sys.version_info < (3, 11):
     import tomli as toml
 
+from ._pyc_wheel import convert_wheel
 from .pep425tags import get_abbr_impl
 from .pep425tags import get_abi_tag
 from .pep425tags import get_impl_ver
 from .pep425tags import get_platform_tag
 from .schema import VALID_OPTIONS
-from ._pyc_wheel import convert_wheel
 
 log = logging.getLogger(__name__)
 
