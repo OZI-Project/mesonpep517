@@ -25,6 +25,7 @@ from .pep425tags import get_abi_tag
 from .pep425tags import get_impl_ver
 from .pep425tags import get_platform_tag
 from .schema import VALID_OPTIONS
+from ._pyc_wheel import convert_wheel
 
 log = logging.getLogger(__name__)
 
@@ -413,7 +414,7 @@ class WheelBuilder:
         self.pack_files(config)
         self.wheel_zip.close()
         if not config.get('requires-python'):
-            subprocess.call([python, '-c', f"""from ozi_build._pycwheel import convert_wheel; convert_wheel({target_fp})"""])
+            convert_wheel(Path(target_fp))
         return str(target_fp)
 
     def pack_files(self, config):
