@@ -98,7 +98,6 @@ after a semicolon. For example:
 ``>=3.3,<4`` which are equivalents."""
     },
     "summary": {
-        "required": True,
         "description": "A one sentence summary about the package",
     },
 }
