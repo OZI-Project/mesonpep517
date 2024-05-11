@@ -19,7 +19,7 @@ defined by PEP 517. For any project using OZI.build, it will look like this:
 > NOTE: The project version and name are extracted from the `meson.build`
 > [`project()`](http://mesonbuild.com/Reference-manual.html#project) section.
 
-This section is called `[tool.ozi_build.metadata]` in the file.
+This section is called `[tool.ozi-build.metadata]` in the file.
 
 ### `author`
 
@@ -151,7 +151,7 @@ in the `[tools.ozi_build.entry-points]` section. It is a list of
 scripts entry points:
 
 ``` toml
-[tool.ozi_build.entry-points]
+[tool.ozi-build.entry-points]
 console_scripts = [
     'otioview = opentimelineview.console:main',
     'otiocat = opentimelineio.console.otiocat:main',
