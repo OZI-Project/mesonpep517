@@ -4,7 +4,7 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from mesonpep517 import schema
+from ozi_build import schema
 
 
 def generate_doc():

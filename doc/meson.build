@@ -14,7 +14,7 @@ if res.returncode() != 0
 endif
 
 hotdoc = import('hotdoc')
-libs_doc = [hotdoc.generate_doc('mesonpep517',
+libs_doc = [hotdoc.generate_doc('OZI.build',
     project_version: meson.project_version(),
     sitemap: 'sitemap.txt',
     index: 'index.md',

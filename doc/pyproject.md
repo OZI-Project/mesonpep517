@@ -6,12 +6,12 @@ as the toplevel `meson.build` file.
 ## Build system section
 
 This tells tools like pip to build your project with flit. It's a standard
-defined by PEP 517. For any project using mesonpep517, it will look like this:
+defined by PEP 517. For any project using OZI.build, it will look like this:
 
 ``` toml
     [build-system]
-    requires = ["mesonpep517"]
-    build-backend = "mesonpep517.buildapi"
+    requires = ["OZI.build"]
+    build-backend = "ozi_build.buildapi"
 ```
 
 ## Metadata section
@@ -19,7 +19,7 @@ defined by PEP 517. For any project using mesonpep517, it will look like this:
 > NOTE: The project version and name are extracted from the `meson.build`
 > [`project()`](http://mesonbuild.com/Reference-manual.html#project) section.
 
-This section is called `[tool.mesonpep517.metadata]` in the file.
+This section is called `[tool.ozi_build.metadata]` in the file.
 
 ### `author`
 
@@ -29,10 +29,10 @@ Your name
 
 Your email address
 
-e.g. for mesonpep517 itself:
+e.g. for ozi-build itself:
 
 ``` toml
-[tool.mesonpep517.metadata]
+[tool.ozi-build.metadata]
 author="Thibault Saunier"
 author-email="tsaunier@gnome.org"
 ```
@@ -75,7 +75,7 @@ Maintainer email address
 Example:
 
 ``` toml
-[tool.mesonpep517.metadata]
+[tool.ozi-build.metadata]
 maintainer="Robin Goode"
 maintainer-email="rgoode@example.org"
 ```
@@ -115,7 +115,7 @@ For example:
 
 ``` toml
 project-urls = [
-    "Source, https://gitlab.com/thiblahute/mesonpep517",
+    "Source, https://gitlab.com/OZI-Project/OZI.build",
 ]
 ```
 
@@ -143,15 +143,15 @@ A version specifier for the versions of Python this requires, e.g. ``~=3.3`` or
 A one sentence summary about the package
 
 
-## Entry points section (Optionnal)
+## Entry points section (Optional)
 
 You can declare [entry points](http://entrypoints.readthedocs.io/en/latest/)
-in the `[tools.mesonpep517.entry-points]` section. It is a list of
+in the `[tools.ozi_build.entry-points]` section. It is a list of
 'entrypointname = module:funcname` strings, for example for console
 scripts entry points:
 
 ``` toml
-[tool.mesonpep517.entry-points]
+[tool.ozi_build.entry-points]
 console_scripts = [
     'otioview = opentimelineview.console:main',
     'otiocat = opentimelineio.console.otiocat:main',
