@@ -15,7 +15,7 @@ author-email="tsaunier@gnome.org"
 maintainer="Eden Ross Duff MSc"
 maintainer-email="help@oziproject.dev"
 summary="Create pep517 compliant packages from the meson build system, OZI-maintained fork."
-home-page="https://github.com/OZI-Project/OZI.build"
+home-page="https://oziproject.dev"
 description-file="README.rst"
 classifiers = [
     "Intended Audience :: Developers",
@@ -27,5 +27,5 @@ requires-python="py3-none"
 requires = ["wheel>0.33", "meson[ninja]>1.1.0", 'tomli>=2.0.0;python_version<"3.11"', "setuptools"]
 project-urls= [
     "Source, https://github.com/OZI-Project/OZI.build",
-    "Documentation, https://thiblahute.gitlab.io/mesonpep517/",
+    "Documentation, https://docs.oziproject.dev/en/stable/ozi_build.html",
 ]
