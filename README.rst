@@ -10,9 +10,10 @@ This means that you only need to provide a ``pyproject.toml`` in your project
 source root to be able to publish your project built with meson on PyPI
 and to create a wheel for the project.
 
-For more information have a look at `the documentation <https://thiblahute.gitlab.io/mesonpep517/>`_
+For more information have a look at `the documentation <https://docs.oziproject.dev/en/stable/ozi_build.html>`_
 
-In addition to the code licensed under Apache-2.0 we have also vendored pyc_wheel.
+In addition to the code licensed under Apache-2.0 we have also vendored
+pyc_wheel.
 
 Copyright (c) 2016 Grant Patten <grant@gpatten.com>
 Copyright (c) 2019-2021 Adam Karpierz <adam@karpierz.net>
