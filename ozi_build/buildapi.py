@@ -126,7 +126,8 @@ class Config:
 
         self['version'] = project['version']
         if 'module' not in self:
-            self['module'] = project['descriptive_name']
+            self['module'] = project['descriptive_name'].replace(
+                '.', '_', 1).replace('.', '').replace('-', '_', 1).replace('-', '_')
 
         self.installed = self.__introspect('installed')
         self.options = self.__introspect('buildoptions')
