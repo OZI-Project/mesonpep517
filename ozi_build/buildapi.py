@@ -316,7 +316,7 @@ def prepare_metadata_for_build_wheel(
 
     dist_info = Path(
         metadata_directory,
-        '{}-{}.dist-info'.format(config['module'].replace('-', '_', 1).replace('-', '_'), config['version']),
+        '{}-{}.dist-info'.format(config['module'], config['version']),
     )
     dist_info.mkdir(exist_ok=True)
 
@@ -395,7 +395,7 @@ class WheelBuilder:
             abi = config.get('requires-python', get_abi(python))
 
         target_fp = wheel_directory / '{}-{}-{}-{}.whl'.format(
-            config['module'].replace('-', '_', 1).replace('-', '_'),
+            config['module'],
             config['version'],
             abi,
             platform_tag,
