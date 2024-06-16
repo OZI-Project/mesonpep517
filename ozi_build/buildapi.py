@@ -482,7 +482,8 @@ def build_sdist(sdist_directory, config_settings=None):
                         fileobj=gz,
                         format=tarfile.PAX_FORMAT,
                     ) as tf:
-                        tf.add(tf_dir, recursive=True)
+                        tf.add(tf_dir, arcname='{}-{}'.format(config['module'].replace(
+                '.', '_', 1).replace('.', '').replace('-', '_', 1).replace('-', '_'), config['version']), recursive=True)
                         pkginfo_path = Path(installdir) / tf_dir / 'PKG-INFO'
                         if not pkginfo_path.exists():
                             with open(pkginfo_path, mode='w') as fpkginfo:
