@@ -126,8 +126,7 @@ class Config:
 
         self['version'] = project['version']
         if 'module' not in self:
-            self['module'] = project['descriptive_name'].replace(
-                '.', '_', 1).replace('.', '').replace('-', '_', 1).replace('-', '_')
+            self['module'] = project['descriptive_name']
 
         self.installed = self.__introspect('installed')
         self.options = self.__introspect('buildoptions')
@@ -317,7 +316,8 @@ def prepare_metadata_for_build_wheel(
 
     dist_info = Path(
         metadata_directory,
-        '{}-{}.dist-info'.format(config['module'], config['version']),
+        '{}-{}.dist-info'.format(config['module'].replace(
+                '.', '_', 1).replace('.', '').replace('-', '_', 1).replace('-', '_'), config['version']),
     )
     dist_info.mkdir(exist_ok=True)
 
@@ -396,7 +396,8 @@ class WheelBuilder:
             abi = config.get('requires-python', get_abi(python))
 
         target_fp = wheel_directory / '{}-{}-{}-{}.whl'.format(
-            config['module'],
+            config['module'].replace(
+                '.', '_', 1).replace('.', '').replace('-', '_', 1).replace('-', '_'),
             config['version'],
             abi,
             platform_tag,
@@ -469,7 +470,8 @@ def build_sdist(sdist_directory, config_settings=None):
                 mesondisttar.extract(entry, installdir)
             # OZI uses setuptools_scm to create PKG-INFO
             pkg_info = config.get_metadata()
-            distfilename = '%s.tar.gz' % tf_dir
+            distfilename = '{}-{}.tar.gz'.format(config['module'].replace(
+                '.', '_', 1).replace('.', '').replace('-', '_', 1).replace('-', '_'), config['version'])
             target = distdir / distfilename
             source_date_epoch = os.environ.get('SOURCE_DATE_EPOCH', '')
             mtime = int(source_date_epoch) if source_date_epoch else None
