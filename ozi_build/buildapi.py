@@ -316,8 +316,7 @@ def prepare_metadata_for_build_wheel(
 
     dist_info = Path(
         metadata_directory,
-        '{}-{}.dist-info'.format(config['module'].replace(
-                '.', '_', 1).replace('.', '').replace('-', '_', 1).replace('-', '_'), config['version']),
+        '{}-{}.dist-info'.format(config['module'], config['version']),
     )
     dist_info.mkdir(exist_ok=True)
 
@@ -396,8 +395,7 @@ class WheelBuilder:
             abi = config.get('requires-python', get_abi(python))
 
         target_fp = wheel_directory / '{}-{}-{}-{}.whl'.format(
-            config['module'].replace(
-                '.', '_', 1).replace('.', '').replace('-', '_', 1).replace('-', '_'),
+            config['module'].replace('-', '_', 1).replace('-', '_'),
             config['version'],
             abi,
             platform_tag,
@@ -470,8 +468,7 @@ def build_sdist(sdist_directory, config_settings=None):
                 mesondisttar.extract(entry, installdir)
             # OZI uses setuptools_scm to create PKG-INFO
             pkg_info = config.get_metadata()
-            distfilename = '{}-{}.tar.gz'.format(config['module'].replace(
-                '.', '_', 1).replace('.', '').replace('-', '_', 1).replace('-', '_'), config['version'])
+            distfilename = '{}-{}.tar.gz'.format(config['module'], config['version'])
             target = distdir / distfilename
             source_date_epoch = os.environ.get('SOURCE_DATE_EPOCH', '')
             mtime = int(source_date_epoch) if source_date_epoch else None
@@ -483,8 +480,7 @@ def build_sdist(sdist_directory, config_settings=None):
                         fileobj=gz,
                         format=tarfile.PAX_FORMAT,
                     ) as tf:
-                        tf.add(tf_dir, arcname='{}-{}'.format(config['module'].replace(
-                '.', '_', 1).replace('.', '').replace('-', '_', 1).replace('-', '_'), config['version']), recursive=True)
+                        tf.add(tf_dir, recursive=True)
                         pkginfo_path = Path(installdir) / tf_dir / 'PKG-INFO'
                         if not pkginfo_path.exists():
                             with open(pkginfo_path, mode='w') as fpkginfo:
