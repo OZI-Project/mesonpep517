@@ -395,7 +395,7 @@ class WheelBuilder:
             abi = config.get('requires-python', get_abi(python))
 
         target_fp = wheel_directory / '{}-{}-{}-{}.whl'.format(
-            config['module'],
+            config['module'].replace('-','_'),
             config['version'],
             abi,
             platform_tag,
