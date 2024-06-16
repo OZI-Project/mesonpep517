@@ -316,7 +316,8 @@ def prepare_metadata_for_build_wheel(
 
     dist_info = Path(
         metadata_directory,
-        '{}-{}.dist-info'.format(config['module'], config['version']),
+        '{}-{}.dist-info'.format(config['module'].replace(
+                '.', '_', 1).replace('.', '').replace('-', '_', 1).replace('-', '_'), config['version']),
     )
     dist_info.mkdir(exist_ok=True)
 
