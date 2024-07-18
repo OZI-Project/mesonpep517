@@ -337,10 +337,11 @@ def prepare_metadata_for_build_wheel(
 
 GET_CHECK = """
 from ozi_build import pep425tags
-print("{0}{1}-{2}".format(pep425tags.get_abbr_impl(),
-                          pep425tags.get_impl_ver(),
-                          pep425tags.get_abi_tag())
-)
+tag = pep425tags.get_abbr_impl() + pep425tags.get_impl_ver()
+if tag != pep425tags.get_abi_tag():
+    print("{0}-{1}".format(tag, pep425tags.get_abi_tag()))
+else:
+    print("{0}-none".format(tag))
 """
 
 
