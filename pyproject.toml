@@ -15,6 +15,7 @@ author-email="tsaunier@gnome.org"
 maintainer="Eden Ross Duff MSc"
 maintainer-email="help@oziproject.dev"
 summary="Create pep517 compliant packages from the meson build system, OZI-maintained fork."
+keywords="meson,build-backend,pep517,OZI,wheel"
 home-page="https://oziproject.dev"
 description-file="README.rst"
 classifiers = [
