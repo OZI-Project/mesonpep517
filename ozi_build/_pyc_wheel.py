@@ -111,8 +111,6 @@ def convert_wheel(
 
         dist_info_path = (
             whl_path.joinpath("{}.dist-info".format(dist_info))
-            .resolve()
-            .relative_to(whl_path.resolve())
         )
         if dist_info_path.exists():
             rewrite_dist_info(dist_info_path, exclude=exclude)
@@ -135,38 +133,35 @@ def rewrite_dist_info(dist_info_path: Path, *, exclude=None):
 
     whl_path = dist_info_path.resolve().parent
     record_path = dist_info_path / "RECORD"
-    # not all packaging backends create a RECORD
-    if record_path.exists():
-        record_path.chmod(stat.S_IWUSR | stat.S_IRUSR)
+    record_path.chmod(stat.S_IWUSR | stat.S_IRUSR)
+    print('Rewriting:', record_path)
 
-        record_data = []
-        with record_path.open("r") as record:
-            for file_dest, file_hash, file_len in csv.reader(record):
-                if file_dest.endswith(".py"):
-                    # Do not keep py files, replace with pyc files
-                    if exclude is None or not exclude.search(file_dest):
-                        file_dest = Path(file_dest)
-                        pyc_file = file_dest.with_suffix(".pyc")
-                        file_dest = str(pyc_file)
+    record_data = []
+    with record_path.open("r") as record:
+        for file_dest, file_hash, file_len in csv.reader(record):
+            if file_dest.endswith(".py"):
+                # Do not keep py files, replace with pyc files
+                if exclude is None or not exclude.search(file_dest):
+                    file_dest = Path(file_dest)
+                    pyc_file = file_dest.with_suffix(".pyc")
+                    file_dest = str(pyc_file)
 
-                        pyc_path = (
-                            whl_path.joinpath(pyc_file)
-                            .resolve()
-                            .relative_to(whl_path.resolve())
-                        )
-                        with pyc_path.open("rb") as f:
-                            data = f.read()
-                        file_hash = HASH_ALGORITHM(data)
-                        file_hash = "{}={}".format(
-                            file_hash.name, _b64encode(file_hash.digest())
-                        )
-                        file_len = len(data)
-                record_data.append((file_dest, file_hash, file_len))
+                    pyc_path = whl_path.joinpath(pyc_file)
+                    with pyc_path.open("rb") as f:
+                        data = f.read()
+                    file_hash = HASH_ALGORITHM(data)
+                    file_hash = "{}={}".format(
+                        file_hash.name, _b64encode(file_hash.digest())
+                    )
+                    file_len = len(data)
+            elif file_dest.endswith(".pyc"):  # __pycache__
+                continue
+            record_data.append((file_dest, file_hash, file_len))
 
-        with record_path.open("w", newline="\n") as record:
-            csv.writer(
-                record, lineterminator="\n", quoting=csv.QUOTE_ALL
-            ).writerows(sorted(set(record_data)))
+    with record_path.open("w", newline="\n") as record:
+        csv.writer(
+            record, lineterminator="\n", quoting=csv.QUOTE_ALL
+        ).writerows(sorted(set(record_data)))
 
     # Rewrite the wheel info file.
 
