@@ -178,7 +178,11 @@ class Config:
                 for line in orig_lines:
                     if line.startswith(
                         'Metadata-Version:'
-                    ) or line.startswith('Version:'):
+                    ) or line.startswith(
+                        'Version:'
+                    ) or line.startswith(
+                        'Name:'
+                    ):
                         continue
                     res += line
 
