@@ -217,6 +217,12 @@ class Config:
             res += "Provides-Extra: {}\n".format(k)
             if isinstance(v, list):
                 for i in v:
+                    if i.startswith('['):
+                        if any(i not in string.ascii_uppercase + string.ascii_lowercase + '-[],0123456789' for i in v):
+                            raise ValueError('invalid character in nested key pyproject.toml:project.optional-dependencies')
+                        for j in (name for name in i.strip('[]').split(',')):
+                            for package in self.__extras.get(j, []):
+                                res += 'Requires-Dist: {}; extra=="{}"\n'.format(package, k)
                     res += 'Requires-Dist: {}; extra=="{}"\n'.format(i, k)
             elif isinstance(v, str):
                 if any(i not in string.ascii_uppercase + string.ascii_lowercase + '-[],0123456789' for i in v):
@@ -224,6 +230,7 @@ class Config:
                 for j in (i for i in v.strip('[]').split(',')):
                     for package in self.__extras.get(j, []):
                         res += 'Requires-Dist: {}; extra=="{}"\n'.format(package, k)
+                log.warning('pyproject.toml:project.optional-dependencies nested key type should be a toml array, parsed string')
         description = ''
         description_content_type = 'text/plain'
         if 'description-file' in self:
