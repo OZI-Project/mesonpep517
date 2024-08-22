@@ -85,6 +85,7 @@ class Config:
         self.__entry_points = config['tool']['ozi-build'].get(
             'entry-points', []
         )
+        self.__extras = config.get('project', {}).get('optional_dependencies', {})
         self.installed = []
         self.options = []
         self.builddir = None
@@ -211,6 +212,11 @@ class Config:
             vals = self.get(key, [])
             for val in vals:
                 res += '{}: {}\n'.format(mdata_key, val)
+        for k, v in self.__extras.items():
+            res += "Provides-Extra: {}\n".format(k)
+            if isinstance(v, list):
+                for i in v:
+                    res += 'Requires-Dist: {}; extra=="{}"\n'.format(i, k)
 
         description = ''
         description_content_type = 'text/plain'
