@@ -155,6 +155,21 @@ class Config:
                 raise ValueError('pyproject.toml:project.optional-dependencies nested key target value "{}" invalid'.format(j))
         return metadata
 
+    def _parse_project(self):
+        res = ''
+        for k, v in self.__extras.items():
+            res += "Provides-Extra: {}\n".format(k)
+            if isinstance(v, list):
+                for i in v:
+                    if i.startswith('['):
+                        res += self._parse_project_optional_dependencies(k, i)
+                    else:
+                        res += 'Requires-Dist: {}; extra=="{}"\n'.format(i, k)
+            elif isinstance(v, str):
+                res += self._parse_project_optional_dependencies(k, v)
+                log.warning('pyproject.toml:project.optional-dependencies nested key type should be a toml array, like a=["[b,c]", "[d,e]", "foo"], parsed string "{}"'.format(v))
+        return res
+
     @staticmethod
     def __get_config():
         with open('pyproject.toml', 'rb') as f:
@@ -199,10 +214,11 @@ class Config:
                     ):
                         continue
                     res += line
-
+            res += self._parse_project()
             return res
 
         res = PKG_INFO.format(**meta)
+        res += self._parse_project()
 
         for key in [
             'summary',
@@ -225,17 +241,6 @@ class Config:
             vals = self.get(key, [])
             for val in vals:
                 res += '{}: {}\n'.format(mdata_key, val)
-        for k, v in self.__extras.items():
-            res += "Provides-Extra: {}\n".format(k)
-            if isinstance(v, list):
-                for i in v:
-                    if i.startswith('['):
-                        res += self._parse_project_optional_dependencies(k, i)
-                    else:
-                        res += 'Requires-Dist: {}; extra=="{}"\n'.format(i, k)
-            elif isinstance(v, str):
-                res += self._parse_project_optional_dependencies(k, v)
-                log.warning('pyproject.toml:project.optional-dependencies nested key type should be a toml array, like a=["[b,c]", "[d,e]", "foo"], parsed string "{}"'.format(v))
         description = ''
         description_content_type = 'text/plain'
         if 'description-file' in self:
