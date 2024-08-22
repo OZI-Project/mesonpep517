@@ -217,7 +217,10 @@ class Config:
             if isinstance(v, list):
                 for i in v:
                     res += 'Requires-Dist: {}; extra=="{}"\n'.format(i, k)
-
+            elif isinstance(v, str):
+                log.warning(
+                    'pyproject.toml:project.optional-dependencies nested key {} ignored'.format(k)
+                )
         description = ''
         description_content_type = 'text/plain'
         if 'description-file' in self:
