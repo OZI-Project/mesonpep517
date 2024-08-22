@@ -8,6 +8,17 @@ requires = [
 backend-path = [".", "ozi_build"]
 build-backend = "ozi_build.buildapi"
 
+[project.optional_dependencies]
+# ozi-spec version 0.7
+# core build dependencies
+core = [
+    "invoke~=2.2",
+    "pip-tools>=7",
+    "pipx~=1.5",
+    "setuptools_scm[toml]~=8.0",
+]
+uv = ["uv"]
+
 [tool.ozi-build.metadata]
 meson-python-option-name="python_version"
 author="Thibault Saunier"
@@ -27,7 +38,12 @@ classifiers = [
     "Development Status :: 4 - Beta",
 ]
 requires-python="py3-none"
-requires = ["wheel>0.33", "meson[ninja]>1.1.0", 'tomli>=2.0.0;python_version<"3.11"', "setuptools"]
+requires = [
+    "wheel>0.33",
+    "meson[ninja]>1.1.0",
+    'tomli>=2.0.0;python_version<"3.11"',
+    "setuptools",
+]
 project-urls= [
     "Source, https://github.com/OZI-Project/OZI.build",
     "Documentation, https://docs.oziproject.dev/en/stable/ozi_build.html",
