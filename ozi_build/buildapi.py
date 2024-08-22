@@ -143,6 +143,18 @@ class Config:
     def __contains__(self, key):
         return key in self.__metadata
 
+    def _parse_project_optional_dependencies(self, k: str, v: str):
+        metadata = ''
+        if any(i not in string.ascii_uppercase + string.ascii_lowercase + '-[],0123456789' for i in v):
+            raise ValueError('pyproject.toml:project.optional-dependencies has invalid character in nested key "{}"'.format(k))
+        for j in (name for name in v.strip('[]').split(',')):
+            if j[0] in string.ascii_uppercase + string.ascii_lowercase:
+                for package in self.__extras.get(j, []):
+                    metadata += 'Requires-Dist: {}; extra=="{}"\n'.format(package, k)
+            else:
+                raise ValueError('pyproject.toml:project.optional-dependencies nested key target value "{}" invalid'.format(j))
+        return metadata
+
     @staticmethod
     def __get_config():
         with open('pyproject.toml', 'rb') as f:
@@ -218,19 +230,12 @@ class Config:
             if isinstance(v, list):
                 for i in v:
                     if i.startswith('['):
-                        if any(i not in string.ascii_uppercase + string.ascii_lowercase + '-[],0123456789' for i in v):
-                            raise ValueError('invalid character in nested key pyproject.toml:project.optional-dependencies')
-                        for j in (name for name in i.strip('[]').split(',')):
-                            for package in self.__extras.get(j, []):
-                                res += 'Requires-Dist: {}; extra=="{}"\n'.format(package, k)
-                    res += 'Requires-Dist: {}; extra=="{}"\n'.format(i, k)
+                        res += self._parse_project_optional_dependencies(k, i)
+                    else:
+                        res += 'Requires-Dist: {}; extra=="{}"\n'.format(i, k)
             elif isinstance(v, str):
-                if any(i not in string.ascii_uppercase + string.ascii_lowercase + '-[],0123456789' for i in v):
-                    raise ValueError('invalid character in nested key pyproject.toml:project.optional-dependencies')
-                for j in (i for i in v.strip('[]').split(',')):
-                    for package in self.__extras.get(j, []):
-                        res += 'Requires-Dist: {}; extra=="{}"\n'.format(package, k)
-                log.warning('pyproject.toml:project.optional-dependencies nested key type should be a toml array, parsed string')
+                res += self._parse_project_optional_dependencies(k, v)
+                log.warning('pyproject.toml:project.optional-dependencies nested key type should be a toml array, like a=["[b,c]", "[d,e]", "foo"], parsed string')
         description = ''
         description_content_type = 'text/plain'
         if 'description-file' in self:
