@@ -5,6 +5,7 @@ import json
 import logging
 import os
 import shutil
+import string
 import subprocess
 import sys
 import sysconfig
@@ -218,9 +219,11 @@ class Config:
                 for i in v:
                     res += 'Requires-Dist: {}; extra=="{}"\n'.format(i, k)
             elif isinstance(v, str):
-                log.warning(
-                    'pyproject.toml:project.optional-dependencies nested key "{}" ignored'.format(k)
-                )
+                if any(i not in string.ascii_uppercase + string.ascii_lowercase + '-[],0123456789' for i in v):
+                    raise ValueError('invalid character in nested key pyproject.toml:project.optional-dependencies')
+                for j in (i for i in v.strip('[]').split(',')):
+                    for package in self.__extras.get(j, []):
+                        res += 'Requires-Dist: {}; extra=="{}"\n'.format(package, k)
         description = ''
         description_content_type = 'text/plain'
         if 'description-file' in self:
