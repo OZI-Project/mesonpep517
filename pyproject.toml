@@ -18,7 +18,6 @@ core = [
     "setuptools_scm[toml]~=8.0",
 ]
 uv = ["uv"]
-all="[uv,core]"
 
 [tool.ozi-build.metadata]
 meson-python-option-name="python_version"

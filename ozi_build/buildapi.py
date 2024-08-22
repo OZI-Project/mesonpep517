@@ -235,7 +235,7 @@ class Config:
                         res += 'Requires-Dist: {}; extra=="{}"\n'.format(i, k)
             elif isinstance(v, str):
                 res += self._parse_project_optional_dependencies(k, v)
-                log.warning('pyproject.toml:project.optional-dependencies nested key type should be a toml array, like a=["[b,c]", "[d,e]", "foo"], parsed string')
+                log.warning('pyproject.toml:project.optional-dependencies nested key type should be a toml array, like a=["[b,c]", "[d,e]", "foo"], parsed string "{}"'.format(v))
         description = ''
         description_content_type = 'text/plain'
         if 'description-file' in self:
