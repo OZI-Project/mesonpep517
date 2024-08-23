@@ -212,9 +212,9 @@ class Config:
                     ) or line.startswith(
                         'Name:'
                     ):
+                        res += self._parse_project()
                         continue
                     res += line
-            res += self._parse_project()
             return res
 
         res = PKG_INFO.format(**meta)
