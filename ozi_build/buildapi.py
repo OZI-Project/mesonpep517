@@ -147,7 +147,7 @@ class Config:
         metadata = ''
         if any(i not in string.ascii_uppercase + string.ascii_lowercase + '-[],0123456789' for i in v):
             raise ValueError('pyproject.toml:project.optional-dependencies has invalid character in nested key "{}"'.format(k))
-        for j in (name for name in v.strip('[]').split(',')):
+        for j in (name for name in v.strip('[]').rstrip(',').split(',')):
             if len(j) > 0 and j[0] in string.ascii_uppercase + string.ascii_lowercase:
                 for package in self.__extras.get(j, []):
                     metadata += 'Requires-Dist: {}; extra=="{}"\n'.format(package, k)
