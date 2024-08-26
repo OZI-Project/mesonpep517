@@ -8,7 +8,15 @@ requires = [
 backend-path = [".", "ozi_build"]
 build-backend = "ozi_build.buildapi"
 
-[project.optional_dependencies]
+[project]
+dynamic = ["version"]
+dependencies = [
+    "wheel>0.33",
+    "meson[ninja]>1.1.0",
+    'tomli>=2.0.0;python_version<"3.11"',
+]
+
+[project.optional-dependencies]
 # ozi-spec version 0.8
 # core build dependencies
 core = [
@@ -21,14 +29,8 @@ uv = ["uv"]
 cython = ["cython~=3.0"]
 
 [tool.ozi-build.metadata]
-meson-python-option-name="python_version"
-author="Thibault Saunier"
 author-email="tsaunier@gnome.org"
-maintainer="Eden Ross Duff MSc"
-maintainer-email="help@oziproject.dev"
-summary="Create pep517 compliant packages from the meson build system, OZI-maintained fork."
-home-page="https://oziproject.dev"
-description-file="README.rst"
+author="Thibault Saunier"
 classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: Apache Software License",
@@ -38,14 +40,18 @@ classifiers = [
     "Topic :: System :: Archiving :: Packaging",
     "Development Status :: 4 - Beta",
 ]
-requires-python="py3-none"
-requires = [
-    "wheel>0.33",
-    "meson[ninja]>1.1.0",
-    'tomli>=2.0.0;python_version<"3.11"',
-    "setuptools",
-]
+download-url="https://github.com/OZI-Project/OZI.build/archive/refs/tags/{version}"
+description-file="README.rst"
+home-page="https://oziproject.dev"
+maintainer-email="help@oziproject.dev"
+maintainer="Eden Ross Duff MSc"
+meson-python-option-name="python_version"
 project-urls= [
     "Source, https://github.com/OZI-Project/OZI.build",
     "Documentation, https://docs.oziproject.dev/en/stable/ozi_build.html",
 ]
+requires-python="py3-none"
+summary="Create pep517 compliant packages from the meson build system, OZI-maintained fork."
+
+[tool.deptry.per_rule_ignores]
+DEP002 = ["meson"]

@@ -86,7 +86,12 @@ class Config:
         self.__entry_points = config['tool']['ozi-build'].get(
             'entry-points', []
         )
-        self.__extras = config.get('project', {}).get('optional_dependencies', {})
+        self.__extras = config.get('project', {}).get('optional_dependencies', None)
+        if self.__extras is not None:
+            log.warning('pyproject.toml:project.optional_dependencies should be renamed to pyproject.toml:project.optional-dependencies')
+        else:
+            self.__extras = config.get('project', {}).get('optional-dependencies', {})
+        self.__requires = config.get('project', {}).get('dependencies', None)
         self.installed = []
         self.options = []
         self.builddir = None
@@ -232,12 +237,27 @@ class Config:
             if key in self:
                 res += '{}: {}\n'.format(key.capitalize(), self[key])
 
+        if 'download-url' in self:
+            if '{version}' in self['download-url']:
+                res += f'Download-URL: {self["download-url"].replace("{version}", self["version"])}\n'
+            else:
+                log.warning('pyproject.toml:tools.ozi-build.metadata.download-url missing {version} replace pattern')
+                res += f'Download-URL: {self["download-url"]}\n'
+
+        if self.__requires:
+            for package in self.__requires:
+                res += 'Requires-Dist: {}\n'.format(package)
+
+        if self.get('requires', None):
+            raise ValueError('pyproject.toml:tools.ozi-build.metadata.requires is deprecated as of OZI.build 1.3')
+
         for key, mdata_key in [
-            ('requires', 'Requires-Dist'),
+            ('provides', 'Provides-Dist'),
+            ('obsoletes', 'Obsoletes-Dist'),
             ('classifiers', 'Classifier'),
             ('project-urls', 'Project-URL'),
+            ('requires-external', 'Requires-External'),
         ]:
-
             vals = self.get(key, [])
             for val in vals:
                 res += '{}: {}\n'.format(mdata_key, val)

@@ -30,6 +30,9 @@ Example:
 
 `http://www.example.com/~cschultz/bvote/`"""
     },
+    "download-url": {
+        "description": """A string containing the URL for the package's source, will replace '{version}' with the current version."""
+    },
     "license": {
         "description": """Text indicating the license covering the distribution. This text can be either a valid license expression as defined in [pep639](https://www.python.org/dev/peps/pep-0639/#id88) or any free text."""
     },
@@ -59,6 +62,17 @@ to set the python installation when using
     "module": {
         "description": "The name of the module, will use the meson project name if not specified"
     },
+    "obsoletes": {"description": """
+A list of PyPI packages that this project should not be installed concurrently with.
+
+``` toml
+      obsoletes = [
+        "OtherProject",
+        "AnotherProject==3.4",
+        'virtual_package; python_version >= "3.4"',
+      ]
+```
+"""},
     "pkg-info-file": {
         "description": """Pass a PKG-INFO file direcly usable.
 
@@ -80,6 +94,15 @@ project-urls = [
 ]
 ```"""
     },
+    "provides": {"description": """A list of PyPI packages that this project provides its own version of.
+
+``` toml
+      provides = [
+        "OtherProject",
+        "AnotherProject==3.4",
+        'virtual_package; python_version >= "3.4"',
+      ]
+```"""},
     "requires": {
         "description": """A list of other packages from PyPI that this package needs. Each package may
 be followed by a version specifier like ``(>=4.1)`` or ``>=4.1``, and/or an
@@ -93,6 +116,14 @@ after a semicolon. For example:
       ]
 ```"""
     },
+    "requires-external": {"description": """A list of non-PyPI dependency packages. For example:
+
+``` toml
+      requires-external = [
+          "git",
+          "node",
+      ]
+```"""},
     "requires-python": {
         "description": """A version specifier for the versions of Python this requires, e.g. ``~=3.3`` or
 ``>=3.3,<4`` which are equivalents."""
