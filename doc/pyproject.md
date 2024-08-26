@@ -52,6 +52,11 @@ of your package to show on PyPI. This should be written in reStructuredText
   Markdown or plain text, and the filename should have the appropriate extension
   (`.rst`, `.md` or `.txt`).
 
+### `download-url`
+
+A link to download the current version of the project.
+The string `{version}` will be replaced with the built version.
+
 ### `home-page`
 
 A string containing the URL for the package's home page.
@@ -95,6 +100,18 @@ to set the python installation when using
 
 The name of the module, will use the meson project name if not specified
 
+### `obsoletes`
+
+A list of PyPI packages that this project should not be installed concurrently with.
+
+``` toml
+      obsoletes = [
+        "OtherProject",
+        "AnotherProject==3.4",
+        'virtual_package; python_version >= "3.4"',
+      ]
+```
+
 ### `pkg-info-file`
 
 Pass a PKG-INFO file direcly usable.
@@ -119,6 +136,18 @@ project-urls = [
 ]
 ```
 
+### `provides`
+
+A list of PyPI packages that this project provides its own version of.
+
+``` toml
+      provides = [
+        "OtherProject",
+        "AnotherProject==3.4",
+        'virtual_package; python_version >= "3.4"',
+      ]
+```
+
 ### `requires`
 
 A list of other packages from PyPI that this package needs. Each package may
@@ -130,6 +159,17 @@ after a semicolon. For example:
       requires = [
           "requests >=2.6",
           "configparser; python_version == '2.7'",
+      ]
+```
+
+### `requires-external`
+
+A list of non-PyPI dependency packages. For example:
+
+``` toml
+      requires-external = [
+          "git",
+          "node",
       ]
 ```
 
