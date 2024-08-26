@@ -40,7 +40,7 @@ classifiers = [
     "Topic :: System :: Archiving :: Packaging",
     "Development Status :: 4 - Beta",
 ]
-download-url="https://github.com/OZI-Project/OZI.build/archive/refs/tags/{version}"
+download-url="https://github.com/OZI-Project/OZI.build/archive/refs/tags/{version}.tar.gz"
 description-file="README.rst"
 home-page="https://oziproject.dev"
 maintainer-email="help@oziproject.dev"
