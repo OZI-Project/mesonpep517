@@ -33,9 +33,6 @@ Example:
     "download-url": {
         "description": """A string containing the URL for the package's source, will replace '{version}' with the current version."""
     },
-    "download-url": {
-        "description": """A string containing the URL for the package's source, will replace '{version}' with the current version."""
-    },
     "license": {
         "description": """Text indicating the license covering the distribution. This text can be either a valid license expression as defined in [pep639](https://www.python.org/dev/peps/pep-0639/#id88) or any free text."""
     },
@@ -119,14 +116,6 @@ after a semicolon. For example:
       ]
 ```"""
     },
-    "requires-external": {"description": """A list of non-PyPI dependency packages. For example:
-
-``` toml
-      requires-external = [
-          "git",
-          "node",
-      ]
-```"""},
     "requires-external": {"description": """A list of non-PyPI dependency packages. For example:
 
 ``` toml
