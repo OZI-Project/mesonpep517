@@ -15,6 +15,7 @@ from gzip import GzipFile
 from pathlib import Path
 
 from wheel.wheelfile import WheelFile
+from packaging import Version
 
 if sys.version_info >= (3, 11):
     import tomllib as toml
@@ -66,11 +67,16 @@ def meson_configure(*args, config_settings=None):
 
 PKG_INFO = """\
 Metadata-Version: 2.1
-Requires-Python: >=3.10, <3.13
+Requires-Python: >={min_python}, <{max_python}
 Name: {name}
 Version: {version}
 """
 
+PKG_INFO_NO_REQUIRES_PYTHON = """\
+Metadata-Version: 2.1
+Name: {name}
+Version: {version}
+"""
 
 readme_ext_to_content_type = {
     '.rst': 'text/x-rst',
@@ -79,7 +85,7 @@ readme_ext_to_content_type = {
     '': 'text/plain',
 }
 
-
+GET_PYTHON_VERSION = 'import sys;print("{}.{}".format(*sys.version_info[:2]))'
 class Config:
     def __init__(self, builddir=None):
         config = self.__get_config()
@@ -93,6 +99,8 @@ class Config:
         else:
             self.__extras = config.get('project', {}).get('optional-dependencies', {})
         self.__requires = config.get('project', {}).get('dependencies', None)
+        self.__min_python = '3.10'
+        self.__max_python = '3.13'
         self.installed = []
         self.options = []
         self.builddir = None
@@ -198,7 +206,6 @@ class Config:
             'name': self['module'],
             'version': self['version'],
         }
-
         if 'pkg-info-file' in self:
             if not Path(self['pkg-info-file']).exists():
                 builddir = tempfile.TemporaryDirectory().name
@@ -207,7 +214,7 @@ class Config:
                 pkg_info_file = Path(builddir) / 'PKG-INFO'
             else:
                 pkg_info_file = self['pkg-info-file']
-            res = '\n'.join(PKG_INFO.split('\n')[:3]).format(**meta) + '\n'
+            res = '\n'.join(PKG_INFO_NO_REQUIRES_PYTHON.split('\n')[:3]).format(**meta) + '\n'
             with open(pkg_info_file, 'r') as f:
                 orig_lines = f.readlines()
                 for line in orig_lines:
@@ -222,6 +229,29 @@ class Config:
                         continue
                     res += line
             return res
+        option_build = self.get('meson-python-option-name')
+        python = 'python3'
+        if not option_build:
+            log.warning(
+                "meson-python-option-name not specified in the "
+                + "[tool.ozi-build.metadata] section, assuming `python3`"
+            )
+        else:
+            for opt in self.options:
+                if opt['name'] == option_build:
+                    python = opt['value']
+                    break
+        python_version = Version(subprocess.check_output([python, '-c', GET_PYTHON_VERSION]).decode('utf-8').strip('\n'))
+        if python_version < Version(self.__min_python):
+            meta.update({
+                'min_python': python_version,
+                'max_python': self.__max_python,
+            })
+        elif python_version >= Version(self.__max_python):
+            meta.update({
+                'min_python': self.__min_python,
+                'max_python': python_version,
+            })
 
         res = PKG_INFO.format(**meta)
         res += self._parse_project()
@@ -447,8 +477,7 @@ class WheelBuilder:
         if not is_pure:
             abi = get_abi(python)
         else:
-            abi = config.get('requires-python', get_abi(python))
-
+            abi = config.get('pure-python-abi', get_abi(python))
         target_fp = wheel_directory / '{}-{}-{}-{}.whl'.format(
             config['module'].replace('-','_'),
             config['version'],
@@ -468,7 +497,7 @@ class WheelBuilder:
         meson('install', '-C', self.builddir.name)
         self.pack_files(config)
         self.wheel_zip.close()
-        if not config.get('requires-python'):
+        if not config.get('pure-python-abi'):
             convert_wheel(Path(target_fp))
         return str(target_fp)
 

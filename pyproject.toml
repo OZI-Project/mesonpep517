@@ -14,6 +14,7 @@ dependencies = [
     "wheel>0.33",
     "meson[ninja]>1.1.0",
     'tomli>=2.0.0;python_version<"3.11"',
+    'packaging',
 ]
 
 [project.optional-dependencies]
@@ -50,7 +51,7 @@ project-urls= [
     "Source, https://github.com/OZI-Project/OZI.build",
     "Documentation, https://docs.oziproject.dev/en/stable/ozi_build.html",
 ]
-requires-python="py3-none"
+pure-python-abi="py3-none"
 summary="Create pep517 compliant packages from the meson build system, OZI-maintained fork."
 
 [tool.deptry.per_rule_ignores]
