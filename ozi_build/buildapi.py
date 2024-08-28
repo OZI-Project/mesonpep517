@@ -72,6 +72,13 @@ Name: {name}
 Version: {version}
 """
 
+PKG_INFO_CONFIG_REQUIRES_PYTHON = """\
+Metadata-Version: 2.1
+Requires-Python: {requires_python}
+Name: {name}
+Version: {version}
+"""
+
 PKG_INFO_NO_REQUIRES_PYTHON = """\
 Metadata-Version: 2.1
 Name: {name}
@@ -262,6 +269,11 @@ class Config:
             meta.pop('min_python')
             meta.pop('max_python')
             res = PKG_INFO_NO_REQUIRES_PYTHON.format(**meta)
+        elif self.get('requires-python'):
+            meta.pop('min_python')
+            meta.pop('max_python')
+            meta.update({'requires_python': self.get('requires-python')})
+            res = PKG_INFO_CONFIG_REQUIRES_PYTHON.format(**meta)
         else:
             res = PKG_INFO.format(**meta)
         res += self._parse_project()
