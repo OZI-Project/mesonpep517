@@ -52,11 +52,6 @@ of your package to show on PyPI. This should be written in reStructuredText
   Markdown or plain text, and the filename should have the appropriate extension
   (`.rst`, `.md` or `.txt`).
 
-### `download-url`
-
-A link to download the current version of the project.
-The string `{version}` will be replaced with the built version.
-
 ### `home-page`
 
 A string containing the URL for the package's home page.
@@ -64,6 +59,14 @@ A string containing the URL for the package's home page.
 Example:
 
 `http://www.example.com/~cschultz/bvote/`
+
+### `download-url`
+
+A string containing the URL for the package's source, will replace '{version}' with the current version.
+
+### `keywords`
+
+Comma-separated keywords as a string.
 
 ### `license`
 
@@ -102,6 +105,7 @@ The name of the module, will use the meson project name if not specified
 
 ### `obsoletes`
 
+
 A list of PyPI packages that this project should not be installed concurrently with.
 
 ``` toml
@@ -111,6 +115,7 @@ A list of PyPI packages that this project should not be installed concurrently w
         'virtual_package; python_version >= "3.4"',
       ]
 ```
+
 
 ### `pkg-info-file`
 
@@ -148,8 +153,15 @@ A list of PyPI packages that this project provides its own version of.
       ]
 ```
 
+### `pure-python-abi`
+
+An override of the pure python abi build target e.g. ``py3-none``.
+
 ### `requires`
 
+:::{deprecated} 1.3.0
+Use project.dependencies instead.
+:::
 A list of other packages from PyPI that this package needs. Each package may
 be followed by a version specifier like ``(>=4.1)`` or ``>=4.1``, and/or an
 [environment marker](https://www.python.org/dev/peps/pep-0345/#environment-markers)

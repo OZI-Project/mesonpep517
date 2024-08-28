@@ -110,7 +110,10 @@ project-urls = [
         "description": """An override of the pure python abi build target e.g. ``py3-none``."""
     },
     "requires": {
-        "description": """A list of other packages from PyPI that this package needs. Each package may
+        "description": """:::{deprecated} 1.3.0
+Use project.dependencies instead.
+:::
+A list of other packages from PyPI that this package needs. Each package may
 be followed by a version specifier like ``(>=4.1)`` or ``>=4.1``, and/or an
 [environment marker](https://www.python.org/dev/peps/pep-0345/#environment-markers)
 after a semicolon. For example:
