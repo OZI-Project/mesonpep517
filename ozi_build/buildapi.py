@@ -258,7 +258,12 @@ class Config:
                 'max_python': self.__max_python,
             })
 
-        res = PKG_INFO.format(**meta)
+        if self['module'] == 'OZI.build':
+            meta.pop('min_python')
+            meta.pop('max_python')
+            res = PKG_INFO_NO_REQUIRES_PYTHON.format(**meta)
+        else:
+            res = PKG_INFO.format(**meta)
         res += self._parse_project()
 
         for key in [
