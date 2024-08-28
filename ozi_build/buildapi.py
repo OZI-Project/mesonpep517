@@ -66,6 +66,7 @@ def meson_configure(*args, config_settings=None):
 
 PKG_INFO = """\
 Metadata-Version: 2.1
+Requires-Python: >=3.10, <3.13
 Name: {name}
 Version: {version}
 """
