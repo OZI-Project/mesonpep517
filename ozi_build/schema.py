@@ -106,6 +106,9 @@ project-urls = [
         'virtual_package; python_version >= "3.4"',
       ]
 ```"""},
+    "pure-python-abi": {
+        "description": """An override of the pure python abi build target e.g. ``py3-none``."""
+    },
     "requires": {
         "description": """A list of other packages from PyPI that this package needs. Each package may
 be followed by a version specifier like ``(>=4.1)`` or ``>=4.1``, and/or an

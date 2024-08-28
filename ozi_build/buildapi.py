@@ -244,13 +244,18 @@ class Config:
         python_version = Version(subprocess.check_output([python, '-c', GET_PYTHON_VERSION]).decode('utf-8').strip('\n'))
         if python_version < Version(self.__min_python):
             meta.update({
-                'min_python': python_version,
+                'min_python': str(python_version),
                 'max_python': self.__max_python,
             })
         elif python_version >= Version(self.__max_python):
             meta.update({
                 'min_python': self.__min_python,
-                'max_python': python_version,
+                'max_python': '{}.{}'.format(python_version.major, str(python_version.minor + 1))
+            })
+        else:
+            meta.update({
+                'min_python': self.__min_python,
+                'max_python': self.__max_python,
             })
 
         res = PKG_INFO.format(**meta)
