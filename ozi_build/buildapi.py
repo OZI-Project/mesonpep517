@@ -438,7 +438,7 @@ def prepare_metadata_for_build_wheel(
 
     with (dist_info / config.license_file).open('w') as fw:
         with Path(config.license_file).open('r') as fr:
-            fw.write_text(fr.read())
+            fw.write(fr.read())
 
     entrypoints = config.get_entry_points()
     if entrypoints:
