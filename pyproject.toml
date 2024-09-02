@@ -10,6 +10,7 @@ backend-path = [".", "ozi_build"]
 build-backend = "ozi_build.buildapi"
 
 [project]
+license={file='COPYING'}
 dynamic = ["version"]
 dependencies = [
     "wheel>0.33",

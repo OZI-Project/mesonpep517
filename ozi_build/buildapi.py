@@ -106,6 +106,9 @@ class Config:
         else:
             self.__extras = config.get('project', {}).get('optional-dependencies', {})
         self.__requires = config.get('project', {}).get('dependencies', None)
+        self.license_file = config.get('project', {}).get('license', {}).get('file', '')
+        if self.license_file == '':
+            log.warning('pyproject.toml:project.license.file key-value pair was not found')
         self.__min_python = '3.10'
         self.__max_python = '3.13'
         self.installed = []
@@ -432,6 +435,10 @@ def prepare_metadata_for_build_wheel(
 
     with (dist_info / 'METADATA').open('w') as f:
         f.write(config.get_metadata())
+
+    with (dist_info / config.license_file).open('w') as fw:
+        with (builddir / config.license_file).open('r') as fr:
+            fw.write_text(fr.read_text())
 
     entrypoints = config.get_entry_points()
     if entrypoints:
