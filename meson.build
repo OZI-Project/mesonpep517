@@ -1,4 +1,4 @@
-project('OZI.build', version : '1.5.0', license : 'apache-2.0')
+project('OZI.build', version : '1.5.1', license : 'apache-2.0')
 fs = import('fs')
 python = import('python').find_installation()
 subdir('ozi_build')

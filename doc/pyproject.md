@@ -6,12 +6,33 @@ as the toplevel `meson.build` file.
 ## Build system section
 
 This tells tools like pip to build your project with flit. It's a standard
-defined by PEP 517. For any project using OZI.build, it will look like this:
+defined by PEP 517. For any project using OZI.build, it will look something like this:
 
 ``` toml
     [build-system]
-    requires = ["OZI.build"]
+    requires = ["OZI.build[core]~=1.5"]
     build-backend = "ozi_build.buildapi"
+```
+
+## Project section
+
+This holds the essential project metadata that is outside of the ``meson.build`` file.
+Some keys remain in the project table for improved cross-compatibility.
+It should look similar to this in an OZI.build project:
+
+``` toml
+    [project]
+    dynamic = ["version"]
+    dependencies = [
+    'TAP-Producer~=1.0.4',
+    ...
+    ]
+
+    [project.license]
+    file = "LICENSE.txt"
+
+    [project.optional-dependencies]
+    ...
 ```
 
 ## Metadata section
@@ -198,7 +219,7 @@ A one sentence summary about the package
 ## Entry points section (Optional)
 
 You can declare [entry points](http://entrypoints.readthedocs.io/en/latest/)
-in the `[tools.ozi_build.entry-points]` section. It is a list of
+in the `[tools.ozi-build.entry-points]` section. It is a list of
 'entrypointname = module:funcname` strings, for example for console
 scripts entry points:
 
