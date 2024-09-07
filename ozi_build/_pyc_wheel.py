@@ -29,7 +29,12 @@ HASH_ALGORITHM = hashlib.sha256
 
 
 def convert_wheel(
-    whl_file: Path, *, exclude=None, with_backup=False, quiet=False
+    whl_file: Path,
+    *,
+    exclude=None,
+    with_backup=False,
+    quiet=False,
+    optimize=-1,
 ):
     """Generate a new whl with only pyc files."""
 
@@ -62,6 +67,7 @@ def convert_wheel(
             quiet=int(quiet),
             force=True,
             legacy=True,
+            optimize=optimize,
         ):
             raise RuntimeError(
                 "Error compiling Python sources in wheel "

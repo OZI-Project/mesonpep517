@@ -527,7 +527,8 @@ class WheelBuilder:
         self.pack_files(config)
         self.wheel_zip.close()
         if not config.get('pure-python-abi'):
-            convert_wheel(Path(target_fp))
+            optimize, *_ = [i.get('value', -1) for i in config.options if i.get('name', '') == 'python.bytecompile']
+            convert_wheel(Path(target_fp), optimize=optimize)
         return str(target_fp)
 
     def pack_files(self, config):
