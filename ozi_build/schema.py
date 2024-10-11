@@ -33,11 +33,20 @@ Example:
     "download-url": {
         "description": """A string containing the URL for the package's source, will replace '{version}' with the current version."""
     },
+    "dynamic": {
+        "description": """A list of other headers to be treated as dynamic fields."""
+    },
     "keywords": {
         "description": """Comma-separated keywords as a string."""
     },
     "license": {
         "description": """Text indicating the license covering the distribution. This text can be either a valid license expression as defined in [pep639](https://www.python.org/dev/peps/pep-0639/#id88) or any free text."""
+    },
+    "license-expression": {
+        "description": """A SPDX license expression."""
+    },
+    "license-file": {
+        "description": """The license filename."""
     },
     "maintainer": {
         "description": "Name of current maintainer of the project (if different from author)"
