@@ -66,21 +66,21 @@ def meson_configure(*args, config_settings=None):
 
 
 PKG_INFO = """\
-Metadata-Version: 2.1
+Metadata-Version: 2.4
 Requires-Python: >={min_python}, <{max_python}
 Name: {name}
 Version: {version}
 """
 
 PKG_INFO_CONFIG_REQUIRES_PYTHON = """\
-Metadata-Version: 2.1
+Metadata-Version: 2.4
 Requires-Python: {requires_python}
 Name: {name}
 Version: {version}
 """
 
 PKG_INFO_NO_REQUIRES_PYTHON = """\
-Metadata-Version: 2.1
+Metadata-Version: 2.4
 Name: {name}
 Version: {version}
 """
@@ -292,6 +292,21 @@ class Config:
         ]:
             if key in self:
                 res += '{}: {}\n'.format(key.capitalize(), self[key])
+
+        for key in [
+            'license-expression',
+            'license-file',
+        ]:
+            if key in self:
+                header = '-'.join(map(str.capitalize, key.split('-')))
+                if header in {'Name', 'Version', 'Metadata-Version'}:
+                    raise ValueError('{} is not a valid value for dynamic'.format(key))
+                res += '{}: {}\n'.format(header, self[key])
+
+        if 'dynamic' in self:
+            for i in self['dynamic']:
+                header = '-'.join(map(str.capitalize, i.split('-')))
+                res += f'Dynamic: {header}\n'
 
         if 'download-url' in self:
             if '{version}' in self['download-url']:

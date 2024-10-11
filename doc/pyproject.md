@@ -85,6 +85,10 @@ Example:
 
 A string containing the URL for the package's source, will replace '{version}' with the current version.
 
+### `dynamic`
+
+A list of other headers to be treated as dynamic fields.
+
 ### `keywords`
 
 Comma-separated keywords as a string.
@@ -92,6 +96,14 @@ Comma-separated keywords as a string.
 ### `license`
 
 Text indicating the license covering the distribution. This text can be either a valid license expression as defined in [pep639](https://www.python.org/dev/peps/pep-0639/#id88) or any free text.
+
+### `license-expression`
+
+A SPDX license expression.
+
+### `license-file`
+
+The license filename.
 
 ### `maintainer`
 
