@@ -42,6 +42,7 @@ classifiers = [
     "Topic :: System :: Archiving :: Packaging",
     "Development Status :: 4 - Beta",
 ]
+license-expression="Apache-2.0"
 download-url="https://github.com/OZI-Project/OZI.build/archive/refs/tags/{version}.tar.gz"
 description-file="README.rst"
 home-page="https://oziproject.dev"
