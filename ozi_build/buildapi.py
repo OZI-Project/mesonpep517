@@ -298,6 +298,8 @@ class Config:
             'license-file',
         ]:
             if key in self:
+                if key == 'license-expression' and 'license' in self:
+                    raise ValueError('license and license-expression are mutually exclusive')
                 header = '-'.join(map(str.capitalize, key.split('-')))
                 if header in {'Name', 'Version', 'Metadata-Version'}:
                     raise ValueError('{} is not a valid value for dynamic'.format(key))
