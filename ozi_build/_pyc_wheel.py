@@ -28,12 +28,14 @@ HASH_ALGORITHM = hashlib.sha256
 
 
 def __rm_file(fp: Path, exclude: re.Pattern | None, quiet: bool) -> None:
-    if fp.is_file():
-        if exclude is None or not exclude.search(str(fp)):
-            if not quiet:
-                print("Deleting {!s} file: {!s}".format(fp.suffix.lstrip('.'), fp))
-            fp.chmod(stat.S_IWUSR)
-            fp.unlink()
+    if not fp.is_file():
+        return
+
+    if exclude is None or not exclude.search(str(fp)):
+        if not quiet:
+            print("Deleting {!s} file: {!s}".format(fp.suffix.lstrip('.'), fp))
+        fp.chmod(stat.S_IWUSR)
+        fp.unlink()
 
 
 def extract_wheel(
@@ -85,14 +87,6 @@ def remove_pycache(whl_dir: str, exclude: re.Pattern | None, quiet: bool) -> Non
             if not quiet:
                 print("Removing {!s}".format(pycache))
             shutil.rmtree(pycache)
-        for fname in files:  ## TODO: remove redundant code
-            if fname.endswith(".py"):
-                py_file = Path(root) / fname
-                if exclude is None or not exclude.search(str(py_file)):
-                    if not quiet:
-                        print("Removing file: {!s}".format(py_file))
-                    py_file.chmod(stat.S_IWUSR)
-                    py_file.unlink()
 
 
 def update_file_attrs(whl_dir: str, members: list[zipfile.ZipInfo]) -> None:
