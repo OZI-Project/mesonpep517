@@ -3,9 +3,7 @@
 # Copyright (c) 2024 Eden Ross J. Duff MSc
 # Licensed under the MIT License
 # https://opensource.org/licenses/MIT
-
 """Compile all py files in a wheel to pyc files."""
-
 import base64
 import compileall
 import csv
@@ -18,6 +16,7 @@ import stat
 import sys
 import sysconfig
 import tempfile
+from typing import TextIO
 import zipfile
 from datetime import datetime
 from pathlib import Path
@@ -26,6 +25,105 @@ __all__ = ('convert_wheel', 'main')
 
 
 HASH_ALGORITHM = hashlib.sha256
+
+
+def __rm_file(fp: Path, exclude: re.Pattern | None, quiet: bool) -> None:
+    if fp.is_file():
+        if exclude is None or not exclude.search(str(fp)):
+            if not quiet:
+                print("Deleting {!s} file: {!s}".format(fp.suffix.lstrip('.'), fp))
+            fp.chmod(stat.S_IWUSR)
+            fp.unlink()
+
+
+def extract_wheel(
+    whl_file: Path,
+    whl_dir: str,
+) -> tuple[list[zipfile.ZipInfo], zipfile.ZipFile]:
+    with zipfile.ZipFile(str(whl_file), "r") as whl_zip:
+        whl_zip.extractall(whl_dir)
+        members = [
+            member
+            for member in whl_zip.infolist()
+            if member.is_dir() or not member.filename.endswith(".py")
+        ]
+    return members, whl_zip
+
+
+def compile_wheel(
+    whl_file: Path,
+    whl_dir: str,
+    dist_info: str,
+    *,
+    exclude=None,
+    with_backup=False,
+    quiet=False,
+    optimize=-1,
+) -> None:
+    if not compileall.compile_dir(
+        whl_dir,
+        rx=exclude,
+        ddir="<{}>".format(dist_info),
+        quiet=int(quiet),
+        force=True,
+        legacy=True,
+        optimize=optimize,
+    ):
+        raise RuntimeError(
+            "Error compiling Python sources in wheel "
+            "{!s}".format(whl_file.name)
+        )
+    # Remove all original py files
+    for py_file in Path(whl_dir).glob("**/*.py"):
+        __rm_file(py_file, exclude, quiet)
+
+
+def remove_pycache(whl_dir: str, exclude: re.Pattern | None, quiet: bool) -> None:
+    for root, _, files in os.walk(whl_dir):
+        pycache = Path(root, "__pycache__")
+        if pycache.exists():
+            if not quiet:
+                print("Removing {!s}".format(pycache))
+            shutil.rmtree(pycache)
+        for fname in files:  ## TODO: remove redundant code
+            if fname.endswith(".py"):
+                py_file = Path(root) / fname
+                if exclude is None or not exclude.search(str(py_file)):
+                    if not quiet:
+                        print("Removing file: {!s}".format(py_file))
+                    py_file.chmod(stat.S_IWUSR)
+                    py_file.unlink()
+
+
+def update_file_attrs(whl_dir: str, members: list[zipfile.ZipInfo]) -> None:
+    whl_path = Path(whl_dir)
+    for member in members:
+        file_path = (
+            whl_path.joinpath(member.filename)
+            .resolve()
+            .relative_to(whl_path.resolve())
+        )
+        timestamp = datetime(*member.date_time).timestamp()
+        try:
+            os.utime(str(file_path), (timestamp, timestamp))
+        except Exception:
+            pass  # ignore errors
+        permission_bits = (member.external_attr >> 16) & 0o777
+        try:
+            os.chmod(str(file_path), permission_bits)
+        except Exception:
+            pass  # ignore errors
+
+
+def zip_wheel(whl_file: Path, whl_dir: str, with_backup: bool) -> None:
+    whl_path = Path(whl_dir)
+    whl_file_zip = whl_path.with_suffix(".zip")
+    if whl_file_zip.exists():
+        whl_file_zip.unlink()
+    shutil.make_archive(whl_dir, "zip", root_dir=whl_dir)
+    if with_backup:
+        whl_file.replace(whl_file.with_suffix(whl_file.suffix + ".bak"))
+    shutil.move(str(whl_file_zip), str(whl_file))
 
 
 def convert_wheel(
@@ -50,119 +148,63 @@ def convert_wheel(
     whl_path = Path(whl_dir)
 
     try:
-        # Extract our zip file temporarily
-        with zipfile.ZipFile(str(whl_file), "r") as whl_zip:
-            whl_zip.extractall(whl_dir)
-            members = [
-                member
-                for member in whl_zip.infolist()
-                if member.is_dir() or not member.filename.endswith(".py")
-            ]
-
-        # Compile all py files
-        if not compileall.compile_dir(
+        members, _ = extract_wheel(whl_file, whl_dir)
+        compile_wheel(
+            whl_file,
             whl_dir,
-            rx=exclude,
-            ddir="<{}>".format(dist_info),
-            quiet=int(quiet),
-            force=True,
-            legacy=True,
+            dist_info,
+            exclude=exclude,
+            with_backup=with_backup,
+            quiet=quiet,
             optimize=optimize,
-        ):
-            raise RuntimeError(
-                "Error compiling Python sources in wheel "
-                "{!s}".format(whl_file.name)
-            )
-
-        # Remove all original py files
-        for py_file in whl_path.glob("**/*.py"):
-            if py_file.is_file():
-                if exclude is None or not exclude.search(str(py_file)):
-                    if not quiet:
-                        print("Deleting py file: {!s}".format(py_file))
-                    py_file.chmod(stat.S_IWUSR)
-                    py_file.unlink()
-
-        for root, dirs, files in os.walk(whl_dir):
-            pycache = Path(root, "__pycache__")
-            if pycache.exists():
-                if not quiet:
-                    print("Removing {!s}".format(pycache))
-                shutil.rmtree(pycache)
-            for fname in files:
-                if fname.endswith(".py"):
-                    py_file = Path(root) / fname
-                    if exclude is None or not exclude.search(str(py_file)):
-                        if not quiet:
-                            print("Removing file: {!s}".format(py_file))
-                        py_file.chmod(stat.S_IWUSR)
-                        py_file.unlink()
-
-        for member in members:
-            file_path = (
-                whl_path.joinpath(member.filename)
-                .resolve()
-                .relative_to(whl_path.resolve())
-            )
-            timestamp = datetime(*member.date_time).timestamp()
-            try:
-                os.utime(str(file_path), (timestamp, timestamp))
-            except Exception:
-                pass  # ignore errors
-            permission_bits = (member.external_attr >> 16) & 0o777
-            try:
-                os.chmod(str(file_path), permission_bits)
-            except Exception:
-                pass  # ignore errors
-
-        dist_info_path = (
-            whl_path.joinpath("{}.dist-info".format(dist_info))
         )
-        if dist_info_path.exists():
-            rewrite_dist_info(dist_info_path, exclude=exclude)
-
-        # Rezip the file with the new version info
-        whl_file_zip = whl_path.with_suffix(".zip")
-        if whl_file_zip.exists():
-            whl_file_zip.unlink()
-        shutil.make_archive(whl_dir, "zip", root_dir=whl_dir)
-        if with_backup:
-            whl_file.replace(whl_file.with_suffix(whl_file.suffix + ".bak"))
-        shutil.move(str(whl_file_zip), str(whl_file))
+        remove_pycache(whl_dir, exclude, quiet)
+        update_file_attrs(whl_dir, members)
+        rewrite_dist_info(
+            whl_path.joinpath("{}.dist-info".format(dist_info)), exclude=exclude
+        )
+        zip_wheel(whl_file, whl_dir, with_backup)
     finally:
         # Clean up original directory
         shutil.rmtree(whl_dir, ignore_errors=True)
 
 
+def update_record_entries(record: TextIO, whl_path, exclude: re.Pattern | None):
+    record_data = []
+    for file_dest, file_hash, file_len in csv.reader(record):
+        if file_dest.endswith(".py"):
+            # Do not keep py files, replace with pyc files
+            if exclude is None or not exclude.search(file_dest):
+                file_dest = Path(file_dest)
+                pyc_file = file_dest.with_suffix(".pyc")
+                file_dest = str(pyc_file)
+
+                pyc_path = whl_path.joinpath(pyc_file)
+                with pyc_path.open("rb") as f:
+                    data = f.read()
+                file_hash = HASH_ALGORITHM(data)
+                file_hash = "{}={}".format(
+                    file_hash.name, _b64encode(file_hash.digest())
+                )
+                file_len = len(data)
+        elif file_dest.endswith(".pyc"):  # __pycache__
+            continue
+        record_data.append((file_dest, file_hash, file_len))
+    return record_data
+
+
 def rewrite_dist_info(dist_info_path: Path, *, exclude=None):
     """Rewrite the record file with pyc files instead of py files."""
+    if not dist_info_path.exists():
+        return
 
     whl_path = dist_info_path.resolve().parent
     record_path = dist_info_path / "RECORD"
     record_path.chmod(stat.S_IWUSR | stat.S_IRUSR)
     print('Rewriting:', record_path)
 
-    record_data = []
     with record_path.open("r") as record:
-        for file_dest, file_hash, file_len in csv.reader(record):
-            if file_dest.endswith(".py"):
-                # Do not keep py files, replace with pyc files
-                if exclude is None or not exclude.search(file_dest):
-                    file_dest = Path(file_dest)
-                    pyc_file = file_dest.with_suffix(".pyc")
-                    file_dest = str(pyc_file)
-
-                    pyc_path = whl_path.joinpath(pyc_file)
-                    with pyc_path.open("rb") as f:
-                        data = f.read()
-                    file_hash = HASH_ALGORITHM(data)
-                    file_hash = "{}={}".format(
-                        file_hash.name, _b64encode(file_hash.digest())
-                    )
-                    file_len = len(data)
-            elif file_dest.endswith(".pyc"):  # __pycache__
-                continue
-            record_data.append((file_dest, file_hash, file_len))
+        record_data = update_record_entries(record, whl_path, exclude)
 
     with record_path.open("w", newline="\n") as record:
         csv.writer(
