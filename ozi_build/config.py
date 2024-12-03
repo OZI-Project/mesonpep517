@@ -51,6 +51,10 @@ class Config:
         if builddir:
             self.set_builddir(builddir)
 
+    @property
+    def requirements(self):
+        return self.__requires if self.__requires else []
+
     def validate_options(self):
         options = VALID_OPTIONS.copy()
         options['version'] = {}
