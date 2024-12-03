@@ -43,6 +43,11 @@ It should look similar to this in an OZI.build project:
 This section is called `[tool.ozi-build.metadata]` in the file.
 
 {fields_desc}
+## ``pyc_wheel`` configuration
+
+This section is called `[tool.ozi-build.pyc_wheel]` in the file.
+
+{pyc_wheel_desc}
 ## Entry points section (Optional)
 
 You can declare [entry points](http://entrypoints.readthedocs.io/en/latest/)
