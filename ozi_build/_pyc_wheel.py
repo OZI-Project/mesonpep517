@@ -134,7 +134,7 @@ def convert_wheel(
         raise TypeError("File to convert must be a *.whl")
 
     if exclude:
-        exclude = re.compile(re.escape(exclude))
+        exclude = re.compile(exclude)
 
     dist_info = "-".join(whl_file.stem.split("-")[:-3])
 
