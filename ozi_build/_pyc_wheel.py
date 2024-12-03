@@ -16,10 +16,10 @@ import stat
 import sys
 import sysconfig
 import tempfile
-from typing import TextIO
 import zipfile
 from datetime import datetime
 from pathlib import Path
+from typing import TextIO
 
 __all__ = ('convert_wheel', 'main')
 
