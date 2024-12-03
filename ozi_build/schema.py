@@ -150,3 +150,7 @@ after a semicolon. For example:
         "description": "A one sentence summary about the package",
     },
 }
+VALID_PYC_WHEEL_OPTIONS = {
+    'exclude': {'description': 'A regular expression of files for pyc_wheel to ignore.'},
+    'quiet': {'description': 'Quiet non-error output of pyc_wheel.'}
+}
