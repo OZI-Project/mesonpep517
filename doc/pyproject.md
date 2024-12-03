@@ -227,6 +227,18 @@ A version specifier for the versions of Python this requires, e.g. ``~=3.3`` or
 
 A one sentence summary about the package
 
+## ``pyc_wheel`` configuration
+
+This section is called `[tool.ozi-build.pyc_wheel]` in the file.
+
+### `exclude`
+
+A regular expression of files for pyc_wheel to ignore.
+
+### `quiet`
+
+Quiet non-error output of pyc_wheel.
+
 
 ## Entry points section (Optional)
 
