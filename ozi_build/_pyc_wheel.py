@@ -135,6 +135,7 @@ def convert_wheel(
 
     if exclude:
         exclude = re.compile(re.escape(exclude))
+    print(exclude)
 
     dist_info = "-".join(whl_file.stem.split("-")[:-3])
 

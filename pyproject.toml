@@ -57,7 +57,7 @@ pure-python-abi="py3-none"
 summary="Create pep517 compliant packages from the meson build system, OZI-maintained fork."
 
 [tool.ozi-build.pyc_wheel]
-exclude = ".*\\.py"
+exclude = ".*.py"
 
 [tool.deptry.per_rule_ignores]
 DEP002 = ["meson"]
