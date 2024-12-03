@@ -154,9 +154,8 @@ class WheelBuilder:
         meson('install', '-C', self.builddir.name)
         self.pack_files(config)
         self.wheel_zip.close()
-        if not config.get('pure-python-abi'):
-            optimize, *_ = [i.get('value', -1) for i in config.options if i.get('name', '') == 'python.bytecompile']
-            convert_wheel(Path(target_fp), optimize=optimize, **config.__pyc_wheel)
+        optimize, *_ = [i.get('value', -1) for i in config.options if i.get('name', '') == 'python.bytecompile']
+        convert_wheel(Path(target_fp), optimize=optimize, **config.pyc_wheel)
         return str(target_fp)
 
     def pack_files(self, config):

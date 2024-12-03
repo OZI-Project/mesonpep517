@@ -16,7 +16,7 @@ from ._util import PKG_INFO_NO_REQUIRES_PYTHON
 from ._util import meson
 from ._util import meson_configure
 from ._util import readme_ext_to_content_type
-from .schema import VALID_OPTIONS
+from .schema import VALID_OPTIONS, VALID_PYC_WHEEL_OPTIONS
 
 if sys.version_info >= (3, 11):
     import tomllib as toml
@@ -55,6 +55,10 @@ class Config:
     def requirements(self):
         return self.__requires if self.__requires else []
 
+    @property
+    def pyc_wheel(self):
+        return self.__pyc_wheel
+
     def validate_options(self):
         options = VALID_OPTIONS.copy()
         options['version'] = {}
@@ -66,13 +70,20 @@ class Config:
                     "got value: %s" % (field, value)
                 )
             del options[field]
-
         for field, desc in options.items():
             if desc.get('required'):
                 raise RuntimeError(
                     "%s is mandatory in the `[tool.ozi-build.metadata] section but was not found"
                     % field
                 )
+        pyc_whl_options = VALID_PYC_WHEEL_OPTIONS.copy()
+        for field, value in self.__pyc_wheel.items():
+            if field not in pyc_whl_options:
+                raise RuntimeError(
+                    "%s is not a valid option in the `[tool.ozi-build.pyc_wheel]` section, "
+                    "got value: %s" % (field, value)
+                )
+            del pyc_whl_options[field]
 
     def __introspect(self, introspect_type):
         with open(

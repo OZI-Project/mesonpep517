@@ -12,11 +12,14 @@ and to create a wheel for the project.
 
 For more information have a look at `the documentation <https://docs.oziproject.dev/en/stable/ozi_build.html>`_
 
-In addition to the code licensed under Apache-2.0 we have also vendored
-pyc_wheel.
+OZI.build is licensed under Apache-2.0 and includes ``pyc_wheel`` and
+portions of ``wheel`` whose copyright information is reproduced here.
 
-Copyright (c) 2016 Grant Patten <grant@gpatten.com>
-Copyright (c) 2019-2021 Adam Karpierz <adam@karpierz.net>
+``pyc_wheel`` Copyright (c) 2016 Grant Patten <grant@gpatten.com>
+
+``pyc_wheel`` Copyright (c) 2019-2021 Adam Karpierz <adam@karpierz.net>
+
+``wheel`` Copyright (c) 2012-2014 Daniel Holth <dholth@fastmail.fm> and contributors.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
