@@ -81,34 +81,6 @@ class Config:
     def pyc_wheel(self):
         return self.__pyc_wheel
 
-    @property
-    def entry_points(self):
-        res = ''
-        for group_name in sorted(self.__entry_points):
-            res += '[{}]\n'.format(group_name)
-            group = self.__entry_points[group_name]
-            for entrypoint in sorted(group):
-                res += '{}\n'.format(entrypoint)
-            res += '\n'
-        return res
-
-    @property
-    def builddir(self):
-        return self.__builddir
-
-    @builddir.setter
-    def builddir(self, builddir):
-        self.__builddir = builddir
-        project = self.__introspect('projectinfo')
-
-        self['version'] = project['version']
-        if 'module' not in self:
-            self['module'] = project['descriptive_name']
-
-        self.installed = self.__introspect('installed')
-        self.options = self.__introspect('buildoptions')
-        self.validate_options()
-
     def __introspect(self, introspect_type):
         with open(
             os.path.join(
@@ -169,39 +141,6 @@ class Config:
         self.installed = self.__introspect('installed')
         self.options = self.__introspect('buildoptions')
         self.validate_options()
-
-    def __introspect(self, introspect_type):
-        with open(
-            os.path.join(
-                self.__builddir,
-                'meson-info',
-                'intro-' + introspect_type + '.json',
-            )
-        ) as f:
-            return json.load(f)
-
-    @staticmethod
-    def __get_config():
-        with open('pyproject.toml', 'rb') as f:
-            config = toml.load(f)
-            try:
-                config['tool']['ozi-build']['metadata']
-            except KeyError:
-                raise RuntimeError(
-                    "`[tool.ozi-build.metadata]` section is mandatory "
-                    "for the meson backend"
-                )
-
-            return config
-
-    def __getitem__(self, key):
-        return self.__metadata[key]
-
-    def __setitem__(self, key, value):
-        self.__metadata[key] = value
-
-    def __contains__(self, key):
-        return key in self.__metadata
 
     def validate_options(self):
         options = VALID_OPTIONS.copy()
@@ -237,19 +176,6 @@ class Config:
             'name': self['module'],
             'version': self['version'],
         }
-        pkg_info_file = check_pkg_info_file(self, meta)
-        if pkg_info_file is not None:
-            return pkg_info_file
-
-        res = check_requires_python(
-            self, auto_python_version(self, get_python_bin(self), meta)
-        )
-        res += get_optional_dependencies(self)
-        res += get_simple_headers(self)
-        res += get_license_headers(self)
-        res += get_download_url_headers(self)
-        res += get_requirements_headers(self)
-        res += get_description_headers(self)
         pkg_info_file = check_pkg_info_file(self, meta)
         if pkg_info_file is not None:
             return pkg_info_file
