@@ -16,19 +16,6 @@ from .metadata import get_simple_headers
 from .schema import VALID_OPTIONS
 from .schema import VALID_PYC_WHEEL_OPTIONS
 
-from .metadata import auto_python_version
-from .metadata import check_pkg_info_file
-from .metadata import check_requires_python
-from .metadata import get_description_headers
-from .metadata import get_download_url_headers
-from .metadata import get_license_headers
-from .metadata import get_optional_dependencies
-from .metadata import get_python_bin
-from .metadata import get_requirements_headers
-from .metadata import get_simple_headers
-from .schema import VALID_OPTIONS
-from .schema import VALID_PYC_WHEEL_OPTIONS
-
 if sys.version_info >= (3, 11):
     import tomllib as toml
 elif sys.version_info < (3, 11):

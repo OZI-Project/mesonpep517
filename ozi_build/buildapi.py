@@ -12,13 +12,14 @@ from pathlib import Path
 from wheel.wheelfile import WheelFile
 
 from ._pyc_wheel import convert_wheel
-from ._util import GET_CHECK, install_files_path
+from ._util import GET_CHECK
 from ._util import _write_wheel_file
 from ._util import cd
+from ._util import install_files_path
 from ._util import meson
 from ._util import meson_configure
-from .metadata import get_python_bin
 from .config import Config
+from .metadata import get_python_bin
 from .pep425tags import get_platform_tag
 
 log = logging.getLogger(__name__)
