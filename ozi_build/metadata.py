@@ -141,6 +141,10 @@ def get_simple_headers(config):
             ('dynamic', 'Dynamic'),
     ]:
         vals = config.get(key, [])
+        if key == 'dynamic':
+            for i in vals:
+                if i in {'Name', 'Version', 'Metadata-Version'}:
+                    raise ValueError('{} is not a valid value for dynamic'.format(key))
         for val in vals:
             res += '{}: {}\n'.format(mdata_key, val)
     return res
@@ -156,8 +160,6 @@ def get_license_headers(config):
             if key == 'license-expression' and 'license' in config:
                 raise ValueError('license and license-expression are mutually exclusive')
             header = '-'.join(map(str.capitalize, key.split('-')))
-            if header in {'Name', 'Version', 'Metadata-Version'}:
-                raise ValueError('{} is not a valid value for dynamic'.format(key))
             res += '{}: {}\n'.format(header, config[key])
     return res
 
