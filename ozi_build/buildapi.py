@@ -15,9 +15,11 @@ from ._pyc_wheel import convert_wheel
 from ._util import GET_CHECK
 from ._util import _write_wheel_file
 from ._util import cd
+from ._util import install_files_path
 from ._util import meson
 from ._util import meson_configure
 from .config import Config
+from .metadata import get_python_bin
 from .pep425tags import get_platform_tag
 
 log = logging.getLogger(__name__)
@@ -118,18 +120,7 @@ class WheelBuilder:
         platform_tag = config.get(
             'platforms', 'any' if is_pure else get_platform_tag()
         )
-        option_build = config.get('meson-python-option-name')
-        python = 'python3'
-        if not option_build:
-            log.warning(
-                "meson-python-option-name not specified in the "
-                + "[tool.ozi-build.metadata] section, assuming `python3`"
-            )
-        else:
-            for opt in config.options:
-                if opt['name'] == option_build:
-                    python = opt['value']
-                    break
+        python = get_python_bin(config)
         if not is_pure:
             abi = get_abi(python)
         else:
@@ -160,13 +151,11 @@ class WheelBuilder:
     def pack_files(self, config):
         for _, installpath in config.installed.items():
             if "site-packages" in installpath:
-                while os.path.basename(installpath) != 'site-packages':
-                    installpath = os.path.dirname(installpath)
+                installpath = install_files_path(installpath, 'site-packages')
                 self.wheel_zip.write_files(installpath)
                 break
             elif "dist-packages" in installpath:
-                while os.path.basename(installpath) != 'dist-packages':
-                    installpath = os.path.dirname(installpath)
+                installpath = install_files_path(installpath, 'dist-packages')
                 self.wheel_zip.write_files(installpath)
                 break
 
