@@ -80,6 +80,11 @@ def _write_wheel_file(f, supports_py2, is_pure):
         )
 
 
+def install_files_path(installpath, target):
+    while os.path.basename(installpath) != target:
+        installpath = os.path.dirname(installpath)
+    return installpath
+
 def meson(*args, config_settings=None, builddir=''):
     try:
         return subprocess.check_output(['meson'] + list(args))
