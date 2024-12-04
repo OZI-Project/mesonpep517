@@ -78,10 +78,9 @@ def prepare_metadata_for_build_wheel(
         with Path(config.license_file).open('r') as fr:
             fw.write(fr.read())
 
-    entrypoints = config.get_entry_points()
-    if entrypoints:
+    if config.entry_points:
         with (dist_info / 'entry_points.txt').open('w') as f:
-            f.write(entrypoints)
+            f.write(config.entry_points)
 
     return dist_info.name
 
@@ -109,7 +108,7 @@ class WheelBuilder:
             self.installdir.name,
         ] + config.get('meson-options', [])
         meson_configure(*args, config_settings=config_settings)
-        config.set_builddir(self.builddir.name)
+        config.builddir = self.builddir.name
 
         metadata_dir = prepare_metadata_for_build_wheel(
             wheel_directory, builddir=self.builddir.name, config=config
