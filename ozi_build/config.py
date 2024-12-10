@@ -3,6 +3,7 @@ import logging
 import os
 import sys
 
+from ._util import check_pyproject_regexes
 from .metadata import auto_python_version
 from .metadata import check_pkg_info_file
 from .metadata import check_requires_python
@@ -27,6 +28,7 @@ log = logging.getLogger(__name__)
 class Config:
     def __init__(self, builddir=None):
         config = self.__get_config()
+        check_pyproject_regexes(config)
         self.__metadata = config['tool']['ozi-build']['metadata']
         self.__entry_points = config['tool']['ozi-build'].get(
             'entry-points', []

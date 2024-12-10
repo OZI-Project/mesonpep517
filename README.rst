@@ -4,20 +4,37 @@ OZI.build
 
 This is the `OZI-Project <https://github.com/OZI-Project>`_ maintained fork of the mesonpep517 0.2 tag.
 
-This is a simple module that implements pep517 for the meson build system.
+This is a module that implements PEP-517 for the meson build system.
 
 This means that you only need to provide a ``pyproject.toml`` in your project
 source root to be able to publish your project built with meson on PyPI
 and to create a wheel for the project.
 
+Other features include:
+
+* compiling modules to bytecode with pyc_wheel
+* scanning ``pyproject.toml`` for exploitable ReDoS patterns with regexploit
+
 For more information have a look at `the documentation <https://docs.oziproject.dev/en/stable/ozi_build.html>`_
 
-OZI.build is licensed under Apache-2.0 and includes ``pyc_wheel`` and
-portions of ``wheel`` whose copyright information is reproduced here.
+License
+-------
+
+OZI.build is licensed under Apache-2.0 and includes ``regexploit``,
+``pyc_wheel`` and portions of ``wheel`` whose copyright information is
+reproduced here.
+
+Apache-2.0 contributors
+^^^^^^^^^^^^^^^^^^^^^^^
+
+``regexploit`` Copyright (c) 2021 Ben Caller <REMOVETHISPREFIX.ben@doyensec.com>
 
 ``pyc_wheel`` Copyright (c) 2016 Grant Patten <grant@gpatten.com>
 
 ``pyc_wheel`` Copyright (c) 2019-2021 Adam Karpierz <adam@karpierz.net>
+
+MIT contributors
+^^^^^^^^^^^^^^^^
 
 ``wheel`` Copyright (c) 2012-2014 Daniel Holth <dholth@fastmail.fm> and contributors.
 
