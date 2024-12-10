@@ -2,11 +2,62 @@ import contextlib
 import os
 import subprocess
 import sys
+from fileinput import filename
+import re
 
 from .pep425tags import get_abbr_impl
 from .pep425tags import get_abi_tag
 from .pep425tags import get_impl_ver
 from .pep425tags import get_platform_tag
+from ._text import TextOutput
+from ._redos import find
+from ._sre import SreOpParser
+
+
+class PotentialRedos(RuntimeError):
+    ...
+
+
+def handle_file(tomldata, filename: str, output: TextOutput):
+    if isinstance(tomldata, (list, dict)):
+        TomlWalker(filename, output).handle(tomldata)
+
+
+class TomlWalker:
+    def __init__(self, filename: str, output: TextOutput):
+        self.filename = filename
+        self.output = output
+
+    def handle(self, elem):
+        if isinstance(elem, str) and len(elem) > 5:
+            try:
+                parsed = SreOpParser().parse_sre(elem)
+            except re.error:
+                return  # We will have many strings which aren't actually regexes
+            try:
+                self.output.next()
+                for redos in find(parsed):
+                    if redos.starriness > 2:
+                        self.output.record(
+                            redos ,
+                            elem,
+                            filename=self.filename,
+                        )
+                        raise PotentialRedos(redos, elem, filename)
+            except Exception as e:
+                raise e
+        elif isinstance(elem, list):
+            for _elem in elem:
+                self.handle(_elem)
+        elif isinstance(elem, dict):
+            for _elem in elem.values():
+                self.handle(_elem)
+
+
+def check_pyproject_regexes(file):
+    output = TextOutput()
+    handle_file(file, 'pyproject.toml', output)
+
 
 PKG_INFO = """\
 Metadata-Version: 2.2
