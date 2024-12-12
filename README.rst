@@ -6,9 +6,9 @@ This is the `OZI-Project <https://github.com/OZI-Project>`_ maintained fork of t
 
 This is a module that implements PEP-517 for the meson build system.
 
-This means that you only need to provide a ``pyproject.toml`` in your project
-source root to be able to publish your project built with meson on PyPI
-and to create a wheel for the project.
+This means that you only need to provide a ``pyproject.toml`` and a
+``meson.build`` in your project source root to be able to create a wheel
+for the project and to publish your project on PyPI.
 
 Other features include:
 
