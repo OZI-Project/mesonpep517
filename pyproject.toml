@@ -1,9 +1,9 @@
 [build-system]
 requires = [
-    "wheel>0.33",
-    "meson[ninja]>1.1.0",
+    "wheel~=0.34",
+    "meson[ninja]~=1.2",
     'packaging',
-    'tomli>=2.0.0;python_version<"3.11"',
+    'tomli~=2.0;python_version<"3.11"',
     "setuptools>=64",
 ]
 backend-path = [".", "ozi_build"]
@@ -12,9 +12,9 @@ build-backend = "ozi_build.buildapi"
 [project]
 license={file='COPYING'}
 dependencies = [
-    "wheel>0.33",
-    "meson[ninja]>1.1.0",
-    'tomli>=2.0.0;python_version<"3.11"',
+    "wheel~=0.34",
+    "meson[ninja]~=1.2",
+    'tomli~=2.0;python_version<"3.11"',
     'packaging',
 ]
 
@@ -23,7 +23,7 @@ dependencies = [
 # core build dependencies
 core = [
     "invoke~=2.2",
-    "pip-tools>=7",
+    "pip-tools~=7.0",
     "pipx~=1.5",
     "setuptools_scm[toml]~=8.0",
 ]
@@ -48,7 +48,6 @@ description-file="README.rst"
 home-page="https://oziproject.dev"
 maintainer-email="help@oziproject.dev"
 maintainer="Eden Ross Duff MSc"
-meson-python-option-name="python_version"
 project-urls= [
     "Source, https://github.com/OZI-Project/OZI.build",
     "Documentation, https://docs.oziproject.dev/en/stable/ozi_build.html",
