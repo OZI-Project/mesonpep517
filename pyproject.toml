@@ -10,7 +10,6 @@ backend-path = [".", "ozi_build"]
 build-backend = "ozi_build.buildapi"
 
 [project]
-license={file='COPYING'}
 dependencies = [
     "wheel~=0.34",
     "meson[ninja]~=1.2",
@@ -42,7 +41,6 @@ classifiers = [
     "Topic :: System :: Archiving :: Packaging",
     "Development Status :: 4 - Beta",
 ]
-license-expression="Apache-2.0"
 download-url="https://github.com/OZI-Project/OZI.build/archive/refs/tags/{version}.tar.gz"
 description-file="README.rst"
 home-page="https://oziproject.dev"
