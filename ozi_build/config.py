@@ -125,8 +125,8 @@ class Config:
         if 'module' not in self:
             self['module'] = project['descriptive_name']
         if 'license-expression' not in self:
-            self['license-expression'] = project.get('license', None)
-            if 'license-expression' not in self:
+            self['license-expression'] = project.get('license', '')[0]
+            if 'license-expression' == '':
                 raise RuntimeError("license-expression metadata not found in pyproject.toml or meson.build")
         if self.license_file[0] is None:
             self['license-file'] = self.license_file = project.get('license_files', [])
