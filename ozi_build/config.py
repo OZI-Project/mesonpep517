@@ -39,9 +39,7 @@ class Config:
         else:
             self.__extras = config.get('project', {}).get('optional-dependencies', {})
         self.__requires = config.get('project', {}).get('dependencies', None)
-        self.license_file = config.get('project', {}).get('license', {}).get('file', '')
-        if self.license_file == '':
-            log.warning('pyproject.toml:project.license.file key-value pair was not found')
+        self.license_file = [config.get('project', {}).get('license', {}).get('file', None)]
         self.__min_python = '3.10'
         self.__max_python = '3.13'
         self.__pyc_wheel = config['tool']['ozi-build'].get('pyc_wheel', {})
@@ -126,6 +124,14 @@ class Config:
         self['version'] = project['version']
         if 'module' not in self:
             self['module'] = project['descriptive_name']
+        if 'license-expression' not in self:
+            self['license-expression'] = project.get('license', None)
+            if 'license-expression' not in self:
+                raise RuntimeError("license-expression metadata not found in pyproject.toml or meson.build")
+        if self.license_file[0] is None:
+            self['license-file'] = self.license_file = project.get('license_files', [])
+            if len(self.license_file) == 0:
+                raise RuntimeError("license-file metadata not found in pyproject.toml or meson.build")
 
         self.installed = self.__introspect('installed')
         self.options = self.__introspect('buildoptions')

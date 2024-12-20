@@ -76,9 +76,10 @@ def prepare_metadata_for_build_wheel(
     with (dist_info / 'METADATA').open('w') as f:
         f.write(config.get_metadata())
 
-    with (dist_info / config.license_file).open('w') as fw:
-        with Path(config.license_file).open('r') as fr:
-            fw.write(fr.read())
+    for i in config.license_file:
+        with (dist_info / i).open('w') as fw:
+            with Path(i).open('r') as fr:
+                fw.write(fr.read())
 
     if config.entry_points:
         with (dist_info / 'entry_points.txt').open('w') as f:

@@ -139,6 +139,7 @@ def get_simple_headers(config):
             ('project-urls', 'Project-URL'),
             ('requires-external', 'Requires-External'),
             ('dynamic', 'Dynamic'),
+            ('license-file', 'License-File'),
     ]:
         vals = config.get(key, [])
         if key == 'dynamic':
@@ -152,15 +153,12 @@ def get_simple_headers(config):
 
 def get_license_headers(config):
     res = ''
-    for key in [
-        'license-expression',
-        'license-file',
-    ]:
-        if key in config:
-            if key == 'license-expression' and 'license' in config:
-                raise ValueError('license and license-expression are mutually exclusive')
-            header = '-'.join(map(str.capitalize, key.split('-')))
-            res += '{}: {}\n'.format(header, config[key])
+    key = 'license-expression'
+    if key in config:
+        if key == 'license-expression' and 'license' in config:
+            raise ValueError('license and license-expression are mutually exclusive')
+        header = '-'.join(map(str.capitalize, key.split('-')))
+        res += '{}: {}\n'.format(header, config[key])
     return res
 
 
