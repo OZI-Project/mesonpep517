@@ -1,6 +1,6 @@
 project(
     'OZI.build',
-    version : '1.8.2',
+    version : '1.8.3',
     license : 'Apache-2.0',
     license_files : ['COPYING'],
 )

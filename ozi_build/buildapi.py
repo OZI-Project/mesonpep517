@@ -27,7 +27,7 @@ log = logging.getLogger(__name__)
 
 def get_requires_for_build_wheel(config_settings=None):
     """Returns a list of requirements for building, as strings"""
-    return Config().requirements
+    return Config().get('requires', [])
 
 
 # For now, we require all dependencies to build either a wheel or an sdist.
