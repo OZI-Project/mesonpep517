@@ -1,11 +1,14 @@
 import logging
 from dataclasses import dataclass
-from typing import Iterator, List, Optional
+from typing import Iterator
+from typing import List
+from typing import Optional
 
 from ._at import EndOfString
 from ._branch import Branch
 from ._char import Character
-from ._repeat import InfiniteRepeat, Repeat
+from ._repeat import InfiniteRepeat
+from ._repeat import Repeat
 from ._sequence import Sequence
 
 

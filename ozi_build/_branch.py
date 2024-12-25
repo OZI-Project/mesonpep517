@@ -1,9 +1,12 @@
 from dataclasses import dataclass
-from typing import Iterator, List, Optional
+from typing import Iterator
+from typing import List
+from typing import Optional
 
 from ._at import EndOfString
 from ._char import Character
-from ._repeat import FiniteRepeat, InfiniteRepeat
+from ._repeat import FiniteRepeat
+from ._repeat import InfiniteRepeat
 from ._sequence import Sequence
 
 

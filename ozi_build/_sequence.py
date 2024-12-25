@@ -1,5 +1,6 @@
 from dataclasses import dataclass
-from typing import List, Optional
+from typing import List
+from typing import Optional
 
 from ._char import Character
 from ._repeat import InfiniteRepeat

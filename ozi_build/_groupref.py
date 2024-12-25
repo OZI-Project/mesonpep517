@@ -1,5 +1,6 @@
-from ._repeat import FiniteRepeat, InfiniteRepeat
 from ._branch import Branch
+from ._repeat import FiniteRepeat
+from ._repeat import InfiniteRepeat
 from ._sequence import Sequence
 
 

@@ -1,9 +1,13 @@
 import string
 from dataclasses import dataclass
-from typing import Optional, Set
+from typing import Optional
+from typing import Set
 
-from ._categories import Category, covers_any, list_category
-from ._ranges import Range, lits_to_ranges
+from ._categories import Category
+from ._categories import covers_any
+from ._categories import list_category
+from ._ranges import Range
+from ._ranges import lits_to_ranges
 
 
 @dataclass(frozen=True)

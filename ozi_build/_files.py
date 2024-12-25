@@ -1,7 +1,8 @@
 import os
 import os.path
 from glob import iglob
-from typing import List, Optional
+from typing import List
+from typing import Optional
 
 
 def _file_generator(

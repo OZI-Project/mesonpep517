@@ -1,17 +1,17 @@
 import contextlib
 import os
+import re
 import subprocess
 import sys
 from fileinput import filename
-import re
 
+from ._redos import find
+from ._sre import SreOpParser
+from ._text import TextOutput
 from .pep425tags import get_abbr_impl
 from .pep425tags import get_abi_tag
 from .pep425tags import get_impl_ver
 from .pep425tags import get_platform_tag
-from ._text import TextOutput
-from ._redos import find
-from ._sre import SreOpParser
 
 
 class PotentialRedos(RuntimeError):

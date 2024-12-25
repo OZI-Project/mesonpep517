@@ -1,13 +1,20 @@
 import sre_constants
 import sre_parse
-from typing import List, Optional, Set, Tuple, Union  # noqa: I100, I201
+from typing import List  # noqa: I100, I201
+from typing import Optional
+from typing import Set
+from typing import Tuple
+from typing import Union
 
 from ._at import EndOfString
-from ._branch import Branch, make_branch
-from ._categories import Category, covers_any
+from ._branch import Branch
+from ._branch import make_branch
+from ._categories import Category
+from ._categories import covers_any
 from ._char import Character
 from ._groupref import subpattern_to_groupref
-from ._repeat import FiniteRepeat, InfiniteRepeat
+from ._repeat import FiniteRepeat
+from ._repeat import InfiniteRepeat
 from ._sequence import Sequence
 
 SreConstant = sre_constants._NamedIntConstant
