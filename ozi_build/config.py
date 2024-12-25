@@ -30,12 +30,12 @@ class Config:
         config = self.__get_config()
         check_pyproject_regexes(config)
         self.__metadata = config['tool']['ozi-build']['metadata']
-        self.__entry_points = config['tool']['ozi-build'].get(
-            'entry-points', []
-        )
+        self.__entry_points = config['tool']['ozi-build'].get('entry-points', [])
         self.__extras = config.get('project', {}).get('optional_dependencies', None)
         if self.__extras is not None:
-            log.warning('pyproject.toml:project.optional_dependencies should be renamed to pyproject.toml:project.optional-dependencies')
+            log.warning(
+                'pyproject.toml:project.optional_dependencies should be renamed to pyproject.toml:project.optional-dependencies'
+            )
         else:
             self.__extras = config.get('project', {}).get('optional-dependencies', {})
         self.__requires = config.get('project', {}).get('dependencies', None)
@@ -55,7 +55,7 @@ class Config:
     @property
     def min_python(self):
         return self.__min_python
-    
+
     @property
     def max_python(self):
         return self.__max_python
@@ -127,11 +127,15 @@ class Config:
         if 'license-expression' not in self:
             self['license-expression'] = project.get('license', '')[0]
             if 'license-expression' == '':
-                raise RuntimeError("license-expression metadata not found in pyproject.toml or meson.build")
+                raise RuntimeError(
+                    "license-expression metadata not found in pyproject.toml or meson.build"
+                )
         if self.license_file[0] is None:
             self['license-file'] = self.license_file = project.get('license_files', [])
             if len(self.license_file) == 0:
-                raise RuntimeError("license-file metadata not found in pyproject.toml or meson.build")
+                raise RuntimeError(
+                    "license-file metadata not found in pyproject.toml or meson.build"
+                )
 
         self.installed = self.__introspect('installed')
         self.options = self.__introspect('buildoptions')
@@ -186,6 +190,3 @@ class Config:
         res += get_description_headers(self)
 
         return res
-
-
-

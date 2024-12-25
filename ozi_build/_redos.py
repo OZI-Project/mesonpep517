@@ -32,14 +32,9 @@ class Redos:
             repeated_char = killing_repeat
             killer = None
 
-        prefix = (
-            self.example_prefix.encode("unicode_escape").decode().replace("'", "\\'")
-        )
+        prefix = self.example_prefix.encode("unicode_escape").decode().replace("'", "\\'")
         repeated_char_s = (
-            repeated_char.example()
-            .encode("unicode_escape")
-            .decode()
-            .replace("'", "\\'")
+            repeated_char.example().encode("unicode_escape").decode().replace("'", "\\'")
         )
         e = f"'{prefix}' + " if prefix else ""
         if js_flavour:
@@ -48,9 +43,7 @@ class Redos:
             e += f"'{repeated_char_s}' * 3456"
 
         if killer:
-            killer_s = (
-                killer.example().encode("unicode_escape").decode().replace("'", "\\'")
-            )
+            killer_s = killer.example().encode("unicode_escape").decode().replace("'", "\\'")
             return e + f" + '{killer_s}'"
         return e
 
@@ -99,9 +92,7 @@ def expand_branches(seq: Sequence) -> Iterator[Sequence]:
 
 def find_redos(sequence_with_branches) -> Iterator[Redos]:
     logging.debug(sequence_with_branches)
-    if not isinstance(
-        sequence_with_branches, Sequence
-    ):  # singleton like Branch (ab|cd)
+    if not isinstance(sequence_with_branches, Sequence):  # singleton like Branch (ab|cd)
         sequence_with_branches = Sequence([sequence_with_branches])
     for seq in expand_branches(sequence_with_branches):
         yield from find_redos_in_branchless_sequence(seq)

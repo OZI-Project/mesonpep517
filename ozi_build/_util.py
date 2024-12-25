@@ -14,8 +14,7 @@ from .pep425tags import get_impl_ver
 from .pep425tags import get_platform_tag
 
 
-class PotentialRedos(RuntimeError):
-    ...
+class PotentialRedos(RuntimeError): ...
 
 
 def handle_file(tomldata, filename: str, output: TextOutput):
@@ -39,7 +38,7 @@ class TomlWalker:
                 for redos in find(parsed):
                     if redos.starriness > 2:
                         self.output.record(
-                            redos ,
+                            redos,
                             elem,
                             filename=self.filename,
                         )
@@ -96,6 +95,7 @@ else:
     print("{0}-none".format(tag))
 """
 
+
 @contextlib.contextmanager
 def cd(path):
     CWD = os.getcwd()
@@ -136,6 +136,7 @@ def install_files_path(installpath, target):
         installpath = os.path.dirname(installpath)
     return installpath
 
+
 def meson(*args, config_settings=None, builddir=''):
     try:
         return subprocess.check_output(['meson'] + list(args))
@@ -146,9 +147,7 @@ def meson(*args, config_settings=None, builddir=''):
             stdout = e.stdout.decode()
         if e.stderr:
             stderr = e.stderr.decode()
-        print(
-            "Could not run meson: %s\n%s" % (stdout, stderr), file=sys.stderr
-        )
+        print("Could not run meson: %s\n%s" % (stdout, stderr), file=sys.stderr)
         try:
             fulllog = os.path.join(builddir, 'meson-logs', 'meson-log.txt')
             with open(fulllog) as f:
@@ -167,4 +166,3 @@ def meson_configure(*args, config_settings=None):
     args.append('-Dlibdir=lib')
 
     meson(*args, builddir=args[0], config_settings=config_settings)
-

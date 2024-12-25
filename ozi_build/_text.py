@@ -40,9 +40,7 @@ class TextOutput:
         degree = (
             "exponential"
             if redos.starriness > 10
-            else POLYNOMIAL_DEGREES[redos.starriness - 1]
-            if redos.starriness > 0
-            else "?"
+            else POLYNOMIAL_DEGREES[redos.starriness - 1] if redos.starriness > 0 else "?"
         )
         print(f"Worst-case complexity: {redos.starriness} {stars} ({degree})")
         print(f"Repeated character: {redos.repeated_character}")

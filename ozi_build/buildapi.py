@@ -1,4 +1,5 @@
 """PEP-517 compliant buildsystem API"""
+
 import logging
 import os
 import shutil
@@ -36,11 +37,7 @@ get_requires_for_build_sdist = get_requires_for_build_wheel
 
 def check_is_pure(installed):
     variables = sysconfig.get_config_vars()
-    suffix = (
-        variables.get('EXT_SUFFIX')
-        or variables.get('SO')
-        or variables.get('.so')
-    )
+    suffix = variables.get('EXT_SUFFIX') or variables.get('SO') or variables.get('.so')
     # msys2's python3 has "-cpython-36m.dll", we have to be clever
     split = suffix.rsplit('.', 1)
     suffix = split.pop(-1)
@@ -65,7 +62,7 @@ def prepare_metadata_for_build_wheel(
 
     dist_info = Path(
         metadata_directory,
-        '{}-{}.dist-info'.format(config['module'].replace('-','_'), config['version']),
+        '{}-{}.dist-info'.format(config['module'].replace('-', '_'), config['version']),
     )
     dist_info.mkdir(exist_ok=True)
 
@@ -89,11 +86,7 @@ def prepare_metadata_for_build_wheel(
 
 
 def get_abi(python):
-    return (
-        subprocess.check_output([python, '-c', GET_CHECK])
-        .decode('utf-8')
-        .strip('\n')
-    )
+    return subprocess.check_output([python, '-c', GET_CHECK]).decode('utf-8').strip('\n')
 
 
 class WheelBuilder:
@@ -118,16 +111,14 @@ class WheelBuilder:
         )
 
         is_pure = check_is_pure(config.installed)
-        platform_tag = config.get(
-            'platforms', 'any' if is_pure else get_platform_tag()
-        )
+        platform_tag = config.get('platforms', 'any' if is_pure else get_platform_tag())
         python = get_python_bin(config)
         if not is_pure:
             abi = get_abi(python)
         else:
             abi = config.get('pure-python-abi', get_abi(python))
         target_fp = wheel_directory / '{}-{}-{}-{}.whl'.format(
-            config['module'].replace('-','_'),
+            config['module'].replace('-', '_'),
             config['version'],
             abi,
             platform_tag,
@@ -145,7 +136,11 @@ class WheelBuilder:
         meson('install', '-C', self.builddir.name)
         self.pack_files(config)
         self.wheel_zip.close()
-        optimize, *_ = [i.get('value', -1) for i in config.options if i.get('name', '') == 'python.bytecompile']
+        optimize, *_ = [
+            i.get('value', -1)
+            for i in config.options
+            if i.get('name', '') == 'python.bytecompile'
+        ]
         convert_wheel(Path(target_fp), optimize=optimize, **config.pyc_wheel)
         return str(target_fp)
 
@@ -161,13 +156,9 @@ class WheelBuilder:
                 break
 
 
-def build_wheel(
-    wheel_directory, config_settings=None, metadata_directory=None
-):
+def build_wheel(wheel_directory, config_settings=None, metadata_directory=None):
     """Builds a wheel, places it in wheel_directory"""
-    return WheelBuilder().build(
-        Path(wheel_directory), config_settings, metadata_directory
-    )
+    return WheelBuilder().build(Path(wheel_directory), config_settings, metadata_directory)
 
 
 def build_sdist(sdist_directory, config_settings=None):
@@ -188,9 +179,7 @@ def build_sdist(sdist_directory, config_settings=None):
 
             tf_dir = '{}-{}'.format(config['module'], config['version'])
             mesondistfilename = '%s.tar.xz' % tf_dir
-            mesondisttar = tarfile.open(
-                Path(builddir) / 'meson-dist' / mesondistfilename
-            )
+            mesondisttar = tarfile.open(Path(builddir) / 'meson-dist' / mesondistfilename)
             for entry in mesondisttar:
                 # GOOD: Check that entry is safe
                 if os.path.isabs(entry.name) or ".." in entry.name:

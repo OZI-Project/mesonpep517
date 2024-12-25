@@ -30,12 +30,10 @@ def check_pkg_info_file(config, meta):
         with open(pkg_info_file, 'r') as f:
             orig_lines = f.readlines()
             for line in orig_lines:
-                if line.startswith(
-                    'Metadata-Version:'
-                ) or line.startswith(
-                    'Version:'
-                ) or line.startswith(
-                    'Name:'
+                if (
+                    line.startswith('Metadata-Version:')
+                    or line.startswith('Version:')
+                    or line.startswith('Name:')
                 ):
                     res += config._parse_project()
                     continue
@@ -44,23 +42,36 @@ def check_pkg_info_file(config, meta):
 
 
 def auto_python_version(config, python_bin: str, meta):
-    python_version = Version(subprocess.check_output([python_bin, '-c', GET_PYTHON_VERSION]).decode('utf-8').strip('\n'))
+    python_version = Version(
+        subprocess.check_output([python_bin, '-c', GET_PYTHON_VERSION])
+        .decode('utf-8')
+        .strip('\n')
+    )
     if python_version < Version(config.min_python):
-        meta.update({
-            'min_python': str(python_version),
-            'max_python': config.max_python,
-        })
+        meta.update(
+            {
+                'min_python': str(python_version),
+                'max_python': config.max_python,
+            }
+        )
     elif python_version >= Version(config.max_python):
-        meta.update({
-            'min_python': config.min_python,
-            'max_python': '{}.{}'.format(python_version.major, str(python_version.minor + 1))
-        })
+        meta.update(
+            {
+                'min_python': config.min_python,
+                'max_python': '{}.{}'.format(
+                    python_version.major, str(python_version.minor + 1)
+                ),
+            }
+        )
     else:
-        meta.update({
-            'min_python': config.min_python,
-            'max_python': config.max_python,
-        })
+        meta.update(
+            {
+                'min_python': config.min_python,
+                'max_python': config.max_python,
+            }
+        )
     return meta
+
 
 def check_requires_python(config, meta):
     if config['module'] == 'OZI.build':
@@ -75,6 +86,7 @@ def check_requires_python(config, meta):
     else:
         res = PKG_INFO.format(**meta)
     return res
+
 
 def get_python_bin(config):
     option_build = config.get('meson-python-option-name')
@@ -91,17 +103,30 @@ def get_python_bin(config):
                 break
     return python
 
+
 def _parse_project_optional_dependencies(config, k: str, v: str):
     metadata = ''
-    if any(i not in string.ascii_uppercase + string.ascii_lowercase + '-[],0123456789' for i in v):
-        raise ValueError('pyproject.toml:project.optional-dependencies has invalid character in nested key "{}"'.format(k))
+    if any(
+        i not in string.ascii_uppercase + string.ascii_lowercase + '-[],0123456789'
+        for i in v
+    ):
+        raise ValueError(
+            'pyproject.toml:project.optional-dependencies has invalid character in nested key "{}"'.format(
+                k
+            )
+        )
     for j in (name for name in v.strip('[]').rstrip(',').split(',')):
         if len(j) > 0 and j[0] in string.ascii_uppercase + string.ascii_lowercase:
             for package in config.extras.get(j, []):
                 metadata += 'Requires-Dist: {}; extra=="{}"\n'.format(package, k)
         else:
-            raise ValueError('pyproject.toml:project.optional-dependencies nested key target value "{}" invalid'.format(j))
+            raise ValueError(
+                'pyproject.toml:project.optional-dependencies nested key target value "{}" invalid'.format(
+                    j
+                )
+            )
     return metadata
+
 
 def get_optional_dependencies(config):
     res = ''
@@ -115,7 +140,11 @@ def get_optional_dependencies(config):
                     res += 'Requires-Dist: {}; extra=="{}"\n'.format(i, k)
         elif isinstance(v, str):
             res += config._parse_project_optional_dependencies(config, k, v)
-            log.warning('pyproject.toml:project.optional-dependencies nested key type should be a toml array, like a=["[b,c]", "[d,e]", "foo"], parsed string "{}"'.format(v))
+            log.warning(
+                'pyproject.toml:project.optional-dependencies nested key type should be a toml array, like a=["[b,c]", "[d,e]", "foo"], parsed string "{}"'.format(
+                    v
+                )
+            )
     return res
 
 
@@ -133,13 +162,13 @@ def get_simple_headers(config):
         if key in config:
             res += '{}: {}\n'.format(key.capitalize(), config[key])
     for key, mdata_key in [
-            ('provides', 'Provides-Dist'),
-            ('obsoletes', 'Obsoletes-Dist'),
-            ('classifiers', 'Classifier'),
-            ('project-urls', 'Project-URL'),
-            ('requires-external', 'Requires-External'),
-            ('dynamic', 'Dynamic'),
-            ('license-file', 'License-File'),
+        ('provides', 'Provides-Dist'),
+        ('obsoletes', 'Obsoletes-Dist'),
+        ('classifiers', 'Classifier'),
+        ('project-urls', 'Project-URL'),
+        ('requires-external', 'Requires-External'),
+        ('dynamic', 'Dynamic'),
+        ('license-file', 'License-File'),
     ]:
         vals = config.get(key, [])
         if key == 'dynamic':
@@ -168,7 +197,9 @@ def get_download_url_headers(config):
         if '{version}' in config['download-url']:
             res += f'Download-URL: {config["download-url"].replace("{version}", config["version"])}\n'
         else:
-            log.warning('pyproject.toml:tools.ozi-build.metadata.download-url missing {version} replace pattern')
+            log.warning(
+                'pyproject.toml:tools.ozi-build.metadata.download-url missing {version} replace pattern'
+            )
             res += f'Download-URL: {config["download-url"]}\n'
     return res
 
@@ -179,7 +210,9 @@ def get_requirements_headers(config):
         for package in config.requirements:
             res += 'Requires-Dist: {}\n'.format(package)
     if config.get('requires', None):
-        raise ValueError('pyproject.toml:tools.ozi-build.metadata.requires is deprecated as of OZI.build 1.3')
+        raise ValueError(
+            'pyproject.toml:tools.ozi-build.metadata.requires is deprecated as of OZI.build 1.3'
+        )
     return res
 
 
@@ -199,8 +232,6 @@ def get_description_headers(config):
         description = config['description']
 
     if description:
-        res += 'Description-Content-Type: {}\n'.format(
-            description_content_type
-        )
+        res += 'Description-Content-Type: {}\n'.format(description_content_type)
         res += 'Description:\n\n' + description
     return res

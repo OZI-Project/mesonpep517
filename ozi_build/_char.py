@@ -60,9 +60,7 @@ class Character:
 
     @property
     def _is_negative_literal(self) -> bool:
-        return (
-            not self.positive and self.literals is not None and self.categories is None
-        )
+        return not self.positive and self.literals is not None and self.categories is None
 
     @property
     def _is_positive_category(self) -> bool:
@@ -70,9 +68,7 @@ class Character:
 
     @property
     def _is_negative_category(self) -> bool:
-        return (
-            not self.positive and self.literals is None and self.categories is not None
-        )
+        return not self.positive and self.literals is None and self.categories is not None
 
     def expand_categories(self) -> "Character":
         """

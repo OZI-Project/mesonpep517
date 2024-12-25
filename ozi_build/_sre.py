@@ -140,9 +140,7 @@ class SreOpParser:
 
     def from_NOT_LITERAL(self, not_literal: int) -> Character:
         if negative_lookahead := self.use_negative_lookahead():
-            return (
-                Character(literals={not_literal}, positive=False) & negative_lookahead
-            )
+            return Character(literals={not_literal}, positive=False) & negative_lookahead
         return Character(literals={not_literal}, positive=False)
 
     def from_IN(self, data: List[SreOp]) -> Character:

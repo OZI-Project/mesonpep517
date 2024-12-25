@@ -72,8 +72,7 @@ def compile_wheel(
         optimize=optimize,
     ):
         raise RuntimeError(
-            "Error compiling Python sources in wheel "
-            "{!s}".format(whl_file.name)
+            "Error compiling Python sources in wheel " "{!s}".format(whl_file.name)
         )
     # Remove all original py files
     for py_file in Path(whl_dir).glob("**/*.py"):
@@ -93,9 +92,7 @@ def update_file_attrs(whl_dir: str, members: list[zipfile.ZipInfo]) -> None:
     whl_path = Path(whl_dir)
     for member in members:
         file_path = (
-            whl_path.joinpath(member.filename)
-            .resolve()
-            .relative_to(whl_path.resolve())
+            whl_path.joinpath(member.filename).resolve().relative_to(whl_path.resolve())
         )
         timestamp = datetime(*member.date_time).timestamp()
         try:
@@ -177,9 +174,7 @@ def update_record_entries(record: TextIO, whl_path, exclude: re.Pattern | None):
                 with pyc_path.open("rb") as f:
                     data = f.read()
                 file_hash = HASH_ALGORITHM(data)
-                file_hash = "{}={}".format(
-                    file_hash.name, _b64encode(file_hash.digest())
-                )
+                file_hash = "{}={}".format(file_hash.name, _b64encode(file_hash.digest()))
                 file_len = len(data)
         elif file_dest.endswith(".pyc"):  # __pycache__
             continue
@@ -201,9 +196,9 @@ def rewrite_dist_info(dist_info_path: Path, *, exclude=None):
         record_data = update_record_entries(record, whl_path, exclude)
 
     with record_path.open("w", newline="\n") as record:
-        csv.writer(
-            record, lineterminator="\n", quoting=csv.QUOTE_ALL
-        ).writerows(sorted(set(record_data)))
+        csv.writer(record, lineterminator="\n", quoting=csv.QUOTE_ALL).writerows(
+            sorted(set(record_data))
+        )
 
     # Rewrite the wheel info file.
 
@@ -213,11 +208,7 @@ def rewrite_dist_info(dist_info_path: Path, *, exclude=None):
     with wheel_path.open("r") as wheel:
         wheel_data = wheel.readlines()
 
-    tags = [
-        line.split(" ")[1].strip()
-        for line in wheel_data
-        if line.startswith("Tag: ")
-    ]
+    tags = [line.split(" ")[1].strip() for line in wheel_data if line.startswith("Tag: ")]
     if not tags:
         raise RuntimeError(
             "No tags present in {}/{}; cannot determine target"
@@ -246,9 +237,7 @@ def main(argv=sys.argv[1:]):
     from argparse import ArgumentParser
 
     parser = ArgumentParser(description="Compile all py files in a wheel")
-    parser.add_argument(
-        "whl_file", help="Path (can contain wildcards) to whl(s) to convert"
-    )
+    parser.add_argument("whl_file", help="Path (can contain wildcards) to whl(s) to convert")
     parser.add_argument(
         "--exclude",
         default=None,

@@ -63,9 +63,7 @@ def get_abi_tag():
         u = ""
 
         precond = impl == "cp"
-        if get_flag(
-            "Py_DEBUG", hasattr(sys, "gettotalrefcount"), warn=precond
-        ):
+        if get_flag("Py_DEBUG", hasattr(sys, "gettotalrefcount"), warn=precond):
             d = "d"
 
         precond = impl == "cp" and sys.version_info < (3, 3)
