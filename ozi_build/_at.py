@@ -3,11 +3,9 @@ from typing import TYPE_CHECKING
 from typing import List
 from typing import Optional
 
+from ._char import Character  # noqa: TC002
 from ._repeat import InfiniteRepeat
 from ._repeat import Repeat
-
-if TYPE_CHECKING:
-    from ._char import Character
 
 
 @dataclass
