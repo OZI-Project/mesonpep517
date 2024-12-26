@@ -6,59 +6,64 @@
 ### Build System
 
 - Add release branches to workflow
-  ([`39e1d7e`](https://github.com/OZI-Project/mesonpep517/commit/39e1d7e810401d856db8f7d6376a01854bbc2826))
+  ([`39e1d7e`](https://github.com/OZI-Project/OZI.build/commit/39e1d7e810401d856db8f7d6376a01854bbc2826))
 
 Signed-off-by: Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
 
+- Fix changelog
+  ([`950537f`](https://github.com/OZI-Project/OZI.build/commit/950537f1cebfb52f3fafd5b21b9cb274fb604f56))
+
+Signed-off-by: rjdbcm <rjdbcm@outlook.com>
+
 - Fix dist checkpoint
-  ([`4dd9149`](https://github.com/OZI-Project/mesonpep517/commit/4dd91499c3f354e25c99f9ccaa5e38da1936f945))
+  ([`4dd9149`](https://github.com/OZI-Project/OZI.build/commit/4dd91499c3f354e25c99f9ccaa5e38da1936f945))
 
 Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
 - Fix wheel release
-  ([`eb02a41`](https://github.com/OZI-Project/mesonpep517/commit/eb02a41c4c914b6007df54323c0dec2e783ed865))
+  ([`eb02a41`](https://github.com/OZI-Project/OZI.build/commit/eb02a41c4c914b6007df54323c0dec2e783ed865))
 
 Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
 - Main is a release branch
-  ([`9c2f19b`](https://github.com/OZI-Project/mesonpep517/commit/9c2f19b9ad85cc63bcbdb01ee1ef3c71838e6908))
+  ([`9c2f19b`](https://github.com/OZI-Project/OZI.build/commit/9c2f19b9ad85cc63bcbdb01ee1ef3c71838e6908))
 
 Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
 - No tests for now
-  ([`00af619`](https://github.com/OZI-Project/mesonpep517/commit/00af619cfd2d33026531e2dd0085560356e6bd5b))
+  ([`00af619`](https://github.com/OZI-Project/OZI.build/commit/00af619cfd2d33026531e2dd0085560356e6bd5b))
 
 Signed-off-by: Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
 
 - Remove master release branch pattern
-  ([`f96d21a`](https://github.com/OZI-Project/mesonpep517/commit/f96d21af1b5fecfc121490f5c2b7d06374e6a932))
+  ([`f96d21a`](https://github.com/OZI-Project/OZI.build/commit/f96d21af1b5fecfc121490f5c2b7d06374e6a932))
 
 Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
 - Run black
-  ([`153735b`](https://github.com/OZI-Project/mesonpep517/commit/153735b18c4f6a3a9419a7555009980c35bb0bdc))
+  ([`153735b`](https://github.com/OZI-Project/OZI.build/commit/153735b18c4f6a3a9419a7555009980c35bb0bdc))
 
 Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
 - Run isort
-  ([`0fb8ecf`](https://github.com/OZI-Project/mesonpep517/commit/0fb8ecf36e1025822d661deb60c816888ec36f1f))
+  ([`0fb8ecf`](https://github.com/OZI-Project/OZI.build/commit/0fb8ecf36e1025822d661deb60c816888ec36f1f))
 
 Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
 - Skip dist checkpoint
-  ([`6a3a5e2`](https://github.com/OZI-Project/mesonpep517/commit/6a3a5e2736587dabfd7fbe581881a7253a4c3d23))
+  ([`6a3a5e2`](https://github.com/OZI-Project/OZI.build/commit/6a3a5e2736587dabfd7fbe581881a7253a4c3d23))
 
 Signed-off-by: Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
 
 - Use trusted publishing and dogfood OZI
-  ([`4268b0d`](https://github.com/OZI-Project/mesonpep517/commit/4268b0db89ebbc1c2609c66a7ab93f8f0f069a10))
+  ([`4268b0d`](https://github.com/OZI-Project/OZI.build/commit/4268b0db89ebbc1c2609c66a7ab93f8f0f069a10))
 
 Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
 ### Features
 
 - Use OZI for publishing
-  ([`485bd37`](https://github.com/OZI-Project/mesonpep517/commit/485bd37accff05383ca5ce509f5331129eb5baa7))
+  ([`485bd37`](https://github.com/OZI-Project/OZI.build/commit/485bd37accff05383ca5ce509f5331129eb5baa7))
 
 Feat/dogfood ozi
 
@@ -116,15 +121,15 @@ Feat/dogfood ozi
 ### Bug Fixes
 
 - ``project.optional_dependencies`` is parsed into wheel METADATA
-  ([`6933ce8`](https://github.com/OZI-Project/mesonpep517/commit/6933ce8397bffd293ad07ae9b4c95ce01da765a1))
+  ([`6933ce8`](https://github.com/OZI-Project/OZI.build/commit/6933ce8397bffd293ad07ae9b4c95ce01da765a1))
 
 Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
 - Warn for ignoring nested keys
-  ([`1b6e088`](https://github.com/OZI-Project/mesonpep517/commit/1b6e088a1fcd23191cd3f4ca23ac826426d4b65a))
+  ([`1b6e088`](https://github.com/OZI-Project/OZI.build/commit/1b6e088a1fcd23191cd3f4ca23ac826426d4b65a))
 
 - Warn for ignoring nested keys
-  ([`d7a8d7e`](https://github.com/OZI-Project/mesonpep517/commit/d7a8d7e2740a6dd60ba5fcf401d36dc740312d93))
+  ([`d7a8d7e`](https://github.com/OZI-Project/OZI.build/commit/d7a8d7e2740a6dd60ba5fcf401d36dc740312d93))
 
 Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
@@ -182,7 +187,4 @@ Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 ### Continuous Integration
 
 - Update to debian buster
-  ([`cc0b0c0`](https://github.com/OZI-Project/mesonpep517/commit/cc0b0c01163730aecd6fc938120789a343269460))
-
-
-## v0.1.9999996 (2020-07-15)
+  ([`cc0b0c0`](https://github.com/OZI-Project/OZI.build/commit/cc0b0c01163730aecd6fc938120789a343269460))
