@@ -40,10 +40,10 @@ option(
     'dist-suite',
     type: 'array',
     value: [
-        'python-semantic-release',
-        'sigstore',
-        'twine',
-        'cibuildwheel',
+#        'python-semantic-release',
+#        'sigstore',
+#        'twine',
+#        'cibuildwheel',
     ]
 )
 option(
