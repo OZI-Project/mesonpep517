@@ -237,11 +237,6 @@ commit_parser = "angular"
 major_on_zero = false
 tag_format = "{version}"
 
-[tool.semantic_release.branches.main]
-match = "(main|master)"
-prerelease_token = "beta"
-prerelease = false
-
 [tool.semantic_release.branches."x.x"]
 match = "\\A\\d+\\.\\d+\\Z"
 prerelease_token = "alpha"
