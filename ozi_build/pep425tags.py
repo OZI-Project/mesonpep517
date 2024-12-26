@@ -97,7 +97,7 @@ def get_config_var(var, default=None):
     try:
         return sysconfig.get_config_var(var)
     except IOError as e:  # pip Issue #1074
-        warnings.warn("{0}".format(e), RuntimeWarning)
+        warnings.warn("{0}".format(e), RuntimeWarning, 2)
         return default
 
 

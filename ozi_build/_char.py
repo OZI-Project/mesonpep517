@@ -83,7 +83,7 @@ class Character:
 
         return self
 
-    def __and__(self, other: "Optional[Character]") -> "Optional[Character]":
+    def __and__(self, other: "Optional[Character]") -> "Optional[Character]":  # noqa: C901
         if other is None:
             return None
         if self.is_any:
@@ -122,7 +122,7 @@ class Character:
                 return None
             return Character(literals=lits)
 
-        # TODO: be less lazy and sort out the general case without expanding everything if possible
+        # TODO: be less lazy and sort out the general case without expanding everything if possible  # noqa: T101
         return self.expand_categories() & other.expand_categories()
 
     def __rand__(self, other: "Optional[Character]") -> "Optional[Character]":
@@ -204,7 +204,7 @@ class Character:
         if self._is_positive_category and subgroup._is_positive_category:
             return not (subgroup.categories - self.categories)
 
-        raise NotImplementedError  # Lazy, TODO: do full match
+        raise NotImplementedError  # Lazy, TODO: do full match  # noqa: T101
 
     def matches(self, literal: int) -> bool:
         if self.is_any:

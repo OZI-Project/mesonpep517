@@ -14,7 +14,8 @@ from .pep425tags import get_impl_ver
 from .pep425tags import get_platform_tag
 
 
-class PotentialRedos(RuntimeError): ...
+class PotentialRedos(RuntimeError):
+    pass
 
 
 def handle_file(tomldata, filename: str, output: TextOutput):
@@ -27,7 +28,7 @@ class TomlWalker:
         self.filename = filename
         self.output = output
 
-    def handle(self, elem):
+    def handle(self, elem):  # noqa: C901
         if isinstance(elem, str) and len(elem) > 5:
             try:
                 parsed = SreOpParser().parse_sre(elem)
@@ -153,14 +154,14 @@ def meson(*args, config_settings=None, builddir=''):
             with open(fulllog) as f:
                 print("Full log: %s" % f.read())
         except IOError:
-            print("Could not open %s" % fulllog)
+            print("Could not open %s" % fulllog)  # type: ignore
             pass
         raise e
 
 
 def meson_configure(*args, config_settings=None):
     if 'MESON_ARGS' in os.environ:
-        args = os.environ.get('MESON_ARGS').split(' ') + list(args)
+        args = os.environ.get('MESON_ARGS').split(' ') + list(args)  # type: ignore
         print("USING MESON_ARGS: %s" % args)
     args = list(args)
     args.append('-Dlibdir=lib')

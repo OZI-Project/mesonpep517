@@ -18,6 +18,7 @@ import sysconfig
 import tempfile
 import zipfile
 from datetime import datetime
+from datetime import timezone
 from pathlib import Path
 from typing import TextIO
 
@@ -80,7 +81,7 @@ def compile_wheel(
 
 
 def remove_pycache(whl_dir: str, exclude: re.Pattern | None, quiet: bool) -> None:
-    for root, _, files in os.walk(whl_dir):
+    for root, _, _ in os.walk(whl_dir):
         pycache = Path(root, "__pycache__")
         if pycache.exists():
             if not quiet:
@@ -94,7 +95,10 @@ def update_file_attrs(whl_dir: str, members: list[zipfile.ZipInfo]) -> None:
         file_path = (
             whl_path.joinpath(member.filename).resolve().relative_to(whl_path.resolve())
         )
-        timestamp = datetime(*member.date_time).timestamp()
+        timestamp = datetime(
+            *member.date_time,
+            tzinfo=datetime.now(timezone.utc).astimezone().tzinfo,
+        ).timestamp()
         try:
             os.utime(str(file_path), (timestamp, timestamp))
         except Exception:
