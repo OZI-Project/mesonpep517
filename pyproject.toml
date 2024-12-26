@@ -40,6 +40,7 @@ classifiers = [
     "Topic :: System :: Archiving :: Packaging",
     "Development Status :: 4 - Beta",
 ]
+pure-python-abi="py3-none"
 
 [project.optional-dependencies] # also meson test suite names
 # OZI Packaging Dependencies
