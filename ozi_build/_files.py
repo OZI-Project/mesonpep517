@@ -1,12 +1,11 @@
 import os
 import os.path
 from glob import iglob
-from typing import List, Optional
+from typing import List
+from typing import Optional
 
 
-def _file_generator(
-    files_argument: List[str], is_glob: bool, filename_globs: List[str]
-):
+def _file_generator(files_argument: List[str], is_glob: bool, filename_globs: List[str]):
     if is_glob:
         for fglob in files_argument:
             yield from iglob(fglob, recursive=True)

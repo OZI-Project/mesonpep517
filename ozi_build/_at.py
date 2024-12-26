@@ -1,8 +1,13 @@
 from dataclasses import dataclass
-from typing import List, Optional
+from typing import TYPE_CHECKING
+from typing import List
+from typing import Optional
 
-from ._char import Character
-from ._repeat import InfiniteRepeat, Repeat
+from ._repeat import InfiniteRepeat
+from ._repeat import Repeat
+
+if TYPE_CHECKING:
+    from ._char import Character
 
 
 @dataclass
@@ -31,7 +36,8 @@ class EndOfString:
 
     def set_character(self, previous_elems: List):
         """
-        To force backtracking, the dollar will have to not match any previous groups until a mandatory group.
+        To force backtracking, the dollar will have to not match any
+        previous groups until a mandatory group.
         This can perhaps be made more lenient.
 
         To cause backtracking on a long string of a's:

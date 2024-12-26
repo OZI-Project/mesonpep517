@@ -1,13 +1,20 @@
 import sre_constants
 import sre_parse
-from typing import List, Optional, Set, Tuple, Union  # noqa: I100, I201
+from typing import List  # noqa: I100, I201
+from typing import Optional
+from typing import Set
+from typing import Tuple
+from typing import Union
 
 from ._at import EndOfString
-from ._branch import Branch, make_branch
-from ._categories import Category, covers_any
+from ._branch import Branch
+from ._branch import make_branch
+from ._categories import Category
+from ._categories import covers_any
 from ._char import Character
 from ._groupref import subpattern_to_groupref
-from ._repeat import FiniteRepeat, InfiniteRepeat
+from ._repeat import FiniteRepeat
+from ._repeat import InfiniteRepeat
 from ._sequence import Sequence
 
 SreConstant = sre_constants._NamedIntConstant
@@ -57,7 +64,7 @@ class SreOpParser:
     ) -> Union[FiniteRepeat, InfiniteRepeat, Branch, None]:
         minimum, maximum, elements = data
         infinite = maximum is sre_constants.MAXREPEAT
-        # TODO support negative lookahead before repeat with minimum = 0
+        # TODO support negative lookahead before repeat with minimum = 0  # noqa: T101
         negative_lookahead = self.use_negative_lookahead()
         repeatable = self.sequence_or_singleton(elements)
         if repeatable is None:
@@ -114,8 +121,8 @@ class SreOpParser:
         return make_branch(processed_branches)
 
     def from_AT(self, at: SreConstant):
-        # TODO: handling for multiline
-        # TODO: handling for \\b
+        # TODO: handling for multiline  # noqa: T101
+        # TODO: handling for \\b  # noqa: T101
         self.use_negative_lookahead()
         if at is sre_constants.AT_END:
             return EndOfString()
@@ -133,12 +140,10 @@ class SreOpParser:
 
     def from_NOT_LITERAL(self, not_literal: int) -> Character:
         if negative_lookahead := self.use_negative_lookahead():
-            return (
-                Character(literals={not_literal}, positive=False) & negative_lookahead
-            )
+            return Character(literals={not_literal}, positive=False) & negative_lookahead
         return Character(literals={not_literal}, positive=False)
 
-    def from_IN(self, data: List[SreOp]) -> Character:
+    def from_IN(self, data: List[SreOp]) -> Character:  # noqa: C901
         literals: Optional[Set[int]] = None
         categories: Optional[Set] = None
         positive = True

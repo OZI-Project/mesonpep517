@@ -1,9 +1,13 @@
 import string
 from dataclasses import dataclass
-from typing import Optional, Set
+from typing import Optional
+from typing import Set
 
-from ._categories import Category, covers_any, list_category
-from ._ranges import Range, lits_to_ranges
+from ._categories import Category
+from ._categories import covers_any
+from ._categories import list_category
+from ._ranges import Range
+from ._ranges import lits_to_ranges
 
 
 @dataclass(frozen=True)
@@ -56,9 +60,7 @@ class Character:
 
     @property
     def _is_negative_literal(self) -> bool:
-        return (
-            not self.positive and self.literals is not None and self.categories is None
-        )
+        return not self.positive and self.literals is not None and self.categories is None
 
     @property
     def _is_positive_category(self) -> bool:
@@ -66,9 +68,7 @@ class Character:
 
     @property
     def _is_negative_category(self) -> bool:
-        return (
-            not self.positive and self.literals is None and self.categories is not None
-        )
+        return not self.positive and self.literals is None and self.categories is not None
 
     def expand_categories(self) -> "Character":
         """
@@ -83,7 +83,7 @@ class Character:
 
         return self
 
-    def __and__(self, other: "Optional[Character]") -> "Optional[Character]":
+    def __and__(self, other: "Optional[Character]") -> "Optional[Character]":  # noqa: C901
         if other is None:
             return None
         if self.is_any:
@@ -122,7 +122,7 @@ class Character:
                 return None
             return Character(literals=lits)
 
-        # TODO: be less lazy and sort out the general case without expanding everything if possible
+        # TODO: be less lazy and sort out the general case without expanding everything if possible  # noqa: T101
         return self.expand_categories() & other.expand_categories()
 
     def __rand__(self, other: "Optional[Character]") -> "Optional[Character]":
@@ -204,7 +204,7 @@ class Character:
         if self._is_positive_category and subgroup._is_positive_category:
             return not (subgroup.categories - self.categories)
 
-        raise NotImplementedError  # Lazy, TODO: do full match
+        raise NotImplementedError  # Lazy, TODO: do full match  # noqa: T101
 
     def matches(self, literal: int) -> bool:
         if self.is_any:

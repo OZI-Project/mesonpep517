@@ -1,6 +1,7 @@
 import sys
 import unicodedata
-from enum import Enum, auto
+from enum import Enum
+from enum import auto
 from typing import Set
 
 
@@ -47,8 +48,8 @@ class Category(Enum):
 CATS = {}
 
 
-def list_category(category, full_unicode: bool = False):
-    if (cached := CATS.get(category)) :
+def list_category(category, full_unicode: bool = False):  # noqa: C901
+    if cached := CATS.get(category):
         yield from cached
     for data in range((sys.maxunicode + 1) if full_unicode else 256):
         c = chr(data)
@@ -80,9 +81,9 @@ def covers_any(categories: Set[Category]) -> bool:
     return False
 
 
-# CATS[sre_parse.CATEGORY_DIGIT] = list(list_category(sre_parse.CATEGORY_DIGIT))
-# CATS[sre_parse.CATEGORY_SPACE] = list(list_category(sre_parse.CATEGORY_SPACE))
-# CATS[sre_parse.CATEGORY_WORD] = list(list_category(sre_parse.CATEGORY_WORD))
+# CATS[sre_parse.CATEGORY_DIGIT] = list(list_category(sre_parse.CATEGORY_DIGIT))  # noqa: E800
+# CATS[sre_parse.CATEGORY_SPACE] = list(list_category(sre_parse.CATEGORY_SPACE))  # noqa: E800
+# CATS[sre_parse.CATEGORY_WORD] = list(list_category(sre_parse.CATEGORY_WORD))  # noqa: E800
 EXAMPLE_FOR_CAT = {
     Category.DIGIT: "4",
     Category.NOT_DIGIT: "!",

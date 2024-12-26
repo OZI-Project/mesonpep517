@@ -36,18 +36,12 @@ Example:
     "dynamic": {
         "description": """A list of other headers to be treated as dynamic fields."""
     },
-    "keywords": {
-        "description": """Comma-separated keywords as a string."""
-    },
+    "keywords": {"description": """Comma-separated keywords as a string."""},
     "license": {
         "description": """Text indicating the license covering the distribution. This text can be either a valid license expression as defined in [pep639](https://www.python.org/dev/peps/pep-0639/#id88) or any free text."""
     },
-    "license-expression": {
-        "description": """A SPDX license expression."""
-    },
-    "license-file": {
-        "description": """The license filename."""
-    },
+    "license-expression": {"description": """A SPDX license expression."""},
+    "license-file": {"description": """The license filename."""},
     "maintainer": {
         "description": "Name of current maintainer of the project (if different from author)"
     },
@@ -74,7 +68,8 @@ to set the python installation when using
     "module": {
         "description": "The name of the module, will use the meson project name if not specified"
     },
-    "obsoletes": {"description": """
+    "obsoletes": {
+        "description": """
 A list of PyPI packages that this project should not be installed concurrently with.
 
 ``` toml
@@ -84,7 +79,8 @@ A list of PyPI packages that this project should not be installed concurrently w
         'virtual_package; python_version >= "3.4"',
       ]
 ```
-"""},
+"""
+    },
     "pkg-info-file": {
         "description": """Pass a PKG-INFO file direcly usable.
 
@@ -92,9 +88,7 @@ A list of PyPI packages that this project should not be installed concurrently w
 > file
 """
     },
-    "platforms": {
-        "description": "Supported Python platforms, can be 'any', py3, etc..."
-    },
+    "platforms": {"description": "Supported Python platforms, can be 'any', py3, etc..."},
     "project-urls": {
         "description": """A list of `Type, url` as described in the
 [pep345](https://www.python.org/dev/peps/pep-0345/#project-url-multiple-use).
@@ -106,7 +100,8 @@ project-urls = [
 ]
 ```"""
     },
-    "provides": {"description": """A list of PyPI packages that this project provides its own version of.
+    "provides": {
+        "description": """A list of PyPI packages that this project provides its own version of.
 
 ``` toml
       provides = [
@@ -114,7 +109,8 @@ project-urls = [
         "AnotherProject==3.4",
         'virtual_package; python_version >= "3.4"',
       ]
-```"""},
+```"""
+    },
     "pure-python-abi": {
         "description": """An override of the pure python abi build target e.g. ``py3-none``."""
     },
@@ -134,14 +130,16 @@ after a semicolon. For example:
       ]
 ```"""
     },
-    "requires-external": {"description": """A list of non-PyPI dependency packages. For example:
+    "requires-external": {
+        "description": """A list of non-PyPI dependency packages. For example:
 
 ``` toml
       requires-external = [
           "git",
           "node",
       ]
-```"""},
+```"""
+    },
     "requires-python": {
         "description": """A version specifier for the versions of Python this requires, e.g. ``~=3.3`` or
 ``>=3.3,<4`` which are equivalents."""
@@ -152,5 +150,5 @@ after a semicolon. For example:
 }
 VALID_PYC_WHEEL_OPTIONS = {
     'exclude': {'description': 'A regular expression of files for pyc_wheel to ignore.'},
-    'quiet': {'description': 'Quiet non-error output of pyc_wheel.'}
+    'quiet': {'description': 'Quiet non-error output of pyc_wheel.'},
 }

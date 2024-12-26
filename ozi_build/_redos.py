@@ -1,12 +1,18 @@
 import logging
 from dataclasses import dataclass
-from typing import Iterator, List, Optional
+from typing import TYPE_CHECKING
+from typing import Iterator
+from typing import List
+from typing import Optional
 
 from ._at import EndOfString
 from ._branch import Branch
-from ._char import Character
-from ._repeat import InfiniteRepeat, Repeat
+from ._repeat import InfiniteRepeat
+from ._repeat import Repeat
 from ._sequence import Sequence
+
+if TYPE_CHECKING:
+    from ._char import Character
 
 
 @dataclass(frozen=True)
@@ -29,14 +35,9 @@ class Redos:
             repeated_char = killing_repeat
             killer = None
 
-        prefix = (
-            self.example_prefix.encode("unicode_escape").decode().replace("'", "\\'")
-        )
+        prefix = self.example_prefix.encode("unicode_escape").decode().replace("'", "\\'")
         repeated_char_s = (
-            repeated_char.example()
-            .encode("unicode_escape")
-            .decode()
-            .replace("'", "\\'")
+            repeated_char.example().encode("unicode_escape").decode().replace("'", "\\'")
         )
         e = f"'{prefix}' + " if prefix else ""
         if js_flavour:
@@ -45,9 +46,7 @@ class Redos:
             e += f"'{repeated_char_s}' * 3456"
 
         if killer:
-            killer_s = (
-                killer.example().encode("unicode_escape").decode().replace("'", "\\'")
-            )
+            killer_s = killer.example().encode("unicode_escape").decode().replace("'", "\\'")
             return e + f" + '{killer_s}'"
         return e
 
@@ -63,7 +62,7 @@ def find(sequence, flags: int = 0) -> List[Redos]:
     return sorted(redos, key=lambda r: -r.starriness * 1000 + len(r.example_prefix))
 
 
-def expand_branches(seq: Sequence) -> Iterator[Sequence]:
+def expand_branches(seq: Sequence) -> Iterator[Sequence]:  # noqa: C901
     """
     This could blow up exponentially, but it's nicer for now to expand branches.
     """
@@ -96,9 +95,7 @@ def expand_branches(seq: Sequence) -> Iterator[Sequence]:
 
 def find_redos(sequence_with_branches) -> Iterator[Redos]:
     logging.debug(sequence_with_branches)
-    if not isinstance(
-        sequence_with_branches, Sequence
-    ):  # singleton like Branch (ab|cd)
+    if not isinstance(sequence_with_branches, Sequence):  # singleton like Branch (ab|cd)
         sequence_with_branches = Sequence([sequence_with_branches])
     for seq in expand_branches(sequence_with_branches):
         yield from find_redos_in_branchless_sequence(seq)
@@ -107,19 +104,19 @@ def find_redos(sequence_with_branches) -> Iterator[Redos]:
 def find_redos_in_branchless_sequence(seq: Sequence) -> Iterator[Redos]:
     logging.debug(seq)
     for i, elem in enumerate(seq.elements):
-        # TODO branches
+        # TODO branches  # noqa: T101
         if isinstance(elem, InfiniteRepeat) and (c := elem.overall_character_class()):
             yield from make_redos(seq, i, i + 1, c, elem.starriness)
 
 
-def make_redos(
+def make_redos(  # noqa: C901
     seq: Sequence,
     sequence_start: int,
     continue_from: int,
     repeated_character: Character,
     starriness: int,
 ) -> Iterator[Redos]:
-    # TODO branches
+    # TODO branches  # noqa: T101
     character_history = [repeated_character]
     logging.debug(
         "Make ReDoS %d %d %s %d",
@@ -156,7 +153,7 @@ def make_redos(
             else:
                 continue  # Don't care about finite repeats (abc)? or a{,4}
 
-        # print(repeated_character, "+", elem.overall_character_class(), "->", new_c)
+        # print(repeated_character, "+", elem.overall_character_class(), "->", new_c)  # noqa: E800
         if new_c is None:
             # This element will force backtracking as it's incompatible with `repeated_character`
             if elem.minimum_length and starriness > 2:
@@ -214,7 +211,7 @@ def redos_found(
     starriness: int,
     killer: Optional[Character],
 ) -> Redos:
-    # TODO: Try to include some skipped optional parts (like `?`) just to make it nicer
+    # TODO: Try to include some skipped optional parts (like `?`) just to make it nicer  # noqa: T101
     logging.debug("ReDoS found")
     return Redos(
         starriness,

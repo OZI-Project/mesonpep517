@@ -1,21 +1,21 @@
 import contextlib
 import os
+import re
 import subprocess
 import sys
 from fileinput import filename
-import re
 
+from ._redos import find
+from ._sre import SreOpParser
+from ._text import TextOutput
 from .pep425tags import get_abbr_impl
 from .pep425tags import get_abi_tag
 from .pep425tags import get_impl_ver
 from .pep425tags import get_platform_tag
-from ._text import TextOutput
-from ._redos import find
-from ._sre import SreOpParser
 
 
 class PotentialRedos(RuntimeError):
-    ...
+    pass
 
 
 def handle_file(tomldata, filename: str, output: TextOutput):
@@ -28,7 +28,7 @@ class TomlWalker:
         self.filename = filename
         self.output = output
 
-    def handle(self, elem):
+    def handle(self, elem):  # noqa: C901
         if isinstance(elem, str) and len(elem) > 5:
             try:
                 parsed = SreOpParser().parse_sre(elem)
@@ -39,7 +39,7 @@ class TomlWalker:
                 for redos in find(parsed):
                     if redos.starriness > 2:
                         self.output.record(
-                            redos ,
+                            redos,
                             elem,
                             filename=self.filename,
                         )
@@ -96,6 +96,7 @@ else:
     print("{0}-none".format(tag))
 """
 
+
 @contextlib.contextmanager
 def cd(path):
     CWD = os.getcwd()
@@ -136,6 +137,7 @@ def install_files_path(installpath, target):
         installpath = os.path.dirname(installpath)
     return installpath
 
+
 def meson(*args, config_settings=None, builddir=''):
     try:
         return subprocess.check_output(['meson'] + list(args))
@@ -146,25 +148,22 @@ def meson(*args, config_settings=None, builddir=''):
             stdout = e.stdout.decode()
         if e.stderr:
             stderr = e.stderr.decode()
-        print(
-            "Could not run meson: %s\n%s" % (stdout, stderr), file=sys.stderr
-        )
+        print("Could not run meson: %s\n%s" % (stdout, stderr), file=sys.stderr)
         try:
             fulllog = os.path.join(builddir, 'meson-logs', 'meson-log.txt')
             with open(fulllog) as f:
                 print("Full log: %s" % f.read())
         except IOError:
-            print("Could not open %s" % fulllog)
+            print("Could not open %s" % fulllog)  # type: ignore
             pass
         raise e
 
 
 def meson_configure(*args, config_settings=None):
     if 'MESON_ARGS' in os.environ:
-        args = os.environ.get('MESON_ARGS').split(' ') + list(args)
+        args = os.environ.get('MESON_ARGS').split(' ') + list(args)  # type: ignore
         print("USING MESON_ARGS: %s" % args)
     args = list(args)
     args.append('-Dlibdir=lib')
 
     meson(*args, builddir=args[0], config_settings=config_settings)
-

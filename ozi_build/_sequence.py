@@ -1,5 +1,6 @@
 from dataclasses import dataclass
-from typing import List, Optional
+from typing import List
+from typing import Optional
 
 from ._char import Character
 from ._repeat import InfiniteRepeat
@@ -50,7 +51,7 @@ class Sequence:
                 return None
         return c
 
-    def matching_repeats(self):
+    def matching_repeats(self):  # noqa: C901
         """Complicated way to get the possible character classes for a sequence"""
         c = Character.ANY()
         has_mandatory = False
@@ -76,7 +77,8 @@ class Sequence:
                     possibilities[new_c] = e.starriness
 
         if len(possibilities) > 1:
-            # (a*[ab]*a*[bc]*[bcd]*.+a*)*@ has classes {.: 1, [a]: 5, [[a-b]]: 2, [[b-c]]: 3, [[b-d]]: 2, [b]: 3}
+            # (a*[ab]*a*[bc]*[bcd]*.+a*)*@ has classes:
+            # {.: 1, [a]: 5, [[a-b]]: 2, [[b-c]]: 3, [[b-d]]: 2, [b]: 3}
             # This could blow up!
             poss_chars = list(possibilities.items())
             merged_chars = {}

@@ -1,5 +1,8 @@
 from dataclasses import dataclass
-from typing import Iterator, List, Set, Tuple
+from typing import Iterator
+from typing import List
+from typing import Set
+from typing import Tuple
 
 
 @dataclass(frozen=True)

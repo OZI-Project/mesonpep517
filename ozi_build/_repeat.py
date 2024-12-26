@@ -1,7 +1,10 @@
 from dataclasses import dataclass
-from typing import Any, Optional
+from typing import TYPE_CHECKING
+from typing import Any
+from typing import Optional
 
-from ._char import Character
+if TYPE_CHECKING:
+    from ._char import Character
 
 
 @dataclass(frozen=True)
