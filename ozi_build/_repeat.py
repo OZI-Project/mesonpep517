@@ -1,10 +1,8 @@
 from dataclasses import dataclass
-from typing import TYPE_CHECKING
 from typing import Any
 from typing import Optional
 
-if TYPE_CHECKING:
-    from ._char import Character
+from ._char import Character  # noqa: TC002
 
 
 @dataclass(frozen=True)

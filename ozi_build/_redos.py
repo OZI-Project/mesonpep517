@@ -7,12 +7,10 @@ from typing import Optional
 
 from ._at import EndOfString
 from ._branch import Branch
+from ._char import Character  # noqa: TC002
 from ._repeat import InfiniteRepeat
 from ._repeat import Repeat
 from ._sequence import Sequence
-
-if TYPE_CHECKING:
-    from ._char import Character
 
 
 @dataclass(frozen=True)
