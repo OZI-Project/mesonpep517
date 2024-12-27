@@ -30,6 +30,11 @@ Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
 Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
+- Fix release workflow
+  ([`3b4a58e`](https://github.com/OZI-Project/OZI.build/commit/3b4a58e2ecf7d8fb8685c92d514d44c47acb07c9))
+
+Signed-off-by: rjdbcm <rjdbcm@outlook.com>
+
 - Fix wheel release
   ([`eb02a41`](https://github.com/OZI-Project/OZI.build/commit/eb02a41c4c914b6007df54323c0dec2e783ed865))
 
