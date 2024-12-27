@@ -63,6 +63,8 @@ pbr==6.1.0
 pip-tools==7.4.1
     # via ozi
 pipx
+
+OZI.build~=1.9
     # via ozi
 prompt-toolkit==3.0.48
     # via ozi
