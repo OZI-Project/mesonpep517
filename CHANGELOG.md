@@ -35,6 +35,11 @@ Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
 Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
+- Fix file permissions
+  ([`107a6ed`](https://github.com/OZI-Project/OZI.build/commit/107a6ed2e92f4630e450c9ffcedbb95698baa409))
+
+Signed-off-by: rjdbcm <rjdbcm@outlook.com>
+
 - Fix release workflow
   ([`3b4a58e`](https://github.com/OZI-Project/OZI.build/commit/3b4a58e2ecf7d8fb8685c92d514d44c47acb07c9))
 
