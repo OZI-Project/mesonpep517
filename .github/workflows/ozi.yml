@@ -211,7 +211,6 @@ jobs:
         run: |
             git diff
             python -m build .
-            twine upload dist/*
 
       - uses: actions/upload-artifact@v4.5.0
         with:
@@ -251,3 +250,6 @@ jobs:
     - uses: OZI-Project/publish@1.7.2
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Publish package distributions to PyPI
+      uses: pypa/gh-action-pypi-publish@67339c736fd9354cd4f8cb0b744f2b82a74b5c70
