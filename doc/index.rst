@@ -11,7 +11,7 @@ OZI.build documentation
 .. toctree::
    :maxdepth: 2
 
-   pyproject.md
+   pyproject.md.rst
 
 .. only:: html
 
