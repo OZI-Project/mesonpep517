@@ -174,36 +174,14 @@ jobs:
             cdn03.quay.io:443
             downloads.python.org:443
 
-      - name: Get OZI specification API
-        id: api
-        run: |
-          echo "python-version=$( curl -L https://oziproject.dev/api.json | jq -c '.spec.python.support.${{ inputs.python-dist }}' )" >> $GITHUB_OUTPUT
-          echo "ozi-build=$( curl -L https://oziproject.dev/api.json | jq -c '.spec.python.build.requires."OZI.build"' )" >> $GITHUB_OUTPUT
-          echo "tox=$( curl -L https://oziproject.dev/api.json | jq -c '.spec.python.ci.backend.tox' )" >> $GITHUB_OUTPUT
-          echo "tox-gh=$( curl -L https://oziproject.dev/api.json | jq -c '.spec.python.ci.backend."tox-gh"' )" >> $GITHUB_OUTPUT
-
-      - name: Get Python tag
-        id: cibuildwheel-support
-        run: |
-          echo "tag=$( echo ${{ steps.api.outputs.python-version }} | sed 's/\.//' )" >> $GITHUB_OUTPUT
-
       - uses: actions/download-artifact@v4
         with:
           name: security2
 
-      - name: Set up Python ${{ steps.api.outputs.python-version }}
-        uses: actions/setup-python@v5
-        with:
-          cache: 'pip'
-          python-version: ${{ fromJSON(steps.api.outputs.python-version) }}
-          allow-prereleases: true
-          check-latest: true
-
       - name: Install build dependencies
         run: |
             python -m pip install --upgrade pip
-            python -m pip install --user ${{ steps.api.outputs.tox }}
-            python -m pip install --user ${{ steps.api.outputs.tox-gh }}
+            python -m pip install --user build
             python -m pip install --user twine==6.0.1
             pipx ensurepath --force
             pipx install meson --force
