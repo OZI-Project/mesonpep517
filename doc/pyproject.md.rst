@@ -1,1 +1,0 @@
-.. include:: pyproject.md

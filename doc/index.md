@@ -26,3 +26,6 @@ though other standard tools like [pip3](https://pip.pypa.io/en/stable/),
 
 
 In short for the next release: `rm dist/* && python3 -m build && twine upload dist/*`
+
+```{include} pyproject.md
+```
