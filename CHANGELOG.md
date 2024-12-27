@@ -1,7 +1,7 @@
 # CHANGELOG
 
 
-## v1.9.0 (2024-12-26)
+## v1.9.0 (2024-12-27)
 
 ### Build System
 
@@ -59,6 +59,11 @@ Signed-off-by: rjdbcm <rjdbcm@outlook.com>
   ([`6a3a5e2`](https://github.com/OZI-Project/OZI.build/commit/6a3a5e2736587dabfd7fbe581881a7253a4c3d23))
 
 Signed-off-by: Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+
+- Use a custom workflow
+  ([`0167fd2`](https://github.com/OZI-Project/OZI.build/commit/0167fd20891af2b51b5966aa017e39a2e38c050e))
+
+Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
 - Use trusted publishing and dogfood OZI
   ([`4268b0d`](https://github.com/OZI-Project/OZI.build/commit/4268b0db89ebbc1c2609c66a7ab93f8f0f069a10))
