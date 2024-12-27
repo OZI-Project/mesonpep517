@@ -10,6 +10,11 @@
 
 Signed-off-by: Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
 
+- Correct artifact name
+  ([`731e5fd`](https://github.com/OZI-Project/OZI.build/commit/731e5fd345a231c1b82df5bcb4430fc418cc0fe7))
+
+Signed-off-by: rjdbcm <rjdbcm@outlook.com>
+
 - Correct name
   ([`c20e4b2`](https://github.com/OZI-Project/OZI.build/commit/c20e4b215100fc362665c69428b7a0f744b65da4))
 
