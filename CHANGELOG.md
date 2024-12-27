@@ -50,6 +50,11 @@ Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
 Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
+- Fix workflow
+  ([`877ca93`](https://github.com/OZI-Project/OZI.build/commit/877ca937ce8481634d35940b9936690ad52d89df))
+
+Signed-off-by: rjdbcm <rjdbcm@outlook.com>
+
 - Main is a release branch
   ([`9c2f19b`](https://github.com/OZI-Project/OZI.build/commit/9c2f19b9ad85cc63bcbdb01ee1ef3c71838e6908))
 
