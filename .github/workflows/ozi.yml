@@ -209,6 +209,7 @@ jobs:
 
       - name: Publish release
         run: |
+            git diff
             python -m build .
             twine upload dist/*
 
