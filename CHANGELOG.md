@@ -5,6 +5,11 @@
 
 ### Build System
 
+- Add .mypy_cache to .gitignore
+  ([`e418e77`](https://github.com/OZI-Project/OZI.build/commit/e418e77dc8937d68624e725f889c2ed0b732b4bb))
+
+Signed-off-by: rjdbcm <rjdbcm@outlook.com>
+
 - Add release branches to workflow
   ([`39e1d7e`](https://github.com/OZI-Project/OZI.build/commit/39e1d7e810401d856db8f7d6376a01854bbc2826))
 
