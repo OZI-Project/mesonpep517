@@ -60,6 +60,11 @@ Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
 Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
+- Shorter custom workflow
+  ([`cd8fd46`](https://github.com/OZI-Project/OZI.build/commit/cd8fd46c9fc5d7eec73ab127fd7bd1cd3586afe7))
+
+Signed-off-by: rjdbcm <rjdbcm@outlook.com>
+
 - Skip dist checkpoint
   ([`6a3a5e2`](https://github.com/OZI-Project/OZI.build/commit/6a3a5e2736587dabfd7fbe581881a7253a4c3d23))
 
