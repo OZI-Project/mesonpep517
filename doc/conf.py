@@ -45,14 +45,13 @@ extensions = [
     'sphinxcontrib.programoutput',
     'sphinxcontrib.cairosvgconverter',
 ]
-rst_prolog = '.. include:: latex-tools.rst'
 templates_path = ['_templates']
 today_fmt = '%d-%b-%Y'
 python_display_short_literal_types = True
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
-html_title = 'changes.OZIproject.dev'
+html_title = 'build.OZIproject.dev'
 html_theme = 'sphinxawesome_theme'
 html_context = {'mode': 'production'}
 # Set canonical URL from the Read the Docs Domain
