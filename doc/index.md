@@ -29,6 +29,6 @@ In short for the next release: `rm dist/* && python3 -m build && twine upload di
 ```{toctree}
 OZIproject.dev Homepage <https://oziproject.dev>
 changes.OZIproject.dev Changelog <https://changes.oziproject.dev/>
-docs.OZIproject.dev Documentation <https://oziproject.dev>
+docs.OZIproject.dev Documentation <https://docs.oziproject.dev>
 pyproject.md
 ```
