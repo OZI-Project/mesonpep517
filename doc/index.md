@@ -27,6 +27,8 @@ though other standard tools like [pip3](https://pip.pypa.io/en/stable/),
 In short for the next release: `rm dist/* && python3 -m build && twine upload dist/*`
 
 ```{toctree}
-OZIProject.dev Homepage <https://oziproject.dev>
+OZIproject.dev Homepage <https://oziproject.dev>
+changes.OZIproject.dev Changelog <https://changes.oziproject.dev/>
+docs.OZIproject.dev Documentation <https://oziproject.dev>
 pyproject.md
 ```
