@@ -113,3 +113,5 @@ intersphinx_mapping = {
     'setuptools': ('https://setuptools.pypa.io/en/stable/', None),
     'tox': ('https://tox.wiki/en/stable/', None)
 }
+
+myst_enable_extensions = ['colon_fence']
