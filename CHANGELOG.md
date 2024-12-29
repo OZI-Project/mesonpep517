@@ -1,22 +1,57 @@
 # CHANGELOG
 
 
-## v1.9.0 (2024-12-26)
+## v1.9.0 (2024-12-27)
 
 ### Build System
+
+- Add .mypy_cache to .gitignore
+  ([`e418e77`](https://github.com/OZI-Project/OZI.build/commit/e418e77dc8937d68624e725f889c2ed0b732b4bb))
+
+Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
 - Add release branches to workflow
   ([`39e1d7e`](https://github.com/OZI-Project/OZI.build/commit/39e1d7e810401d856db8f7d6376a01854bbc2826))
 
 Signed-off-by: Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
 
+- Correct artifact name
+  ([`731e5fd`](https://github.com/OZI-Project/OZI.build/commit/731e5fd345a231c1b82df5bcb4430fc418cc0fe7))
+
+Signed-off-by: rjdbcm <rjdbcm@outlook.com>
+
+- Correct name
+  ([`c20e4b2`](https://github.com/OZI-Project/OZI.build/commit/c20e4b215100fc362665c69428b7a0f744b65da4))
+
+Signed-off-by: rjdbcm <rjdbcm@outlook.com>
+
+- Fix changelog
+  ([`950537f`](https://github.com/OZI-Project/OZI.build/commit/950537f1cebfb52f3fafd5b21b9cb274fb604f56))
+
+Signed-off-by: rjdbcm <rjdbcm@outlook.com>
+
 - Fix dist checkpoint
   ([`4dd9149`](https://github.com/OZI-Project/OZI.build/commit/4dd91499c3f354e25c99f9ccaa5e38da1936f945))
 
 Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
+- Fix file permissions
+  ([`107a6ed`](https://github.com/OZI-Project/OZI.build/commit/107a6ed2e92f4630e450c9ffcedbb95698baa409))
+
+Signed-off-by: rjdbcm <rjdbcm@outlook.com>
+
+- Fix release workflow
+  ([`3b4a58e`](https://github.com/OZI-Project/OZI.build/commit/3b4a58e2ecf7d8fb8685c92d514d44c47acb07c9))
+
+Signed-off-by: rjdbcm <rjdbcm@outlook.com>
+
 - Fix wheel release
   ([`eb02a41`](https://github.com/OZI-Project/OZI.build/commit/eb02a41c4c914b6007df54323c0dec2e783ed865))
+
+Signed-off-by: rjdbcm <rjdbcm@outlook.com>
+
+- Fix workflow
+  ([`877ca93`](https://github.com/OZI-Project/OZI.build/commit/877ca937ce8481634d35940b9936690ad52d89df))
 
 Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
@@ -30,6 +65,11 @@ Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
 Signed-off-by: Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
 
+- Remove master release branch pattern
+  ([`f96d21a`](https://github.com/OZI-Project/OZI.build/commit/f96d21af1b5fecfc121490f5c2b7d06374e6a932))
+
+Signed-off-by: rjdbcm <rjdbcm@outlook.com>
+
 - Run black
   ([`153735b`](https://github.com/OZI-Project/OZI.build/commit/153735b18c4f6a3a9419a7555009980c35bb0bdc))
 
@@ -40,10 +80,20 @@ Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
 Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
+- Shorter custom workflow
+  ([`cd8fd46`](https://github.com/OZI-Project/OZI.build/commit/cd8fd46c9fc5d7eec73ab127fd7bd1cd3586afe7))
+
+Signed-off-by: rjdbcm <rjdbcm@outlook.com>
+
 - Skip dist checkpoint
   ([`6a3a5e2`](https://github.com/OZI-Project/OZI.build/commit/6a3a5e2736587dabfd7fbe581881a7253a4c3d23))
 
 Signed-off-by: Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+
+- Use a custom workflow
+  ([`0167fd2`](https://github.com/OZI-Project/OZI.build/commit/0167fd20891af2b51b5966aa017e39a2e38c050e))
+
+Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
 - Use trusted publishing and dogfood OZI
   ([`4268b0d`](https://github.com/OZI-Project/OZI.build/commit/4268b0db89ebbc1c2609c66a7ab93f8f0f069a10))
@@ -178,3 +228,6 @@ Signed-off-by: rjdbcm <rjdbcm@outlook.com>
 
 - Update to debian buster
   ([`cc0b0c0`](https://github.com/OZI-Project/OZI.build/commit/cc0b0c01163730aecd6fc938120789a343269460))
+
+
+## v0.1.9999996 (2020-07-15)
