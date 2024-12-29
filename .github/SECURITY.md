@@ -2,9 +2,13 @@
 
 ## Supported Versions
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.5+    | ✅                 |
+| Version   | Supported          |
+| --------- | ------------------ |
+| 1.5.x     | ✅                 |
+| 1.6.x     | ✅                 |
+| 1.7.x     | ✅                 |
+| 1.8.x     | ✅                 |
+| 1.9.x     | ✅                 |
 
 ## Disclosure
 
