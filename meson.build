@@ -58,7 +58,7 @@ foreach source : root_files
 endforeach
 subdir('ozi_build')
 subdir('tests')
-# subdir('docs')
+# subdir('doc')
 root_children = ['ozi.phony']
 foreach child: root_children
     if child != 'ozi.phony'
