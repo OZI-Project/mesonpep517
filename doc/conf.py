@@ -86,6 +86,7 @@ latex_elements = {
 }
 latex_show_pagerefs = True
 latex_show_urls = 'inline'
+latex_theme = 'howto'
 
 # -- sphinx.ext.autodoc ------------------------------------------------------
 autodoc_preserve_defaults = True
