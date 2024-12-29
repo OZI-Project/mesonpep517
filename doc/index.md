@@ -24,5 +24,11 @@ though other standard tools like [pip3](https://pip.pypa.io/en/stable/),
    the `dist/` folder)
 4. Publish the package `twine upload dist/*`
 
-
 In short for the next release: `rm dist/* && python3 -m build && twine upload dist/*`
+
+```{toctree}
+OZIproject.dev Homepage <https://oziproject.dev>
+changes.OZIproject.dev Changelog <https://changes.oziproject.dev/>
+docs.OZIproject.dev Documentation <https://docs.oziproject.dev>
+pyproject.md
+```
