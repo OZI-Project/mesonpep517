@@ -16,6 +16,15 @@ metadatas in its [`pyproject.toml`] config file
 though other standard tools like [pip](https://pip.pypa.io/en/stable/),
  [twine](https://pypi.org/project/twine/) or [build](https://pypi.org/project/build/)
 
+```{toctree}
+:maxdepth: 2
+OZIproject.dev Homepage <https://oziproject.dev>
+changes.OZIproject.dev Changelog <https://changes.oziproject.dev/>
+docs.OZIproject.dev Documentation <https://oziproject.dev>
+pyproject.md
+license.md
+```
+
 ### Workflow to upload a release to pypi
 
 1. Add a [pyproject.toml](pyproject.md) to your project
@@ -25,11 +34,3 @@ though other standard tools like [pip](https://pip.pypa.io/en/stable/),
 4. Publish the package `twine upload dist/*`
 
 In short for the next release: `rm dist/* && python3 -m build && twine upload dist/*`
-
-```{toctree}
-OZIproject.dev Homepage <https://oziproject.dev>
-changes.OZIproject.dev Changelog <https://changes.oziproject.dev/>
-docs.OZIproject.dev Documentation <https://oziproject.dev>
-pyproject.md
-license.md
-```
