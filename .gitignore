@@ -10,6 +10,7 @@ temp/
 .pytest_cache/
 .tox/
 .ruff_cache/
+.mypy_cache/
 
 # coverage files
 .coverage
