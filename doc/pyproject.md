@@ -1,5 +1,6 @@
-# The pyproject.toml config file
+# Configuration
 
+OZI.build only supports reading configuration from `pyproject.toml`.
 This file lives at the root of the module/package, at the same place
 as the toplevel `meson.build` file.
 
@@ -10,7 +11,7 @@ defined by PEP 517. For any project using OZI.build, it will look something like
 
 ``` toml
     [build-system]
-    requires = ["OZI.build[core]~=1.5"]
+    requires = ["OZI.build[core]~=1.9"]
     build-backend = "ozi_build.buildapi"
 ```
 
@@ -25,7 +26,6 @@ It should look similar to this in an OZI.build project:
     dynamic = ["version"]
     dependencies = [
     'TAP-Producer~=1.0.4',
-    ...
     ]
 
     [project.license]
@@ -226,6 +226,7 @@ A version specifier for the versions of Python this requires, e.g. ``~=3.3`` or
 ### `summary`
 
 A one sentence summary about the package
+
 
 ## ``pyc_wheel`` configuration
 
