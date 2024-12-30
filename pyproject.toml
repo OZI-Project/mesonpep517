@@ -43,7 +43,7 @@ classifiers = [
 pure-python-abi="py3-none"
 
 [tool.ozi-build.pyc_wheel]
-ignore='.*\.py'
+exclude='.*\.py'
 
 [project.optional-dependencies] # also meson test suite names
 # OZI Packaging Dependencies
