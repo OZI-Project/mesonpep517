@@ -1,40 +1,17 @@
 # OZI.build CHANGELOG
+## 1.9.2 (2024-12-30)
+
+
+### Unknown
+
+
+* Update pyproject.toml — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`3a35f63`](https://github.com/OZI-Project/OZI.build/commit/3a35f63b8f5a452acdc5d4155038502248591ef5))
+
+* Update SECURITY.md — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`bea8cc1`](https://github.com/OZI-Project/OZI.build/commit/bea8cc1f44b9d70a841f5f015959dc76dbc778b7))
+
 ## 1.9.1 (2024-12-29)
-
-
-### Build system
-
-
-* build: fix docs title — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
-([`7f45cdb`](https://github.com/OZI-Project/OZI.build/commit/7f45cdb42c18c074055db20d2d0b81a5c8641c97))
-
-* build: simplify docs — rjdbcm <rjdbcm@outlook.com>
-([`fb34282`](https://github.com/OZI-Project/OZI.build/commit/fb342821c09a3c4534383be5182e983d5847c188))
-
-* build: fix docs — rjdbcm <rjdbcm@outlook.com>
-([`55d4358`](https://github.com/OZI-Project/OZI.build/commit/55d4358860f19250a4603ca001a25a669c3b79bd))
-
-* build: add doc dependency — rjdbcm <rjdbcm@outlook.com>
-([`d1e038a`](https://github.com/OZI-Project/OZI.build/commit/d1e038a75d78a0f5c6677c69e01bd4c6588f1116))
-
-* build: add sphinx docs — rjdbcm <rjdbcm@outlook.com>
-([`95994db`](https://github.com/OZI-Project/OZI.build/commit/95994db49582d61e2201ddec1b88da5a0962fedf))
-
-
-### Documentation
-
-
-* docs: use howto pdf theme — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
-([`0e97756`](https://github.com/OZI-Project/OZI.build/commit/0e977563b305c1011896f1b2bceb32cf4115c997))
-
-* docs: add changelog template — rjdbcm <rjdbcm@outlook.com>
-([`2851d92`](https://github.com/OZI-Project/OZI.build/commit/2851d9259a629107498c705391d01a8796623064))
-
-* docs: add changes and docs link — rjdbcm <rjdbcm@outlook.com>
-([`fc7ea95`](https://github.com/OZI-Project/OZI.build/commit/fc7ea9513a2ac2033afa5ed86ba267891b937b9f))
-
-* docs: add homepage link — rjdbcm <rjdbcm@outlook.com>
-([`ac65d38`](https://github.com/OZI-Project/OZI.build/commit/ac65d383eceb0870dcbde2b6ffbab965572aeb40))
 
 
 ### Unknown
@@ -63,9 +40,6 @@ updated-dependencies:
 
 * Update index.md — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
 ([`73614d8`](https://github.com/OZI-Project/OZI.build/commit/73614d889be65a894477cded2dca56da8c6c8b93))
-
-* Update SECURITY.md — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
-([`f9de2ad`](https://github.com/OZI-Project/OZI.build/commit/f9de2ade260ef378098e7ad93e8491e9516717a0))
 
 ## 1.9.0 (2024-12-27)
 
@@ -103,6 +77,27 @@ updated-dependencies:
 * build: remove master release branch pattern — rjdbcm <rjdbcm@outlook.com>
 ([`f96d21a`](https://github.com/OZI-Project/OZI.build/commit/f96d21af1b5fecfc121490f5c2b7d06374e6a932))
 
+* build: dont compile to bytecode — rjdbcm <rjdbcm@outlook.com>
+([`ab98233`](https://github.com/OZI-Project/OZI.build/commit/ab982330db5831a7ceca55f2d50f99ebab137d54))
+
+* build: fix some docs typos — rjdbcm <rjdbcm@outlook.com>
+([`57b482a`](https://github.com/OZI-Project/OZI.build/commit/57b482adc4ea9ae9d5e05f8c4e2217cb8893be6b))
+
+* build: fix docs title — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`7f45cdb`](https://github.com/OZI-Project/OZI.build/commit/7f45cdb42c18c074055db20d2d0b81a5c8641c97))
+
+* build: simplify docs — rjdbcm <rjdbcm@outlook.com>
+([`fb34282`](https://github.com/OZI-Project/OZI.build/commit/fb342821c09a3c4534383be5182e983d5847c188))
+
+* build: fix docs — rjdbcm <rjdbcm@outlook.com>
+([`55d4358`](https://github.com/OZI-Project/OZI.build/commit/55d4358860f19250a4603ca001a25a669c3b79bd))
+
+* build: add doc dependency — rjdbcm <rjdbcm@outlook.com>
+([`d1e038a`](https://github.com/OZI-Project/OZI.build/commit/d1e038a75d78a0f5c6677c69e01bd4c6588f1116))
+
+* build: add sphinx docs — rjdbcm <rjdbcm@outlook.com>
+([`95994db`](https://github.com/OZI-Project/OZI.build/commit/95994db49582d61e2201ddec1b88da5a0962fedf))
+
 * build: add release branches to workflow — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
 ([`39e1d7e`](https://github.com/OZI-Project/OZI.build/commit/39e1d7e810401d856db8f7d6376a01854bbc2826))
 
@@ -131,6 +126,25 @@ updated-dependencies:
 ([`0fb8ecf`](https://github.com/OZI-Project/OZI.build/commit/0fb8ecf36e1025822d661deb60c816888ec36f1f))
 
 
+### Documentation
+
+
+* docs: enable colon fence — rjdbcm <rjdbcm@outlook.com>
+([`3c3230a`](https://github.com/OZI-Project/OZI.build/commit/3c3230a4ebc1cd4276857d74dd263185468a0010))
+
+* docs: use howto pdf theme — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`0e97756`](https://github.com/OZI-Project/OZI.build/commit/0e977563b305c1011896f1b2bceb32cf4115c997))
+
+* docs: add changelog template — rjdbcm <rjdbcm@outlook.com>
+([`2851d92`](https://github.com/OZI-Project/OZI.build/commit/2851d9259a629107498c705391d01a8796623064))
+
+* docs: add changes and docs link — rjdbcm <rjdbcm@outlook.com>
+([`fc7ea95`](https://github.com/OZI-Project/OZI.build/commit/fc7ea9513a2ac2033afa5ed86ba267891b937b9f))
+
+* docs: add homepage link — rjdbcm <rjdbcm@outlook.com>
+([`ac65d38`](https://github.com/OZI-Project/OZI.build/commit/ac65d383eceb0870dcbde2b6ffbab965572aeb40))
+
+
 ### Features
 
 
@@ -142,6 +156,9 @@ Feat/dogfood ozi
 
 ### Unknown
 
+
+* Update SECURITY.md — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`f9de2ad`](https://github.com/OZI-Project/OZI.build/commit/f9de2ade260ef378098e7ad93e8491e9516717a0))
 
 * Update pyproject.toml — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
 ([`3060ee8`](https://github.com/OZI-Project/OZI.build/commit/3060ee81c23a5ba581a7cd4374bd074e6be71f79))
