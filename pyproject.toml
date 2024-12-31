@@ -15,8 +15,6 @@ requires = [
     'packaging',
     'tomli~=2.0;python_version<"3.11"',
     "setuptools>=64",
-    "setuptools_scm[toml]~=8.0",
-    "pip-tools~=7.0",
 ]
 backend-path = [".", "ozi_build"]
 build-backend = "ozi_build.buildapi"
@@ -40,6 +38,10 @@ classifiers = [
     "Topic :: System :: Archiving :: Packaging",
     "Development Status :: 4 - Beta",
 ]
+project-urls=[
+    'Bug Tracker, https://github.com/OZI-Project/OZI.build/issues',
+    'Documentation, https://build.oziproject.dev/',
+]
 pure-python-abi="py3-none"
 
 [tool.ozi-build.pyc_wheel]
@@ -53,6 +55,7 @@ core = [
     "pip-tools~=7.0",
     "pipx~=1.5",
     "setuptools_scm[toml]~=8.0",
+    "pathvalidate~=3.2",
 ]
 uv = ["uv"]
 cython = ["cython~=3.0"]
