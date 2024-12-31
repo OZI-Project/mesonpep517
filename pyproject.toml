@@ -55,6 +55,7 @@ core = [
     "pip-tools~=7.0",
     "pipx~=1.5",
     "setuptools_scm[toml]~=8.0",
+    "pathvalidate~=3.2",
 ]
 uv = ["uv"]
 cython = ["cython~=3.0"]
