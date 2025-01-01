@@ -20,7 +20,7 @@ though other standard tools like [pip](https://pip.pypa.io/en/stable/),
 :maxdepth: 2
 OZIproject.dev Homepage <https://oziproject.dev>
 changes.OZIproject.dev Changelog <https://changes.oziproject.dev/>
-docs.OZIproject.dev Documentation <https://oziproject.dev>
+docs.OZIproject.dev Documentation <https://docs.oziproject.dev>
 pyproject.md
 license.md
 ```
