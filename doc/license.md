@@ -6,6 +6,8 @@ reproduced here.
 
 ## Apache-2.0 contributors
 
+`mesonpep517` Copyright (c) 2017-2019 Thibault Saunier <tsaunier@gnome.org>
+
 `regexploit` Copyright (c) 2021 Ben Caller <REMOVETHISPREFIX.ben@doyensec.com>
 
 `pyc_wheel` Copyright (c) 2016 Grant Patten <grant@gpatten.com>
