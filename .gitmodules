@@ -1,0 +1,3 @@
+[submodule "doc/assets/brand"]
+	path = doc/assets/brand
+	url = https://github.com/OZI-Project/brand
