@@ -205,6 +205,11 @@ jobs:
         continue-on-error: true
         run: |
             git update-index --skip-worktree README.txt
+  
+      - name: Hiding assets folder from SCM
+        continue-on-error: true
+        run: |
+            git update-index --skip-worktree doc/assets/*
 
       - name: Publish release
         run: |
