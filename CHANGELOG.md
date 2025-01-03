@@ -250,6 +250,9 @@ updated-dependencies:
 
 
 * Update ozi.yml — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`c4fd6c3`](https://github.com/OZI-Project/OZI.build/commit/c4fd6c392e045aba87a8267cccacc591e28a527f))
+
+* Update ozi.yml — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
 ([`49fe05a`](https://github.com/OZI-Project/OZI.build/commit/49fe05a36261e1d736bc2e52676b740ef638d3ac))
 
 * Update dependabot.yml — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
