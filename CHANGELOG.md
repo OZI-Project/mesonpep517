@@ -249,6 +249,9 @@ updated-dependencies:
 ### Unknown
 
 
+* Update ozi.yml — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`49fe05a`](https://github.com/OZI-Project/OZI.build/commit/49fe05a36261e1d736bc2e52676b740ef638d3ac))
+
 * Update dependabot.yml — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
 ([`defbabf`](https://github.com/OZI-Project/OZI.build/commit/defbabf863d8151586afd014b212219963579ce4))
 
