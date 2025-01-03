@@ -1,4 +1,275 @@
 # OZI.build CHANGELOG
+## 1.10.1 (2025-01-03)
+
+
+### Build system
+
+
+* build(deps): bump markupsafe from 2.1.5 to 3.0.2 in /doc
+
+Bumps [markupsafe](https://github.com/pallets/markupsafe) from 2.1.5 to 3.0.2.
+- [Release notes](https://github.com/pallets/markupsafe/releases)
+- [Changelog](https://github.com/pallets/markupsafe/blob/main/CHANGES.rst)
+- [Commits](https://github.com/pallets/markupsafe/compare/2.1.5...3.0.2)
+
+
+updated-dependencies:
+- dependency-name: markupsafe
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+... — dependabot[bot] <support@github.com>
+([`1b50c3d`](https://github.com/OZI-Project/OZI.build/commit/1b50c3dafcaad6c24c7e4bbf73b4cfce9c352dd8))
+
+* build(deps): bump docutils from 0.20.1 to 0.21.2 in /doc
+
+Bumps [docutils](https://docutils.sourceforge.io) from 0.20.1 to 0.21.2.
+
+
+updated-dependencies:
+- dependency-name: docutils
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`a030e5d`](https://github.com/OZI-Project/OZI.build/commit/a030e5dab0350ff50f8d9389edfc39359bf96165))
+
+* build(deps): bump gitdb from 4.0.11 to 4.0.12 in /doc
+
+Bumps [gitdb](https://github.com/gitpython-developers/gitdb) from 4.0.11 to 4.0.12.
+- [Release notes](https://github.com/gitpython-developers/gitdb/releases)
+- [Commits](https://github.com/gitpython-developers/gitdb/compare/4.0.11...4.0.12)
+
+
+updated-dependencies:
+- dependency-name: gitdb
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`a295d71`](https://github.com/OZI-Project/OZI.build/commit/a295d71f12b28707f2575718965226358b416478))
+
+* build(deps): update alabaster requirement in /doc
+
+Updates the requirements on [alabaster](https://github.com/sphinx-doc/alabaster) to permit the latest version.
+- [Release notes](https://github.com/sphinx-doc/alabaster/releases)
+- [Changelog](https://github.com/sphinx-doc/alabaster/blob/master/docs/changelog.rst)
+- [Commits](https://github.com/sphinx-doc/alabaster/compare/0.7.1...0.7.16)
+
+
+updated-dependencies:
+- dependency-name: alabaster
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`8b8dfe6`](https://github.com/OZI-Project/OZI.build/commit/8b8dfe67488f9dd93b4c94c308bcc7bb63b8cb62))
+
+* build(deps): bump sphinx from 7.2.6 to 7.4.7 in /doc
+
+Bumps [sphinx](https://github.com/sphinx-doc/sphinx) from 7.2.6 to 7.4.7.
+- [Release notes](https://github.com/sphinx-doc/sphinx/releases)
+- [Changelog](https://github.com/sphinx-doc/sphinx/blob/v7.4.7/CHANGES.rst)
+- [Commits](https://github.com/sphinx-doc/sphinx/compare/v7.2.6...v7.4.7)
+
+
+updated-dependencies:
+- dependency-name: sphinx
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`e17e100`](https://github.com/OZI-Project/OZI.build/commit/e17e100ea00de86d82a3a996bf2e1a6a2f9225f9))
+
+* build(deps): bump smmap from 5.0.1 to 5.0.2 in /doc
+
+Bumps [smmap](https://github.com/gitpython-developers/smmap) from 5.0.1 to 5.0.2.
+- [Release notes](https://github.com/gitpython-developers/smmap/releases)
+- [Commits](https://github.com/gitpython-developers/smmap/compare/v5.0.1...v5.0.2)
+
+
+updated-dependencies:
+- dependency-name: smmap
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`ac572e4`](https://github.com/OZI-Project/OZI.build/commit/ac572e45d4129024993a204f98ca169a235af6a2))
+
+* build(deps): bump actions/dependency-review-action from 2.5.1 to 4.5.0
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 2.5.1 to 4.5.0.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/0efb1d1d84fc9633afcdaad14c485cbbc90ef46c...3b139cfc5fae8b618d3eae3675e383bb1769c019)
+
+
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+... — dependabot[bot] <support@github.com>
+([`4e5f061`](https://github.com/OZI-Project/OZI.build/commit/4e5f061a88f866f081975b3aff50d413cee8d12d))
+
+* build(deps): bump step-security/harden-runner from 2.7.1 to 2.10.2
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.7.1 to 2.10.2.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/v2.7.1...0080882f6c36860b6ba35c610c98ce87d4e2f26f)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`aef615b`](https://github.com/OZI-Project/OZI.build/commit/aef615bae25af5f087695d96fa2ee166ae39740d))
+
+* build(deps): bump actions/upload-artifact from 4.4.0 to 4.5.0
+
+Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from 4.4.0 to 4.5.0.
+- [Release notes](https://github.com/actions/upload-artifact/releases)
+- [Commits](https://github.com/actions/upload-artifact/compare/v4.4.0...6f51ac03b9356f520e9adb1b1b7802705f340c2b)
+
+
+updated-dependencies:
+- dependency-name: actions/upload-artifact
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`5a9a226`](https://github.com/OZI-Project/OZI.build/commit/5a9a22684c2cf8264681a748c2acd8112fb88cca))
+
+* build(deps): bump actions/checkout from 3.6.0 to 4.2.2
+
+Bumps [actions/checkout](https://github.com/actions/checkout) from 3.6.0 to 4.2.2.
+- [Release notes](https://github.com/actions/checkout/releases)
+- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/actions/checkout/compare/v3.6.0...11bd71901bbe5b1630ceea73d27597364c9af683)
+
+
+updated-dependencies:
+- dependency-name: actions/checkout
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+... — dependabot[bot] <support@github.com>
+([`6ede881`](https://github.com/OZI-Project/OZI.build/commit/6ede881acc315acd1de2fa0c4b89b02212987745))
+
+* build(deps): bump github/codeql-action from 2.25.4 to 3.28.0
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 2.25.4 to 3.28.0.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/v2.25.4...48ab28a6f5dbc2a99bf1e0131198dd8f1df78169)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+... — dependabot[bot] <support@github.com>
+([`f8615eb`](https://github.com/OZI-Project/OZI.build/commit/f8615eb3d2af941683dad64eb31c9d8ebe5d0eea))
+
+* build(deps): bump gitpython from 3.1.43 to 3.1.44 in /doc
+
+Bumps [gitpython](https://github.com/gitpython-developers/GitPython) from 3.1.43 to 3.1.44.
+- [Release notes](https://github.com/gitpython-developers/GitPython/releases)
+- [Changelog](https://github.com/gitpython-developers/GitPython/blob/main/CHANGES)
+- [Commits](https://github.com/gitpython-developers/GitPython/compare/3.1.43...3.1.44)
+
+
+updated-dependencies:
+- dependency-name: gitpython
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`2cc0650`](https://github.com/OZI-Project/OZI.build/commit/2cc0650557c410a720258a56d4b970e20e2e31cb))
+
+* build(deps): update ozi-build requirement from ~=1.9 to ~=1.10 in /doc
+
+
+updated-dependencies:
+- dependency-name: ozi-build
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`49d1c23`](https://github.com/OZI-Project/OZI.build/commit/49d1c234bcb87e5396be22134ccb0e9b54121df9))
+
+* build(deps): bump meson[ninja] from 1.6.0 to 1.6.1 in /doc
+
+Bumps [meson[ninja]](https://github.com/mesonbuild/meson) from 1.6.0 to 1.6.1.
+- [Release notes](https://github.com/mesonbuild/meson/releases)
+- [Commits](https://github.com/mesonbuild/meson/compare/1.6.0...1.6.1)
+
+
+updated-dependencies:
+- dependency-name: meson[ninja]
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`f4e438f`](https://github.com/OZI-Project/OZI.build/commit/f4e438f267703587077ff152ed28208e47e35c3b))
+
+* build(deps): bump click from 8.1.7 to 8.1.8 in /doc
+
+Bumps [click](https://github.com/pallets/click) from 8.1.7 to 8.1.8.
+- [Release notes](https://github.com/pallets/click/releases)
+- [Changelog](https://github.com/pallets/click/blob/main/CHANGES.rst)
+- [Commits](https://github.com/pallets/click/compare/8.1.7...8.1.8)
+
+
+updated-dependencies:
+- dependency-name: click
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`f28699c`](https://github.com/OZI-Project/OZI.build/commit/f28699ce46f941ac24f230279748a1b5d3d45783))
+
+* build(deps): bump pyparsing from 3.2.0 to 3.2.1 in /doc
+
+Bumps [pyparsing](https://github.com/pyparsing/pyparsing) from 3.2.0 to 3.2.1.
+- [Release notes](https://github.com/pyparsing/pyparsing/releases)
+- [Changelog](https://github.com/pyparsing/pyparsing/blob/master/CHANGES)
+- [Commits](https://github.com/pyparsing/pyparsing/compare/3.2.0...3.2.1)
+
+
+updated-dependencies:
+- dependency-name: pyparsing
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`fdf392e`](https://github.com/OZI-Project/OZI.build/commit/fdf392e73106eef096c7fa670f021ebca274fa3d))
+
+
+### Documentation
+
+
+* docs: update copyright info — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`11f3d46`](https://github.com/OZI-Project/OZI.build/commit/11f3d4602b26843b93b926ac0dcba4e708e63341))
+
+* docs: update branding assets — rjdbcm <rjdbcm@outlook.com>
+([`186de8f`](https://github.com/OZI-Project/OZI.build/commit/186de8f2aa74b022314ca74e3b80d2d22b76454f))
+
+* docs: add logo — rjdbcm <rjdbcm@outlook.com>
+([`2d20fb1`](https://github.com/OZI-Project/OZI.build/commit/2d20fb152561add1d13f9f39b0e97b5a7d498cae))
+
+* docs: fix link — rjdbcm <rjdbcm@outlook.com>
+([`6889f05`](https://github.com/OZI-Project/OZI.build/commit/6889f05e210d241bc6b1fc143decfbdecbc00490))
+
+
+### Unknown
+
+
+* Update ozi.yml — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`c4fd6c3`](https://github.com/OZI-Project/OZI.build/commit/c4fd6c392e045aba87a8267cccacc591e28a527f))
+
+* Update ozi.yml — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`49fe05a`](https://github.com/OZI-Project/OZI.build/commit/49fe05a36261e1d736bc2e52676b740ef638d3ac))
+
+* Update dependabot.yml — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`defbabf`](https://github.com/OZI-Project/OZI.build/commit/defbabf863d8151586afd014b212219963579ce4))
+
+* Update dependabot.yml — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`8339f34`](https://github.com/OZI-Project/OZI.build/commit/8339f34a1145fb54d7411e3e1af32897fc1e8cb7))
+
+* [StepSecurity] Apply security best practices — StepSecurity Bot <bot@stepsecurity.io>
+([`f7ad3a2`](https://github.com/OZI-Project/OZI.build/commit/f7ad3a27370ffb66631fa9eaca19fe0846ecd0b1))
+
+* Update license.md — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`5846776`](https://github.com/OZI-Project/OZI.build/commit/58467762f01f6c66c8ece8f3aa528a9cca5c8fc7))
+
+* Update conf.py copyright — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`0eb70de`](https://github.com/OZI-Project/OZI.build/commit/0eb70de3c5263b3df05eae094c5e9463dca97024))
+
 ## 1.10.0 (2025-01-01)
 
 

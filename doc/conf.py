@@ -13,8 +13,8 @@ from sphinxawesome_theme.postprocess import Icons
 release = '.'.join(_version('OZI.build').split('.')[:2])
 
 project = 'OZI.build'
-copyright = '2024, Thibault Saunier, Eden Ross Duff MSc'
-author = 'Thibault Saunier, Eden Ross Duff MSc'
+copyright = '2024, Eden Ross Duff MSc'
+author = 'Eden Ross Duff MSc'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
