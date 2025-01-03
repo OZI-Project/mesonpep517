@@ -4,7 +4,7 @@
 #
 #    pip-compile --output-file=-P --pre api/requirements.in
 #
-alabaster~=0.7.0
+alabaster~=0.7.16
     # via sphinx
 babel==2.16.0
     # via sphinx
@@ -16,20 +16,20 @@ certifi==2024.12.14
     # via requests
 charset-normalizer==3.4.1
     # via requests
-click==8.1.7
+click==8.1.8
     # via pip-tools
 dnspython==2.7.0
     # via ozi
 doc8==1.1.2
     # via -r requirements.in
-docutils==0.20.1
+docutils==0.21.2
     # via
     #   doc8
     #   restructuredtext-lint
     #   sphinx
-gitdb==4.0.11
+gitdb==4.0.12
     # via gitpython
-gitpython==3.1.43
+gitpython==3.1.44
     # via ozi
 idna==3.10
     # via
@@ -42,9 +42,9 @@ jinja2==3.1.5
     #   ozi
     #   ozi-templates
     #   sphinx
-markupsafe==2.1.5
+markupsafe==3.0.2
     # via jinja2
-meson[ninja]==1.6.0
+meson[ninja]==1.6.1
     # via
     #   -r requirements.in
     #   ozi
@@ -64,7 +64,7 @@ pip-tools==7.4.1
     # via ozi
 pipx
 
-OZI.build~=1.9
+OZI.build~=1.10
     # via ozi
 prompt-toolkit==3.0.48
     # via ozi
@@ -74,7 +74,7 @@ pygments==2.18.0
     # via
     #   doc8
     #   sphinx
-pyparsing==3.2.0
+pyparsing==3.2.1
     # via ozi
 pyproject-hooks==1.2.0
     # via
@@ -91,7 +91,7 @@ setuptools-scm[toml]==8.1.0
     # via
     #   ozi
     #   ozi-spec
-smmap==5.0.1
+smmap==5.0.2
     # via gitdb
 snowballstemmer==2.2.0
     # via
@@ -99,7 +99,7 @@ snowballstemmer==2.2.0
     #   sphinx
 soupsieve==2.6
     # via beautifulsoup4
-sphinx==7.2.6
+sphinx==7.4.7
     # via
     #   -r requirements.in
     #   sphinx-design

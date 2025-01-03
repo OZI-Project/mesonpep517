@@ -61,6 +61,8 @@ html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "")
 if os.environ.get("READTHEDOCS", "") == "True":
     html_context["READTHEDOCS"] = True
 
+html_logo = 'assets/brand/images/ozi-build-logo.png'
+html_favicon = 'assets/brand/images/ozi-build-logo-72.png'
 html_baseurl = 'https://oziproject.dev/'
 html_static_path = ['_static']
 html_css_files = ['css/custom.css']

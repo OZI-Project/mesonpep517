@@ -38,7 +38,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@1.4.0
+      - uses: OZI-Project/checkpoint@5eb7b6ec9ba2eec71a0418270d92e9a6d81d285f # 1.4.0
         with:
           python-version: "3.10"
 
@@ -68,7 +68,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@1.4.0
+      - uses: OZI-Project/checkpoint@5eb7b6ec9ba2eec71a0418270d92e9a6d81d285f # 1.4.0
         with:
           python-version: "3.11"
 
@@ -98,7 +98,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: OZI-Project/checkpoint@1.4.0
+      - uses: OZI-Project/checkpoint@5eb7b6ec9ba2eec71a0418270d92e9a6d81d285f # 1.4.0
         with:
           python-version: "3.12"
 
@@ -136,7 +136,7 @@ jobs:
             api.github.com:443
             github.com:443
 
-      - uses: OZI-Project/draft@1.7.0
+      - uses: OZI-Project/draft@c0d23e778c413e1f5c7ca9555a1ec190c9e48cbd # 1.7.0
         id: draft
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -173,7 +173,7 @@ jobs:
             cdn03.quay.io:443
             downloads.python.org:443
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4.1.8
         with:
           name: security2
 
@@ -211,7 +211,7 @@ jobs:
             git diff
             python -m build .
 
-      - uses: actions/upload-artifact@v4.5.0
+      - uses: actions/upload-artifact@6f51ac03b9356f520e9adb1b1b7802705f340c2b # v4.5.0
         with:
           include-hidden-files: true
           path: |
@@ -246,7 +246,7 @@ jobs:
           ghcr.io:443
           pkg-containers.githubusercontent.com:443
 
-    - uses: OZI-Project/publish@1.7.2
+    - uses: OZI-Project/publish@67952e32de84496a2ed2729ffbc612a63d4ede47 # 1.7.2
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
 
