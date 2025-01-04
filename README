@@ -2,6 +2,11 @@
 OZI.build
 =========
 
+.. image:: https://www.oziproject.dev/assets/brand/images/ozi-build-logo.svg
+  :align: left
+  :height: 62
+  :target: https://build.oziproject.dev/
+
 This is the `OZI-Project <https://github.com/OZI-Project>`_ maintained fork of the mesonpep517 0.2 tag.
 
 This is a module that implements PEP-517 for the meson build system.
