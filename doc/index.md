@@ -1,4 +1,4 @@
-# The OZI.build module
+# OZI.build
 
 This is a python module that implements [pep517] for the [meson] build system.
 
