@@ -1,4 +1,27 @@
 # OZI.build CHANGELOG
+## 1.10.2 (2025-01-05)
+
+
+### Build system
+
+
+* build: update brand assets — rjdbcm <rjdbcm@outlook.com>
+([`559e1e4`](https://github.com/OZI-Project/OZI.build/commit/559e1e4249761c652d8c5716acd32815a36b6f1e))
+
+
+### Documentation
+
+
+* docs: update title — rjdbcm <rjdbcm@outlook.com>
+([`e97a98f`](https://github.com/OZI-Project/OZI.build/commit/e97a98f923f95984de6d193e97fbcb2f2009b2d7))
+
+
+### Unknown
+
+
+* Update SECURITY.md — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`f04ad6c`](https://github.com/OZI-Project/OZI.build/commit/f04ad6c64aa8efc3eff90510417c8230fbf30b2a))
+
 ## 1.10.1 (2025-01-03)
 
 
