@@ -286,10 +286,11 @@ allowlist_externals =
      meson
 package = wheel
 deps =
-    setuptools_scm[toml]>=8
-    pip-tools
-    meson[ninja]
-    invoke
+    setuptools_scm[toml]~=8.0
+    pip-tools~=7.0
+    meson[ninja]~=1.2
+    invoke~=2.2
+    pathvalidate~=3.2.1
 commands_pre =
      pipx install --python=python meson
 commands =
