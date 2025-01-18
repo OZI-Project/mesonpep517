@@ -1,3 +1,6 @@
 [submodule "doc/assets/brand"]
 	path = doc/assets/brand
 	url = https://github.com/OZI-Project/brand
+[submodule ".github/workflows/release"]
+	path = .github/workflows/release
+	url = https://github.com/OZI-Project/release
