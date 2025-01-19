@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import Any
 from typing import Optional
 
-from ._char import Character  # noqa: TC002
+from ._char import Character  # noqa: TC001
 
 
 @dataclass(frozen=True)

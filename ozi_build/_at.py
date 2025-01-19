@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import List
 from typing import Optional
 
-from ._char import Character  # noqa: TC002
+from ._char import Character  # noqa: TC001
 from ._repeat import InfiniteRepeat
 from ._repeat import Repeat
 
