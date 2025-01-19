@@ -5,6 +5,9 @@
 ### Bug fixes
 
 
+* fix: move requirements for release into repo root — rjdbcm <rjdbcm@outlook.com>
+([`b0f0431`](https://github.com/OZI-Project/OZI.build/commit/b0f0431ee4493a828b83eed4d8c4a37eb4f57e41))
+
 * fix: ignore TC001 — rjdbcm <rjdbcm@outlook.com>
 ([`79d567f`](https://github.com/OZI-Project/OZI.build/commit/79d567fd9b8c2113e3be7fbaec1ba05b127f8393))
 
