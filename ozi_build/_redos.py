@@ -6,7 +6,7 @@ from typing import Optional
 
 from ._at import EndOfString
 from ._branch import Branch
-from ._char import Character  # noqa: TC002
+from ._char import Character  # noqa: TC001
 from ._repeat import InfiniteRepeat
 from ._repeat import Repeat
 from ._sequence import Sequence
