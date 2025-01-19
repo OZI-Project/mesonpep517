@@ -1,4 +1,94 @@
 # OZI.build CHANGELOG
+## 1.10.4 (2025-01-19)
+
+
+### Bug fixes
+
+
+* fix: ignore TC001 — rjdbcm <rjdbcm@outlook.com>
+([`79d567f`](https://github.com/OZI-Project/OZI.build/commit/79d567fd9b8c2113e3be7fbaec1ba05b127f8393))
+
+
+### Build system
+
+
+* build: update wrapfile to OZI 1.33 — rjdbcm <rjdbcm@outlook.com>
+([`685adc7`](https://github.com/OZI-Project/OZI.build/commit/685adc748c46ab4c000d649c4460a9635a56ba7b))
+
+* build: update brand assets — rjdbcm <rjdbcm@outlook.com>
+([`1801567`](https://github.com/OZI-Project/OZI.build/commit/18015673333aa8b8816f3219d46193eb7554eed5))
+
+* build(deps): bump actions/upload-artifact from 4.5.0 to 4.6.0
+
+Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from 4.5.0 to 4.6.0.
+- [Release notes](https://github.com/actions/upload-artifact/releases)
+- [Commits](https://github.com/actions/upload-artifact/compare/6f51ac03b9356f520e9adb1b1b7802705f340c2b...65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08)
+
+
+updated-dependencies:
+- dependency-name: actions/upload-artifact
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`5f5e511`](https://github.com/OZI-Project/OZI.build/commit/5f5e511d9fc8662ef081e14e351fb6510d5ec2d3))
+
+* build(deps): bump step-security/harden-runner from 2.10.2 to 2.10.3
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.10.2 to 2.10.3.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/0080882f6c36860b6ba35c610c98ce87d4e2f26f...c95a14d0e5bab51a9f56296a4eb0e416910cd350)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`3528da6`](https://github.com/OZI-Project/OZI.build/commit/3528da63720fdacfd5b905ad328910fd3b2e55c0))
+
+* build(deps): bump github/codeql-action from 3.28.0 to 3.28.1
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.0 to 3.28.1.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/48ab28a6f5dbc2a99bf1e0131198dd8f1df78169...b6a472f63d85b9c78a3ac5e89422239fc15e9b3c)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`c101dcd`](https://github.com/OZI-Project/OZI.build/commit/c101dcddbb666bacc79743d7cec32ebefd352651))
+
+* build(deps): bump OZI-Project/publish from 1.7.3 to 1.8.0
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.7.3 to 1.8.0.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/fd7b8704941103ceec5a24f80d0999d2209ed8f2...025b6cb35f983387bb0981661eae0beddb8282fe)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`e8783ae`](https://github.com/OZI-Project/OZI.build/commit/e8783ae3bd7e6bdd99265ff5fe1d04b4e2fd672c))
+
+* build(deps): bump OZI-Project/checkpoint from 1.5.3 to 1.5.4
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.5.3 to 1.5.4.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/e8968b10918a82bf03e196f5feac1669ccdf98e2...84a85f725520d5661ed417915ccb0e769973879c)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`b7acba5`](https://github.com/OZI-Project/OZI.build/commit/b7acba5d2190857aae2995ae069098b14e5b0247))
+
 ## 1.10.3 (2025-01-09)
 
 
