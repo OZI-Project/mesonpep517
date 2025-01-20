@@ -1,4 +1,38 @@
 # OZI.build CHANGELOG
+## 1.10.5 (2025-01-20)
+
+
+### Build system
+
+
+* build(deps): bump OZI-Project/draft from 1.8.0 to 1.9.0
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.8.0 to 1.9.0.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/ae5afb49d75af6437247b504812f049e5607d342...31451b7f6a49b6ef70270b59ff70585d76677012)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`0e40ed1`](https://github.com/OZI-Project/OZI.build/commit/0e40ed120a4c1a8e3c91c2a87518d7159b4cc2d3))
+
+* build(deps): bump step-security/harden-runner from 2.10.3 to 2.10.4
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.10.3 to 2.10.4.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/c95a14d0e5bab51a9f56296a4eb0e416910cd350...cb605e52c26070c328afc4562f0b4ada7618a84e)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`da59965`](https://github.com/OZI-Project/OZI.build/commit/da59965361705b78294f69e75e78dc747296ced8))
+
 ## 1.10.4 (2025-01-19)
 
 
