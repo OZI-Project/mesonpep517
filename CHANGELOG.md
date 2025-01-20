@@ -1,4 +1,230 @@
 # OZI.build CHANGELOG
+## 1.10.4 (2025-01-19)
+
+
+### Bug fixes
+
+
+* fix: move requirements for release into repo root — rjdbcm <rjdbcm@outlook.com>
+([`b0f0431`](https://github.com/OZI-Project/OZI.build/commit/b0f0431ee4493a828b83eed4d8c4a37eb4f57e41))
+
+* fix: ignore TC001 — rjdbcm <rjdbcm@outlook.com>
+([`79d567f`](https://github.com/OZI-Project/OZI.build/commit/79d567fd9b8c2113e3be7fbaec1ba05b127f8393))
+
+
+### Build system
+
+
+* build: update wrapfile to OZI 1.33 — rjdbcm <rjdbcm@outlook.com>
+([`685adc7`](https://github.com/OZI-Project/OZI.build/commit/685adc748c46ab4c000d649c4460a9635a56ba7b))
+
+* build: update brand assets — rjdbcm <rjdbcm@outlook.com>
+([`1801567`](https://github.com/OZI-Project/OZI.build/commit/18015673333aa8b8816f3219d46193eb7554eed5))
+
+* build(deps): bump actions/upload-artifact from 4.5.0 to 4.6.0
+
+Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from 4.5.0 to 4.6.0.
+- [Release notes](https://github.com/actions/upload-artifact/releases)
+- [Commits](https://github.com/actions/upload-artifact/compare/6f51ac03b9356f520e9adb1b1b7802705f340c2b...65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08)
+
+
+updated-dependencies:
+- dependency-name: actions/upload-artifact
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`5f5e511`](https://github.com/OZI-Project/OZI.build/commit/5f5e511d9fc8662ef081e14e351fb6510d5ec2d3))
+
+* build(deps): bump step-security/harden-runner from 2.10.2 to 2.10.3
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.10.2 to 2.10.3.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/0080882f6c36860b6ba35c610c98ce87d4e2f26f...c95a14d0e5bab51a9f56296a4eb0e416910cd350)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`3528da6`](https://github.com/OZI-Project/OZI.build/commit/3528da63720fdacfd5b905ad328910fd3b2e55c0))
+
+* build(deps): bump github/codeql-action from 3.28.0 to 3.28.1
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.0 to 3.28.1.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/48ab28a6f5dbc2a99bf1e0131198dd8f1df78169...b6a472f63d85b9c78a3ac5e89422239fc15e9b3c)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`c101dcd`](https://github.com/OZI-Project/OZI.build/commit/c101dcddbb666bacc79743d7cec32ebefd352651))
+
+* build(deps): bump OZI-Project/publish from 1.7.3 to 1.8.0
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.7.3 to 1.8.0.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/fd7b8704941103ceec5a24f80d0999d2209ed8f2...025b6cb35f983387bb0981661eae0beddb8282fe)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`e8783ae`](https://github.com/OZI-Project/OZI.build/commit/e8783ae3bd7e6bdd99265ff5fe1d04b4e2fd672c))
+
+* build(deps): bump OZI-Project/checkpoint from 1.5.3 to 1.5.4
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.5.3 to 1.5.4.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/e8968b10918a82bf03e196f5feac1669ccdf98e2...84a85f725520d5661ed417915ccb0e769973879c)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`b7acba5`](https://github.com/OZI-Project/OZI.build/commit/b7acba5d2190857aae2995ae069098b14e5b0247))
+
+## 1.10.3 (2025-01-09)
+
+
+### Build system
+
+
+* build(deps): bump OZI-Project/checkpoint from 1.5.2 to 1.5.3
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.5.2 to 1.5.3.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/5af0476c5d335e70ea4c4338d25bc0561e6a781c...e8968b10918a82bf03e196f5feac1669ccdf98e2)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`c8b7428`](https://github.com/OZI-Project/OZI.build/commit/c8b7428c3f6d0596bf9f736a47792fbb3f70c32b))
+
+* build(deps): bump OZI-Project/checkpoint from 1.5.1 to 1.5.2
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.5.1 to 1.5.2.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/fd28b35f0af00d1ec49a732b82409a1e386974ec...5af0476c5d335e70ea4c4338d25bc0561e6a781c)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`8fda99a`](https://github.com/OZI-Project/OZI.build/commit/8fda99a7188615a4241d65f380bbe06456fe1ea1))
+
+* build: sync tox requirements — rjdbcm <rjdbcm@outlook.com>
+([`cf1a621`](https://github.com/OZI-Project/OZI.build/commit/cf1a621e727e86be07bc02e1e56be199cc47d82f))
+
+* build: add pathvalidate build dep — rjdbcm <rjdbcm@outlook.com>
+([`78064fb`](https://github.com/OZI-Project/OZI.build/commit/78064fb950b917c68e2286f265d1349d6e5ec710))
+
+* build: update ozi wrapfile to 1.31 — rjdbcm <rjdbcm@outlook.com>
+([`89fe038`](https://github.com/OZI-Project/OZI.build/commit/89fe0384d1cb80a858d94a6d5d0374d9d225b9ac))
+
+* build(deps): bump OZI-Project/checkpoint from 1.4.0 to 1.5.1
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.4.0 to 1.5.1.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/5eb7b6ec9ba2eec71a0418270d92e9a6d81d285f...fd28b35f0af00d1ec49a732b82409a1e386974ec)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`3aae2d3`](https://github.com/OZI-Project/OZI.build/commit/3aae2d388457f587dbcc3fe5ad402984e2bd125f))
+
+* build(deps): bump pygments from 2.18.0 to 2.19.1 in /doc
+
+Bumps [pygments](https://github.com/pygments/pygments) from 2.18.0 to 2.19.1.
+- [Release notes](https://github.com/pygments/pygments/releases)
+- [Changelog](https://github.com/pygments/pygments/blob/master/CHANGES)
+- [Commits](https://github.com/pygments/pygments/compare/2.18.0...2.19.1)
+
+
+updated-dependencies:
+- dependency-name: pygments
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`f05c526`](https://github.com/OZI-Project/OZI.build/commit/f05c52658ab51b65d84b6eb17a55ce2890839cfb))
+
+* build(deps): bump OZI-Project/draft from 1.7.0 to 1.8.0
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.7.0 to 1.8.0.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/c0d23e778c413e1f5c7ca9555a1ec190c9e48cbd...ae5afb49d75af6437247b504812f049e5607d342)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`55a9842`](https://github.com/OZI-Project/OZI.build/commit/55a9842446ad0611263776f459987fdc108abe61))
+
+* build(deps): bump OZI-Project/publish from 1.7.2 to 1.7.3
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.7.2 to 1.7.3.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/67952e32de84496a2ed2729ffbc612a63d4ede47...fd7b8704941103ceec5a24f80d0999d2209ed8f2)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`86a2e75`](https://github.com/OZI-Project/OZI.build/commit/86a2e75036003ec62941fb4fae8467c42c52659f))
+
+
+### Documentation
+
+
+* docs: add print logo — rjdbcm <rjdbcm@outlook.com>
+([`d639c97`](https://github.com/OZI-Project/OZI.build/commit/d639c97d84c0910fc8c85089095f5313378ed5e6))
+
+* docs: add pdf title logo — rjdbcm <rjdbcm@outlook.com>
+([`e7272aa`](https://github.com/OZI-Project/OZI.build/commit/e7272aa80cdb04531926eb5c635dea970f1bd912))
+
+## 1.10.2 (2025-01-05)
+
+
+### Build system
+
+
+* build: update brand assets — rjdbcm <rjdbcm@outlook.com>
+([`559e1e4`](https://github.com/OZI-Project/OZI.build/commit/559e1e4249761c652d8c5716acd32815a36b6f1e))
+
+
+### Documentation
+
+
+* docs: update title — rjdbcm <rjdbcm@outlook.com>
+([`e97a98f`](https://github.com/OZI-Project/OZI.build/commit/e97a98f923f95984de6d193e97fbcb2f2009b2d7))
+
+
+### Unknown
+
+
+* Update SECURITY.md — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`f04ad6c`](https://github.com/OZI-Project/OZI.build/commit/f04ad6c64aa8efc3eff90510417c8230fbf30b2a))
+
 ## 1.10.1 (2025-01-03)
 
 
