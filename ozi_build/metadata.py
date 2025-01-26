@@ -184,9 +184,10 @@ def get_license_headers(config):
     res = ''
     key = 'license-expression'
     if key in config:
-        if key == 'license-expression' and 'license' in config:
+        if 'license' in config:
             raise ValueError('license and license-expression are mutually exclusive')
-        header = '-'.join(map(str.capitalize, key.split('-')))
+        log.warning('License-Expression from config is not yet compatible, renaming to License.')
+        header = 'License'
         res += '{}: {}\n'.format(header, config[key])
     return res
 
@@ -233,5 +234,5 @@ def get_description_headers(config):
 
     if description:
         res += 'Description-Content-Type: {}\n'.format(description_content_type)
-        res += 'Description:\n\n' + description
+        res += '\n\n' + description
     return res
