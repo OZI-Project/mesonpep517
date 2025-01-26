@@ -8,6 +8,7 @@
 
 import os
 from importlib.metadata import version as _version
+
 from sphinxawesome_theme.postprocess import Icons
 
 release = '.'.join(_version('OZI.build').split('.')[:2])
@@ -85,7 +86,7 @@ latex_elements = {
 \setsansfont{LatinModernSans}[RawFeature={fallback=emoji}]
 \setmonofont{DejaVuSansMono}[RawFeature={fallback=emoji},Scale=0.8]
 ''',
-    'fncychap': r'\usepackage[Sonny]{fncychap}'
+    'fncychap': r'\usepackage[Sonny]{fncychap}',
 }
 latex_show_pagerefs = True
 latex_show_urls = 'inline'
@@ -114,7 +115,7 @@ intersphinx_mapping = {
         None,
     ),
     'setuptools': ('https://setuptools.pypa.io/en/stable/', None),
-    'tox': ('https://tox.wiki/en/stable/', None)
+    'tox': ('https://tox.wiki/en/stable/', None),
 }
 
 myst_enable_extensions = ['colon_fence']
