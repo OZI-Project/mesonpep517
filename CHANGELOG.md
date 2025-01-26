@@ -1,4 +1,50 @@
 # OZI.build CHANGELOG
+## 1.10.6 (2025-01-26)
+
+
+### Bug fixes
+
+
+* fix: run black — rjdbcm <rjdbcm@outlook.com>
+([`32d66ad`](https://github.com/OZI-Project/OZI.build/commit/32d66ad111b9974f16f2c88683f4433cc1ebd9be))
+
+* fix: metadata 2.2 is now respected for twine compatibility — rjdbcm <rjdbcm@outlook.com>
+([`be1f28d`](https://github.com/OZI-Project/OZI.build/commit/be1f28d1addd8b55febbb37e13e1b6be4c4946a9))
+
+
+### Build system
+
+
+* build(deps): bump prompt-toolkit from 3.0.48 to 3.0.50 in /doc
+
+Bumps [prompt-toolkit](https://github.com/prompt-toolkit/python-prompt-toolkit) from 3.0.48 to 3.0.50.
+- [Release notes](https://github.com/prompt-toolkit/python-prompt-toolkit/releases)
+- [Changelog](https://github.com/prompt-toolkit/python-prompt-toolkit/blob/master/CHANGELOG)
+- [Commits](https://github.com/prompt-toolkit/python-prompt-toolkit/commits)
+
+
+updated-dependencies:
+- dependency-name: prompt-toolkit
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`55f017f`](https://github.com/OZI-Project/OZI.build/commit/55f017fa952de62485ce0c2a128508a90dfa2a1c))
+
+* build(deps): bump github/codeql-action from 3.28.1 to 3.28.4
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.1 to 3.28.4.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/b6a472f63d85b9c78a3ac5e89422239fc15e9b3c...ee117c905ab18f32fa0f66c2fe40ecc8013f3e04)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`2c37fcf`](https://github.com/OZI-Project/OZI.build/commit/2c37fcf93abebccac341c7436137addf0bd01587))
+
 ## 1.10.5 (2025-01-20)
 
 
