@@ -186,7 +186,9 @@ def get_license_headers(config):
     if key in config:
         if 'license' in config:
             raise ValueError('license and license-expression are mutually exclusive')
-        log.warning('License-Expression from config is not yet compatible, renaming to License.')
+        log.warning(
+            'License-Expression from config is not yet compatible, renaming to License.'
+        )
         header = 'License'
         res += '{}: {}\n'.format(header, config[key])
     return res
