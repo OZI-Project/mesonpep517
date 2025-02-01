@@ -1,4 +1,106 @@
 # OZI.build CHANGELOG
+## 1.10.7 (2025-01-27)
+
+
+### Build system
+
+
+* build(deps): bump meson[ninja] from 1.6.1 to 1.7.0 in /doc
+
+Bumps [meson[ninja]](https://github.com/mesonbuild/meson) from 1.6.1 to 1.7.0.
+- [Release notes](https://github.com/mesonbuild/meson/releases)
+- [Commits](https://github.com/mesonbuild/meson/compare/1.6.1...1.7.0)
+
+
+updated-dependencies:
+- dependency-name: meson[ninja]
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`4f6d1bb`](https://github.com/OZI-Project/OZI.build/commit/4f6d1bb1a8b94faab22456fbe5915cdea3fad4c4))
+
+* build(deps): bump github/codeql-action from 3.28.4 to 3.28.5
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.4 to 3.28.5.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/ee117c905ab18f32fa0f66c2fe40ecc8013f3e04...f6091c0113d1dcf9b98e269ee48e8a7e51b7bdd4)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`4480b9f`](https://github.com/OZI-Project/OZI.build/commit/4480b9fc55bf475728626f1fb05cd58f1403a53a))
+
+* build(deps): bump pypa/gh-action-pypi-publish from 1.12.3 to 1.12.4
+
+Bumps [pypa/gh-action-pypi-publish](https://github.com/pypa/gh-action-pypi-publish) from 1.12.3 to 1.12.4.
+- [Release notes](https://github.com/pypa/gh-action-pypi-publish/releases)
+- [Commits](https://github.com/pypa/gh-action-pypi-publish/compare/67339c736fd9354cd4f8cb0b744f2b82a74b5c70...76f52bc884231f62b9a034ebfe128415bbaabdfc)
+
+
+updated-dependencies:
+- dependency-name: pypa/gh-action-pypi-publish
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`b5bca9e`](https://github.com/OZI-Project/OZI.build/commit/b5bca9ef578f6f69a28f327cbb5e50ea42d1eee1))
+
+
+### Unknown
+
+
+* Create dev.yml — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`02761de`](https://github.com/OZI-Project/OZI.build/commit/02761de1ae9d2aafb4457fdf87ecde4c774fe4a9))
+
+## 1.10.6 (2025-01-26)
+
+
+### Bug fixes
+
+
+* fix: run black — rjdbcm <rjdbcm@outlook.com>
+([`32d66ad`](https://github.com/OZI-Project/OZI.build/commit/32d66ad111b9974f16f2c88683f4433cc1ebd9be))
+
+* fix: metadata 2.2 is now respected for twine compatibility — rjdbcm <rjdbcm@outlook.com>
+([`be1f28d`](https://github.com/OZI-Project/OZI.build/commit/be1f28d1addd8b55febbb37e13e1b6be4c4946a9))
+
+
+### Build system
+
+
+* build(deps): bump prompt-toolkit from 3.0.48 to 3.0.50 in /doc
+
+Bumps [prompt-toolkit](https://github.com/prompt-toolkit/python-prompt-toolkit) from 3.0.48 to 3.0.50.
+- [Release notes](https://github.com/prompt-toolkit/python-prompt-toolkit/releases)
+- [Changelog](https://github.com/prompt-toolkit/python-prompt-toolkit/blob/master/CHANGELOG)
+- [Commits](https://github.com/prompt-toolkit/python-prompt-toolkit/commits)
+
+
+updated-dependencies:
+- dependency-name: prompt-toolkit
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`55f017f`](https://github.com/OZI-Project/OZI.build/commit/55f017fa952de62485ce0c2a128508a90dfa2a1c))
+
+* build(deps): bump github/codeql-action from 3.28.1 to 3.28.4
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.1 to 3.28.4.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/b6a472f63d85b9c78a3ac5e89422239fc15e9b3c...ee117c905ab18f32fa0f66c2fe40ecc8013f3e04)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`2c37fcf`](https://github.com/OZI-Project/OZI.build/commit/2c37fcf93abebccac341c7436137addf0bd01587))
+
 ## 1.10.5 (2025-01-20)
 
 
