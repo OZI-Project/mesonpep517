@@ -142,7 +142,7 @@ class Config:
         self.options = self.__introspect('buildoptions')
         self.validate_options()
 
-    def validate_options(self):
+    def validate_options(self):  # noqa: C901
         options = VALID_OPTIONS.copy()
         options['version'] = {}
         options['module'] = {}
