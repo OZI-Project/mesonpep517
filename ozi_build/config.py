@@ -1,6 +1,7 @@
 import json
 import logging
 import os
+import re
 import sys
 
 from ._util import check_pyproject_regexes
@@ -141,7 +142,7 @@ class Config:
         self.options = self.__introspect('buildoptions')
         self.validate_options()
 
-    def validate_options(self):
+    def validate_options(self):  # noqa: C901
         options = VALID_OPTIONS.copy()
         options['version'] = {}
         options['module'] = {}
@@ -166,6 +167,11 @@ class Config:
                     "got value: %s" % (field, value)
                 )
             del pyc_whl_options[field]
+        for k in self.extras:
+            if re.match('^[a-z0-9]+(-[a-z0-9]+)*$', k) is None:
+                raise RuntimeError(
+                    f'[project.optional_dependencies] key "{k}" is not valid.'
+                )
 
     def get(self, key, default=None):
         return self.__metadata.get(key, default)
