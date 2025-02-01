@@ -60,21 +60,21 @@ def check_pyproject_regexes(file):
 
 
 PKG_INFO = """\
-Metadata-Version: 2.2
+Metadata-Version: 2.3
 Requires-Python: >={min_python}, <{max_python}
 Name: {name}
 Version: {version}
 """
 
 PKG_INFO_CONFIG_REQUIRES_PYTHON = """\
-Metadata-Version: 2.2
+Metadata-Version: 2.3
 Requires-Python: {requires_python}
 Name: {name}
 Version: {version}
 """
 
 PKG_INFO_NO_REQUIRES_PYTHON = """\
-Metadata-Version: 2.2
+Metadata-Version: 2.3
 Name: {name}
 Version: {version}
 """

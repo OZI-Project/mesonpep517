@@ -1,6 +1,7 @@
 import json
 import logging
 import os
+import re
 import sys
 
 from ._util import check_pyproject_regexes
@@ -166,6 +167,11 @@ class Config:
                     "got value: %s" % (field, value)
                 )
             del pyc_whl_options[field]
+        for k in self.extras:
+            if re.match('^[a-z0-9]+(-[a-z0-9]+)*$', k) is not None:
+                raise RuntimeError(
+                    f'[project.optional_dependencies] key "{k}" is not valid.'
+                )
 
     def get(self, key, default=None):
         return self.__metadata.get(key, default)
