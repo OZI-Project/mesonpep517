@@ -1,9 +1,113 @@
 # OZI.build CHANGELOG
+## 1.11.0 (2025-02-01)
+
 ## 1.10.7 (2025-01-27)
+
+## 1.10.6 (2025-01-26)
+
+
+### Bug fixes
+
+
+* fix: correct re.match — rjdbcm <rjdbcm@outlook.com>
+([`a41400e`](https://github.com/OZI-Project/OZI.build/commit/a41400e0bb0e30dc19fc67d8201b2414c702dc00))
+
+* fix: use re.search instead of match — rjdbcm <rjdbcm@outlook.com>
+([`57097cb`](https://github.com/OZI-Project/OZI.build/commit/57097cb0900ed612fcc82c0a8aa2d7f913e21863))
+
+* fix: run black — rjdbcm <rjdbcm@outlook.com>
+([`32d66ad`](https://github.com/OZI-Project/OZI.build/commit/32d66ad111b9974f16f2c88683f4433cc1ebd9be))
+
+* fix: metadata 2.2 is now respected for twine compatibility — rjdbcm <rjdbcm@outlook.com>
+([`be1f28d`](https://github.com/OZI-Project/OZI.build/commit/be1f28d1addd8b55febbb37e13e1b6be4c4946a9))
 
 
 ### Build system
 
+
+* build(deps): bump OZI-Project/draft from 1.9.0 to 1.10.1
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.9.0 to 1.10.1.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/31451b7f6a49b6ef70270b59ff70585d76677012...d3c4167df5ea92adf74006a4406ae85bbf8926e5)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`c047a3e`](https://github.com/OZI-Project/OZI.build/commit/c047a3ee688bf7e64069266f58a2a7abcfb7d9e6))
+
+* build(deps): bump OZI-Project/checkpoint from 1.5.4 to 1.5.5
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.5.4 to 1.5.5.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/84a85f725520d5661ed417915ccb0e769973879c...f14cac563125e34d106b3a1e0ddb2773062953e5)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`b9fc845`](https://github.com/OZI-Project/OZI.build/commit/b9fc845243e5550256a7db5ee82634a719d55eea))
+
+* build(deps): bump certifi from 2024.12.14 to 2025.1.31 in /doc
+
+Bumps [certifi](https://github.com/certifi/python-certifi) from 2024.12.14 to 2025.1.31.
+- [Commits](https://github.com/certifi/python-certifi/compare/2024.12.14...2025.01.31)
+
+
+updated-dependencies:
+- dependency-name: certifi
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+... — dependabot[bot] <support@github.com>
+([`e90b858`](https://github.com/OZI-Project/OZI.build/commit/e90b858fb987db8209c9775f7cb93f638311ab3c))
+
+* build(deps): bump OZI-Project/publish from 1.8.0 to 1.9.3
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.8.0 to 1.9.3.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/025b6cb35f983387bb0981661eae0beddb8282fe...c35059a13b64575387092e163fa91c2a9f5019da)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`0b37286`](https://github.com/OZI-Project/OZI.build/commit/0b372865efb2d8a50c285aa633f5811071d269d0))
+
+* build(deps): bump github/codeql-action from 3.28.5 to 3.28.8
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.5 to 3.28.8.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/f6091c0113d1dcf9b98e269ee48e8a7e51b7bdd4...dd746615b3b9d728a6a37ca2045b68ca76d4841a)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`526af28`](https://github.com/OZI-Project/OZI.build/commit/526af28367ff49b4fd9848e50fd41708855007b8))
+
+* build(deps): bump step-security/harden-runner from 2.10.3 to 2.10.4
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.10.3 to 2.10.4.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/v2.10.3...cb605e52c26070c328afc4562f0b4ada7618a84e)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`ad856ed`](https://github.com/OZI-Project/OZI.build/commit/ad856edfbaa63d5e8c33ee99ab8facc1bfa0d5d7))
 
 * build(deps): bump meson[ninja] from 1.6.1 to 1.7.0 in /doc
 
@@ -48,29 +152,6 @@ updated-dependencies:
 ... — dependabot[bot] <support@github.com>
 ([`b5bca9e`](https://github.com/OZI-Project/OZI.build/commit/b5bca9ef578f6f69a28f327cbb5e50ea42d1eee1))
 
-
-### Unknown
-
-
-* Create dev.yml — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
-([`02761de`](https://github.com/OZI-Project/OZI.build/commit/02761de1ae9d2aafb4457fdf87ecde4c774fe4a9))
-
-## 1.10.6 (2025-01-26)
-
-
-### Bug fixes
-
-
-* fix: run black — rjdbcm <rjdbcm@outlook.com>
-([`32d66ad`](https://github.com/OZI-Project/OZI.build/commit/32d66ad111b9974f16f2c88683f4433cc1ebd9be))
-
-* fix: metadata 2.2 is now respected for twine compatibility — rjdbcm <rjdbcm@outlook.com>
-([`be1f28d`](https://github.com/OZI-Project/OZI.build/commit/be1f28d1addd8b55febbb37e13e1b6be4c4946a9))
-
-
-### Build system
-
-
 * build(deps): bump prompt-toolkit from 3.0.48 to 3.0.50 in /doc
 
 Bumps [prompt-toolkit](https://github.com/prompt-toolkit/python-prompt-toolkit) from 3.0.48 to 3.0.50.
@@ -100,6 +181,23 @@ updated-dependencies:
   update-type: version-update:semver-patch
 ... — dependabot[bot] <support@github.com>
 ([`2c37fcf`](https://github.com/OZI-Project/OZI.build/commit/2c37fcf93abebccac341c7436137addf0bd01587))
+
+
+### Features
+
+
+* feat: Core Metadata 2.3 — rjdbcm <rjdbcm@outlook.com>
+([`31dc042`](https://github.com/OZI-Project/OZI.build/commit/31dc042921f079f96875e08dc83c53f97bedf7b1))
+
+
+### Unknown
+
+
+* lint: add noqa comment — rjdbcm <rjdbcm@outlook.com>
+([`8362a16`](https://github.com/OZI-Project/OZI.build/commit/8362a16d774778d32602bc15ce0fedb3e818385b))
+
+* Create dev.yml — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`02761de`](https://github.com/OZI-Project/OZI.build/commit/02761de1ae9d2aafb4457fdf87ecde4c774fe4a9))
 
 ## 1.10.5 (2025-01-20)
 
