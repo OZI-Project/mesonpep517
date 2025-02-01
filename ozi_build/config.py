@@ -168,7 +168,7 @@ class Config:
                 )
             del pyc_whl_options[field]
         for k in self.extras:
-            if re.match('^[a-z0-9]+(-[a-z0-9]+)*$', k) is not None:
+            if re.search('^[a-z0-9]+(-[a-z0-9]+)*$', k) is not None:
                 raise RuntimeError(
                     f'[project.optional_dependencies] key "{k}" is not valid.'
                 )
