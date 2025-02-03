@@ -64,7 +64,7 @@ pip-tools==7.4.1
     # via ozi
 pipx
 
-OZI.build~=1.10
+OZI.build~=1.11
     # via ozi
 prompt-toolkit==3.0.50
     # via ozi
