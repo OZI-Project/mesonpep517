@@ -24,14 +24,16 @@ of your package to show on PyPI. This should be written in reStructuredText
   (`.rst`, `.md` or `.txt`)."""
     },
     "home-page": {
-        "description": """A string containing the URL for the package's home page.
+        "description": """:::{deprecated} 1.12.0:::
+A string containing the URL for the package's home page.
 
 Example:
 
 `http://www.example.com/~cschultz/bvote/`"""
     },
     "download-url": {
-        "description": """A string containing the URL for the package's source, will replace '{version}' with the current version."""
+        "description": """:::{deprecated} 1.12.0:::
+A string containing the URL for the package's source, will replace '{version}' with the current version."""
     },
     "dynamic": {
         "description": """A list of other headers to be treated as dynamic fields."""

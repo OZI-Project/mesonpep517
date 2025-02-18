@@ -24,7 +24,6 @@ build-backend = "ozi_build.buildapi"
 
 [tool.ozi-build.metadata]
 summary = "Create pep517 compliant packages from the meson build system, OZI-maintained fork."
-home-page = "https://oziproject.dev"
 author = "Thibault Saunier"
 author-email = "tsaunier@gnome.org"
 description-file = "README.rst"
@@ -44,6 +43,7 @@ classifiers = [
 project-urls=[
     'Bug Tracker, https://github.com/OZI-Project/OZI.build/issues',
     'Documentation, https://build.oziproject.dev/',
+    'Homepage, https://oziproject.dev/',
 ]
 pure-python-abi="py3-none"
 
