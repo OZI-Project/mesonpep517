@@ -1,5 +1,133 @@
 # OZI.build CHANGELOG
+## 1.12.0 (2025-02-18)
+
 ## 1.11.0 (2025-02-01)
+
+
+### Build system
+
+
+* build(deps): update ozi-build requirement from ~=1.10 to ~=1.11 in /doc
+
+
+updated-dependencies:
+- dependency-name: ozi-build
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`9bc5a7f`](https://github.com/OZI-Project/OZI.build/commit/9bc5a7f492239a4697d86880f985ab773b3a0c48))
+
+* build(deps): bump babel from 2.16.0 to 2.17.0 in /doc
+
+Bumps [babel](https://github.com/python-babel/babel) from 2.16.0 to 2.17.0.
+- [Release notes](https://github.com/python-babel/babel/releases)
+- [Changelog](https://github.com/python-babel/babel/blob/master/CHANGES.rst)
+- [Commits](https://github.com/python-babel/babel/compare/v2.16.0...v2.17.0)
+
+
+updated-dependencies:
+- dependency-name: babel
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`e06110c`](https://github.com/OZI-Project/OZI.build/commit/e06110c4b5490d9d670ca859a9ec30363280eeeb))
+
+* build(deps): bump pbr from 6.1.0 to 6.1.1 in /doc
+
+Bumps [pbr](https://docs.openstack.org/pbr/latest/) from 6.1.0 to 6.1.1.
+
+
+updated-dependencies:
+- dependency-name: pbr
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`81554db`](https://github.com/OZI-Project/OZI.build/commit/81554db9580d691c7dd82838a90ae79f3b655566))
+
+* build(deps): bump beautifulsoup4 from 4.12.3 to 4.13.3 in /doc
+
+Bumps [beautifulsoup4](https://www.crummy.com/software/BeautifulSoup/bs4/) from 4.12.3 to 4.13.3.
+
+
+updated-dependencies:
+- dependency-name: beautifulsoup4
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`2f9b418`](https://github.com/OZI-Project/OZI.build/commit/2f9b418b88657a1f54fb41e4729b1144ecddf31b))
+
+* build(deps): bump github/codeql-action from 3.28.8 to 3.28.9
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.8 to 3.28.9.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/dd746615b3b9d728a6a37ca2045b68ca76d4841a...9e8d0789d4a0fa9ceb6b1738f7e269594bdd67f0)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`7870a59`](https://github.com/OZI-Project/OZI.build/commit/7870a59127958bafce9ef3349a4f1a43f8ba5444))
+
+* build(deps): bump OZI-Project/publish from 1.9.3 to 1.10.1
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.9.3 to 1.10.1.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/c35059a13b64575387092e163fa91c2a9f5019da...9d10868569d8cf25647f221a223d27cfe545ffb2)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`299d475`](https://github.com/OZI-Project/OZI.build/commit/299d4750792703ee013162bb946df572e6a24bcf))
+
+* build(deps): bump OZI-Project/draft from 1.10.1 to 1.11.1
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.10.1 to 1.11.1.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/d3c4167df5ea92adf74006a4406ae85bbf8926e5...d593fa1d1df726466bd156d239ed36986d1c2ab9)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`52974a9`](https://github.com/OZI-Project/OZI.build/commit/52974a95b7cd5f6a1787fa9d857ac0b1d8037255))
+
+* build(deps): bump step-security/harden-runner from 2.10.4 to 2.11.0
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.10.4 to 2.11.0.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/cb605e52c26070c328afc4562f0b4ada7618a84e...4d991eb9b905ef189e4c376166672c3f2f230481)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`cabc05f`](https://github.com/OZI-Project/OZI.build/commit/cabc05fc652b1e60721ba79978eddd6336715bf7))
+
+
+### Features
+
+
+* feat: deprecate ``home-page`` and ``download-url`` keys — rjdbcm <rjdbcm@outlook.com>
+([`a40f222`](https://github.com/OZI-Project/OZI.build/commit/a40f2226945a0dd7b2247b8445ab31304f31bf8b))
+
+
+### Unknown
+
+
+* lint: add noqa — rjdbcm <rjdbcm@outlook.com>
+([`be7fe27`](https://github.com/OZI-Project/OZI.build/commit/be7fe27dd628387162d6b7b7f6f6a9e252684072))
+
+* lint: run black 2025 stable style — rjdbcm <rjdbcm@outlook.com>
+([`4b0a73d`](https://github.com/OZI-Project/OZI.build/commit/4b0a73d9761498a02d29f07578893b2adb8fc2f1))
 
 ## 1.10.7 (2025-01-27)
 
