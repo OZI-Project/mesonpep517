@@ -75,6 +75,7 @@ of your package to show on PyPI. This should be written in reStructuredText
 
 ### `home-page`
 
+:::{deprecated} 1.12.0:::
 A string containing the URL for the package's home page.
 
 Example:
@@ -83,6 +84,7 @@ Example:
 
 ### `download-url`
 
+:::{deprecated} 1.12.0:::
 A string containing the URL for the package's source, will replace '{version}' with the current version.
 
 ### `dynamic`
