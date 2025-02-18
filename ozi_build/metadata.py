@@ -161,7 +161,9 @@ def get_simple_headers(config):
     ]:
         if key in config:
             if key == 'home-page':
-                log.warning('pyproject.toml:tools.ozi-build.metadata.home-page is deprecated since OZI.build 1.12, removal recommended.')
+                log.warning(
+                    'pyproject.toml:tools.ozi-build.metadata.home-page is deprecated since OZI.build 1.12, removal recommended.'
+                )
             res += '{}: {}\n'.format(key.capitalize(), config[key])
     for key, mdata_key in [
         ('provides', 'Provides-Dist'),
@@ -199,7 +201,9 @@ def get_license_headers(config):
 def get_download_url_headers(config):
     res = ''
     if 'download-url' in config:
-        log.warning('pyproject.toml:tools.ozi-build.metadata.download-url is deprecated since OZI.build 1.12, removal recommended.')
+        log.warning(
+            'pyproject.toml:tools.ozi-build.metadata.download-url is deprecated since OZI.build 1.12, removal recommended.'
+        )
         if '{version}' in config['download-url']:
             res += f'Download-URL: {config["download-url"].replace("{version}", config["version"])}\n'
         else:
