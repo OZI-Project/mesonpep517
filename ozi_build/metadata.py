@@ -148,7 +148,7 @@ def get_optional_dependencies(config):
     return res
 
 
-def get_simple_headers(config):
+def get_simple_headers(config):  # noqa: C901
     res = ''
     for key in [
         'summary',
